@@ -1,0 +1,490 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --background: #ffffff; */
+  /* --foreground: #171717; */
+  --main-font: var(--font-poppins);
+  /* Reference the variable from layout.js */
+}
+
+:root {
+  --primary: #fe5901;
+  --primary-light: #ff7a29;
+  --primary-dark: #d44e00;
+  --secondary: #f6f6f6;
+  --text-dark: #2d2d2d;
+  --shadow-primary: rgba(249, 115, 22, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #fe5901;
+    --primary-light: #ff7a29;
+    --primary-dark: #d44e00;
+    --secondary: #f6f6f6;
+    --text-dark: #2d2d2d;
+    --shadow-primary: rgba(249, 115, 22, 0.2);
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+:root {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.flip-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 250px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.flip-card-front {
+  background-color: white;
+  border: 2px solid var(--primary-light);
+}
+
+.flip-card-back {
+  background-color: var(--primary-light);
+  transform: rotateY(180deg);
+  color: white;
+}
+
+.rc-anchor-light.rc-anchor-normal,
+.rc-anchor-light.rc-anchor-compact {
+  border-radius: 40px !important;
+}
+
+/* Animation for team section */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .content-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.large-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.demo-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
+.modal-open nav {
+  pointer-events: none;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: translateY(20px) scale(0.8);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(-5px) scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin-pulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+}
+
+@keyframes ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s ease-out forwards;
+}
+
+.animate-spin-pulse {
+  animation: spin-pulse 1.2s ease-in-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-ring-spin {
+  animation: ring-spin 2s linear infinite;
+}
+
+
+
+
+@keyframes slide-logos-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-70%);
+  }
+}
+
+
+
+@keyframes slide-logos-opposite {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+.animate-slide-logos-horizontal {
+  animation: slide-logos-horizontal 15s linear infinite;
+}
+
+.animate-slide-logos-opposite {
+  animation: slide-logos-opposite 15s linear infinite;
+}
+
+.animate-glow {
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #fff 20%,
+    #fff 40%,
+    transparent 60%
+  );
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+/* .dark-orange-icon {
+  filter: brightness(0.8) saturate(100%) invert(40%) sepia(80%) saturate(2000%) hue-rotate(5deg); 
+} */
+/* ==========================================================================
+   Intro loader
+   ========================================================================== */
+
+/* Set before first paint by the inline script in the root layout, so returning
+   visitors never see the splash flash. */
+html[data-intro-seen] .intro-loader {
+  display: none !important;
+}
+
+/* Scroll is locked only while the splash is actually on screen. */
+html[data-intro-lock],
+html[data-intro-lock] body {
+  overflow: hidden !important;
+}
+
+/* Failsafe. The splash covers the whole viewport, so if JavaScript never runs
+   it must still get out of the way on its own. */
+.intro-loader {
+  animation: intro-failsafe 0.01s linear 6s forwards;
+}
+
+@keyframes intro-failsafe {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* ==========================================================================
+   Route transition
+   ========================================================================== */
+
+.page-transition {
+  animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Motion utilities
+   ========================================================================== */
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-pan {
+  background-size: 200% 200%;
+  animation: gradient-pan 6s ease infinite;
+}
+
+/* Lifts a card on hover with the same easing the scroll reveals use. */
+.hover-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+}
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-loader {
+    display: none !important;
+  }
+
+  html[data-intro-lock],
+  html[data-intro-lock] body {
+    overflow: visible !important;
+  }
+
+  .page-transition {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Landing page
+   ========================================================================== */
+
+/* The track holds two identical copies of the list, so shifting it exactly
+   -50% lands the second copy where the first began: a seamless loop. */
+.landing-marquee {
+  animation: landing-marquee 38s linear infinite;
+}
+
+@keyframes landing-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-marquee {
+    animation: none !important;
+  }
+}
+
+/* Active case-study tab: fills across the rotation interval. */
+@keyframes tab-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

@@ -1,0 +1,36 @@
+## About Project
+LEO AI is a cutting-edge transcription platform designed to digitize and preserve handwritten academic content and historical documents. Co-founded by two U.S.-based entrepreneurs, the platform targets researchers, educators, and institutions, offering them a seamless way to convert scanned, handwritten documents into searchable, editable digital text. Combining the power of GPT, OCR, and intelligent document parsing, LEO AI brings archived knowledge into the digital age with speed, accuracy, and accessibility.
+
+## Client's Need
+The client envisioned a high-performance web application capable of handling large-scale OCR jobs and asynchronous transcription tasks. The goals were to ensure accurate text extraction using modern AI models, provide a responsive user experience, and design a scalable, extensible architecture suitable for future AI integrations and institutional partnerships.
+
+## Solution
+
+- **Intelligent Transcription Pipeline:**  
+  A robust, asynchronous job system was implemented to process OCR tasks off the main thread. This ensured the UI remained responsive, even during long-running or complex operations.
+
+- **GPT-Enhanced Processing:**  
+  GPT models were integrated to clean up OCR output, reconstruct unclear text, classify content sections, and intelligently format the final result — drastically improving transcription quality.
+
+- **Next.js + Supabase Architecture:**  
+  The frontend was built with **Next.js** for speed and SSR. The backend used **NestJS** with **Supabase** for authentication, real-time updates, and structured PostgreSQL RPCs, enabling secure and performant client-server interactions.
+
+- **Scalable Hosting & CI/CD:**  
+  The platform was deployed via **Vercel**, leveraging static generation and edge functions. PostgreSQL functions handled complex orchestration behind the scenes, allowing for rapid deployments and future scalability.
+
+![Radiologist Hero](/images/project-detail/image.png)
+
+
+## Impact
+
+- **Digitized Knowledge at Scale:**  
+  Enabled educators and researchers to convert and preserve years of handwritten academic material, improving access and searchability.
+
+- **Faster, Cleaner Transcriptions:**  
+  Asynchronous job handling combined with GPT refinement reduced manual cleanup and accelerated delivery of accurate results.
+
+- **Flexible Infrastructure:**  
+  Supabase RPCs and decoupled architecture made it easy to integrate new features like multilingual support and additional AI models.
+
+- **SaaS-Ready Design:**  
+  The system’s modular design positions it well for SaaS growth, including institutional licensing, collaboration tools, and mobile expansion.

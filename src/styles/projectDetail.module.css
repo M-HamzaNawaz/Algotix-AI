@@ -1,0 +1,60 @@
+.mdxContent h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid #ecf0f1;
+  margin: 1rem 0;
+  
+}
+
+.mdxContent h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  letter-spacing: 0%;
+  
+}
+
+.mdxContent h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  
+}
+
+.mdxContent p {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.mdxContent a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mdxContent a:hover {
+  text-decoration: underline;
+}
+
+.mdxContent strong {
+  font-weight: 600;
+}
+
+.mdxContent ul li {
+  margin: 0.2rem 0;
+}
+
+.mdxContent ol li {
+  margin: 0.2rem 0;
+}
+
+
+
+
+.mdxContent img {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+}

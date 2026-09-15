@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://algotix.ai
+
+# Sitemaps
+Sitemap: https://algotix.ai/sitemap.xml
