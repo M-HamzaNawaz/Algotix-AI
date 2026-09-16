@@ -98,6 +98,40 @@ export const techLogos: TechLogo[] = [
   { name: "Tailwind CSS", logo: "/images/technologies/tailwind.svg" },
 ];
 
+/**
+ * Two further rows of the stack, shown as plain grey wordmarks drifting in
+ * opposite directions beneath the main strip.
+ */
+export const techLogosRowA: TechLogo[] = [
+  { name: "Google Cloud", logo: "/images/technologies/Google%20Cloud.svg" },
+  { name: "Azure", logo: "/images/technologies/Azure.svg" },
+  { name: "Firebase", logo: "/images/technologies/firebase.png" },
+  { name: "GitHub", logo: "/images/technologies/GitHub.svg" },
+  { name: "GitLab", logo: "/images/technologies/GitLab.svg" },
+  { name: "Jenkins", logo: "/images/technologies/Jenkins.svg" },
+  { name: "Grafana", logo: "/images/technologies/Grafana.svg" },
+  { name: "Prometheus", logo: "/images/technologies/prometheus.png" },
+  { name: "Kafka", logo: "/images/technologies/Kafka.svg" },
+  { name: "Ansible", logo: "/images/technologies/Ansible.svg" },
+  { name: "CircleCI", logo: "/images/technologies/CircleCI.svg" },
+  { name: "Vercel", logo: "/images/technologies/vercel.svg" },
+];
+
+export const techLogosRowB: TechLogo[] = [
+  { name: "Swift", logo: "/images/technologies/Swift.svg" },
+  { name: "Kotlin", logo: "/images/technologies/Kotlin.svg" },
+  { name: "Android", logo: "/images/technologies/Android.svg" },
+  { name: "Figma", logo: "/images/technologies/figma.png" },
+  { name: "Redux", logo: "/images/technologies/Redux.svg" },
+  { name: "Vue", logo: "/images/technologies/Vue.svg" },
+  { name: "FastAPI", logo: "/images/technologies/FastAPI.svg" },
+  { name: "NestJS", logo: "/images/technologies/nestjs.svg" },
+  { name: "Hugging Face", logo: "/images/technologies/HuggingFace.svg" },
+  { name: "scikit-learn", logo: "/images/technologies/scikit-learn.svg" },
+  { name: "pandas", logo: "/images/technologies/pandas.png" },
+  { name: "Solidity", logo: "/images/technologies/Solidity.svg" },
+];
+
 /* -------------------------------------------------------------------------
    Differentiators
    ---------------------------------------------------------------------- */

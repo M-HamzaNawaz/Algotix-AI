@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { Reveal, RevealGroup, RevealItem } from "@/src/components/motion/reveal";
-import { techLogos } from "./data";
+import { Reveal } from "@/src/components/motion/reveal";
+import { techLogosRowA, techLogosRowB, type TechLogo } from "./data";
 
 export default function TechStack() {
   return (
@@ -19,30 +19,55 @@ export default function TechStack() {
             maintainable long after launch.
           </p>
         </Reveal>
+      </div>
 
-        <RevealGroup
-          className="mt-14 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#ECECEF] bg-[#ECECEF] tablet:grid-cols-4 laptop:grid-cols-8"
-          stagger={0.05}
-          amount={0.08}
-        >
-          {techLogos.map((tech) => (
-            <RevealItem key={tech.name} distance={18} duration={0.5}>
-              <div className="group flex h-[104px] flex-col items-center justify-center gap-2.5 bg-white px-3 transition-colors duration-300 hover:bg-[#FFF7F2]">
+      {/* Two plain rows of wordmarks drifting in opposite directions. */}
+      <div className="mt-14 w-full overflow-hidden">
+        <LogoRow items={techLogosRowA} reverse />
+        <LogoRow items={techLogosRowB} className="mt-10" />
+      </div>
+    </section>
+  );
+}
+
+function LogoRow({
+  items,
+  reverse = false,
+  className = "",
+}: {
+  items: TechLogo[];
+  /** Reverse runs the same loop backwards, so the row drifts left to right. */
+  reverse?: boolean;
+  className?: string;
+}) {
+  return (
+    <div className={`overflow-hidden ${className}`}>
+      <div
+        className={`landing-marquee flex w-max ${reverse ? "marquee-reverse" : ""}`}
+        style={{ animationDuration: "70s" }}
+      >
+        {[0, 1].map((copy) => (
+          <div key={copy} className="flex shrink-0" aria-hidden={copy === 1}>
+            {items.map((tech) => (
+              <div
+                key={`${copy}-${tech.name}`}
+                className="flex shrink-0 items-center gap-3 pr-16 opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0 tablet:pr-28"
+              >
                 <Image
                   src={tech.logo}
                   alt={`${tech.name} logo`}
                   width={40}
                   height={40}
-                  className="h-8 w-auto object-contain opacity-85 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100"
+                  className="h-8 w-auto object-contain tablet:h-9"
                 />
-                <span className="text-center text-[11px] font-medium leading-tight text-[#8A8F98] transition-colors duration-300 group-hover:text-[#14141D]">
+                <span className="whitespace-nowrap text-[16px] font-semibold text-[#6B6F76] tablet:text-[18px]">
                   {tech.name}
                 </span>
               </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+            ))}
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

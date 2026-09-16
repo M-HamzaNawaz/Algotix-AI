@@ -472,6 +472,11 @@ html[data-intro-lock] body {
   }
 }
 
+/* Same loop played backwards: the track drifts left to right instead. */
+.landing-marquee.marquee-reverse {
+  animation-direction: reverse;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .landing-marquee {
     animation: none !important;

@@ -16,8 +16,17 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 export default function LandingHero() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const ready = useIntroReady();
+
+  // Do not burn slides while the tab is in the background.
+  useEffect(() => {
+    const sync = () => setHidden(document.visibilityState === "hidden");
+    sync();
+    document.addEventListener("visibilitychange", sync);
+    return () => document.removeEventListener("visibilitychange", sync);
+  }, []);
 
   const slide = heroSlides[index];
   const go = useCallback(
@@ -28,19 +37,18 @@ export default function LandingHero() {
 
   // Hold the first slide until the intro splash has cleared, so the rotation
   // does not burn a slide behind the overlay.
+  // The hero fills the first screen, so a pointer resting anywhere on it must
+  // not stop the rotation. Only reaching for the arrows, opening the form, or
+  // hiding the tab holds it.
   useEffect(() => {
-    if (!ready || paused || showForm) return;
+    if (!ready || paused || showForm || hidden) return;
     const timer = window.setInterval(() => go(1), SLIDE_MS);
     return () => window.clearInterval(timer);
-  }, [ready, paused, showForm, go]);
+  }, [ready, paused, showForm, hidden, go]);
 
   return (
     <>
-      <section
-        className="relative isolate w-full overflow-hidden bg-[#0B0B12]"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-      >
+      <section className="relative isolate w-full overflow-hidden bg-[#0B0B12]">
         {/* Background photography, cross-fading with a slow push in. */}
         <div className="absolute inset-0">
           <AnimatePresence initial={false}>
@@ -161,7 +169,11 @@ export default function LandingHero() {
 
         {/* Slide controls */}
         {/* Offset from the right edge to clear the fixed "Get in Touch" tab. */}
-        <div className="absolute right-16 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-3 laptop:flex">
+        <div
+          className="absolute right-16 top-1/2 z-10 hidden -translate-y-1/2 flex-col items-center gap-3 laptop:flex"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
           <button
             type="button"
             onClick={() => go(-1)}
@@ -205,10 +217,7 @@ export default function LandingHero() {
 
       {/* Kept outside the section so the fixed overlay is never trapped by a
           transformed ancestor. */}
-      <MeetingEmailForm
-        isOpen={showForm}
-        onClose={() => setShowForm(false)}
-      />
+      <MeetingEmailForm isOpen={showForm} onClose={() => setShowForm(false)} />
     </>
   );
 }
