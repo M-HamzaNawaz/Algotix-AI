@@ -550,3 +550,10 @@ html[data-intro-lock] body {
 .band-dark :where(hr, [class*="border-t"], [class*="border-b"]):not([class*="border-primary"]):not([class*="border-orange"]):not(:where(:where([class*="bg-white"], [class*="bg-[#F"], [class*="bg-gray-"]):not(:where(.band-dark > div > *, .band-dark > div > * > *)) *)) {
   border-color: rgba(255, 255, 255, 0.1);
 }
+
+/* In-page anchors (#services, #have-questions, ...) stop clear of the fixed
+   navigation bar instead of sliding their heading underneath it. */
+section[id],
+div[id] {
+  scroll-margin-top: 96px;
+}

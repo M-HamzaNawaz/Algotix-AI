@@ -1,0 +1,42 @@
+---
+title: "Cloud cost control: five habits that keep the bill predictable"
+slug: "cloud-cost-control"
+date: "2026-07-02"
+author: "Algotix AI Team"
+excerpt: "Cloud bills rarely explode from one bad decision. They creep. These five habits stop the creep without slowing the team down."
+bannerImage: "/images/blogs/local/cloud-cost-control.jpg"
+---
+
+Cloud spending is easy to start and hard to see. Every engineer can create resources, few people look at the invoice, and by the time finance asks questions the bill has doubled. The fix is not a big cost-cutting project once a year. It is a handful of habits that keep spending visible and deliberate.
+
+## 1. Tag everything, from day one
+
+Every resource should carry a few tags: the project or product, the environment, and the owner. With tags, the billing console can answer the questions that matter, such as how much staging costs or which product's storage is growing. Without tags, cost analysis turns into guesswork. Enforce tagging with policy where the provider supports it, and fail infrastructure code that leaves tags out.
+
+## 2. Set budgets with alerts, per environment
+
+A single budget for the whole account hides problems. Set one per environment and per major product, with alerts at fifty, eighty, and one hundred percent of the expected monthly spend. The alerts should go to the people who can act, which usually means the engineers, not only finance. A forecast alert, which fires when the projected month-end total will exceed the budget, catches runaway costs weeks earlier than an actual-spend alert.
+
+## 3. Right-size on a schedule
+
+Most workloads are provisioned for a peak that rarely arrives. Once a quarter, review the utilisation of compute instances, databases, and caches, and step down anything that runs consistently below thirty percent. Providers offer built-in recommendations for this; the habit is to read them. For non-production environments, turn things off outside working hours. A staging database that runs eight hours a day instead of twenty-four costs a third as much.
+
+## 4. Watch the quiet line items
+
+Compute is visible. The surprises hide elsewhere:
+
+* Data transfer between regions and out to the internet.
+* Snapshots and backups that are never expired.
+* Logs kept at full retention forever.
+* Load balancers and static IP addresses attached to nothing.
+* Development resources created for a test and never removed.
+
+A monthly review of the top ten line items, sorted by growth rather than by size, finds these before they become large.
+
+## 5. Buy commitment only for the steady part
+
+Reserved capacity and savings plans can cut compute cost significantly, but only for load that is genuinely steady. Measure first. Cover the baseline that runs every hour of every month with commitments, and leave the variable part on demand. Committing to a peak you reached once is the most common way to lock in waste.
+
+## Make it part of the routine
+
+None of these habits require a dedicated cost team. They fit into existing routines: tagging in code review, budgets set when an environment is created, a right-sizing pass each quarter, and a short cost review in a monthly engineering meeting. The bill becomes something the team understands and controls, which is the whole point.

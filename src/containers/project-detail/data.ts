@@ -1,5 +1,7 @@
 export interface ProjectData {
   slug: string;
+  /** Name of the write-up in src/content/projects, without the extension. */
+  mdx?: string;
   client: string;
   category: string;
   startDate: string;
@@ -42,6 +44,7 @@ export interface ProjectOverviewProps {
 export const projects: ProjectData[] = [
   {
     slug: "medical-platform",
+    mdx: "radiology-jobs",
     client: "Client Corp",
     category: "Finance",
     startDate: "May 10, 2022",
@@ -103,6 +106,7 @@ export const projects: ProjectData[] = [
 
   {
     slug: "ecommerce-platform",
+    mdx: "cswap",
     client: "Client Corp",
     category: "Finance",
     startDate: "May 10, 2022",
@@ -162,6 +166,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "ai-assistant",
+    mdx: "leo-AI",
     client: "Client Corp",
     category: "CRM",
     startDate: "June 17, 2023",
@@ -222,6 +227,7 @@ export const projects: ProjectData[] = [
 
   {
     slug: "ecommerce-solution",
+    mdx: "oceantech",
     client: "Client Corp",
     category: "Finance",
     startDate: "May 10, 2022",
@@ -282,6 +288,7 @@ export const projects: ProjectData[] = [
 
   {
     slug: "customer-support-tool",
+    mdx: "truofer",
     client: "Client Corp",
     category: "Finance",
     startDate: "May 10, 2022",
@@ -343,6 +350,7 @@ export const projects: ProjectData[] = [
 
   {
     slug: "crm-solution",
+    mdx: "student-sheild",
     client: "Client Corp",
     category: "Finance",
     startDate: "May 10, 2022",
@@ -404,6 +412,7 @@ export const projects: ProjectData[] = [
 
   {
     slug: "ai-dashboard",
+    mdx: "owli-ai",
     client: "Client Corp",
     category: "Finance",
     startDate: "May 10, 2022",
@@ -464,6 +473,7 @@ export const projects: ProjectData[] = [
 
   {
     slug: "gaming-utility-app",
+    mdx: "relay-towing",
     client: "Client Corp",
     category: "Finance",
     startDate: "May 10, 2022",

@@ -8,18 +8,20 @@ import Proof from "@/src/components/landing/proof";
 import type { DetailBlogPost } from "@/src/containers/blogs/types";
 import { getAllBlogPosts } from "@/src/utils/contentful-clients";
 import { formatBlogPosts } from "@/src/utils/helpers";
+import { getLocalBlogPosts, mergeBlogPosts } from "@/src/utils/local-blogs";
 
 /**
  * The insights strip is a nice-to-have, so a Contentful outage must not take
  * the whole landing page down with it.
  */
 async function loadInsights(): Promise<DetailBlogPost[]> {
+  let remote: DetailBlogPost[] = [];
   try {
-    return formatBlogPosts(await getAllBlogPosts());
+    remote = formatBlogPosts(await getAllBlogPosts());
   } catch (error) {
     console.error("Landing page: could not load blog posts.", error);
-    return [];
   }
+  return mergeBlogPosts(remote, await getLocalBlogPosts());
 }
 
 export default async function Home() {

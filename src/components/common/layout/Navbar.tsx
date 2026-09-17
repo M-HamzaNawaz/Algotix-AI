@@ -18,6 +18,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
+  /* The URL hash, so an item like "/projects#have-questions" can be told
+     apart from "/projects": usePathname() never includes it. */
+  const [hash, setHash] = useState("");
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -33,6 +36,15 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setShowEmailForm(false);
+  }, [pathname]);
+
+  // Same-page hash navigation is a pushState, which fires no hashchange, so the
+  // hash is also re-read on every route change and on nav clicks below.
+  useEffect(() => {
+    const sync = () => setHash(window.location.hash);
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
   }, [pathname]);
 
   useEffect(() => {
@@ -65,19 +77,38 @@ const Navbar = () => {
     document.body.style.overflow = "auto";
   };
 
-  const getLinkClass = (path: string) =>
-    pathname === path
-      ? "font-medium text-[#ff5a01]"
-      : "text-white/85 hover:text-white transition-colors duration-300";
-
   const navItems = [
     { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
     { name: "About Us", path: "/about" },
     { name: "Contact Us", path: "/contact" },
     { name: "Blogs", path: "/blogs" },
-    { name: "Have Questions?", path: "/projects#have-questions" },
+    { name: "Careers", path: "/careers" },
   ];
+
+  /**
+   * An item with a hash is active only when the page and the hash both match.
+   * A plain page item is active on its page unless a sibling item owns the
+   * current hash, so "Projects" steps aside for "Have Questions?".
+   */
+  const isActive = (path: string) => {
+    const [itemPath, itemHash = ""] = path.split("#");
+    if (pathname !== itemPath) return false;
+    if (itemHash) return hash === `#${itemHash}`;
+    return !navItems.some(
+      (item) => item.path !== path && item.path === `${pathname}${hash}`,
+    );
+  };
+
+  const rememberHash = (path: string) => {
+    const index = path.indexOf("#");
+    setHash(index === -1 ? "" : path.slice(index));
+  };
+
+  const getLinkClass = (path: string) =>
+    isActive(path)
+      ? "font-medium text-[#ff5a01]"
+      : "text-white/85 hover:text-white transition-colors duration-300";
 
   return (
     <nav
@@ -92,12 +123,13 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link href="/" className="relative h-[37px] w-[120px]">
             <Image
-              src="/images/logo/logo.svg"
+              /* White-lettered copy of the logo for the dark bar, so the
+                 orange dot over the "i" keeps its colour. */
+              src="/images/logo/logo-white.png"
               alt="AlgotixAI"
               fill
-              /* Black artwork on a permanently dark bar, so it is knocked
-                 out to white everywhere. */
-              className="object-contain brightness-0 invert"
+              sizes="120px"
+              className="object-contain"
               priority
             />
           </Link>
@@ -109,6 +141,7 @@ const Navbar = () => {
             <Link
               key={item.name}
               href={item.path}
+              onClick={() => rememberHash(item.path)}
               className={`text-sm xl:text-[16px] font-normal font-['Poppins'] ${getLinkClass(
                 item.path,
               )}`}
@@ -183,8 +216,9 @@ const Navbar = () => {
             <Link
               key={item.name}
               href={item.path}
+              onClick={() => rememberHash(item.path)}
               className={`block text-sm py-2 px-4 font-normal rounded-md transition-colors duration-200 ${
-                pathname === item.path
+                isActive(item.path)
                   ? "font-semibold text-[#ff5a01] bg-white/10"
                   : "text-white/85 hover:bg-white/5"
               }`}

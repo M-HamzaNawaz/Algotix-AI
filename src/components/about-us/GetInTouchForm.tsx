@@ -150,7 +150,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
   };
 
   return (
-    <div id="get-in-touch" className="relative mx-auto w-full overflow-hidden">
+    <div className="relative mx-auto w-full overflow-hidden">
       <div
         className={`max-w-5xl mx-auto z-10 relative overflow-hidden ${
           dark

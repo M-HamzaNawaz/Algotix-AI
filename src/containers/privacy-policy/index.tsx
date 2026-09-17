@@ -1,10 +1,18 @@
 import PrivacyPolicy from "@/src/components/PrivacyPolicy";
-import React from "react";
+import PageIntro from "@/src/components/landing/page-intro";
+import PageSection from "@/src/components/landing/page-section";
 
 const PrivacyPolicyPage = () => {
   return (
     <>
-      <PrivacyPolicy />
+      <PageIntro
+        eyebrow="Legal"
+        title="Privacy policy"
+        description="Last updated: June 12, 2025"
+      />
+      <PageSection>
+        <PrivacyPolicy />
+      </PageSection>
     </>
   );
 };

@@ -1,0 +1,43 @@
+---
+title: "Server Components and Client Components: where to draw the line"
+slug: "server-and-client-components"
+date: "2026-09-10"
+author: "Algotix AI Team"
+excerpt: "React Server Components change the default. Here is the rule of thumb we use to decide what runs on the server, what runs in the browser, and how to keep the boundary tidy."
+bannerImage: "/images/blogs/local/server-and-client-components.jpg"
+---
+
+With the App Router, every component in a Next.js project is a Server Component until you say otherwise. That single default changes how a codebase should be organised, and teams that carry over habits from the pages era usually end up with a client bundle that is far bigger than it needs to be.
+
+## Start on the server
+
+A Server Component renders once, on the server, and ships HTML to the browser. It can read from a database, call an internal API, or read files, and none of that code or its dependencies reaches the client. For most of a marketing site or a dashboard, that is exactly what you want: layout, data fetching, formatting, and static content.
+
+The practical rule we use is simple. A component stays a Server Component unless it needs one of these:
+
+* State or effects, such as `useState`, `useEffect`, or a custom hook built on them.
+* Browser events, such as clicks, hovers, or keyboard input.
+* Browser-only APIs, such as `window`, `localStorage`, or the Intersection Observer.
+* A third-party library that assumes it is running in a browser.
+
+If none of those apply, there is no reason to add `"use client"`.
+
+## Push the boundary down
+
+When a component does need interactivity, the mistake is to mark the whole page as a client component. Instead, isolate the interactive piece. A pricing page does not need to be a client component because it has a monthly and yearly toggle. The toggle does. The rest of the page can stay on the server and pass the data the toggle needs as props.
+
+A useful check is to look at the top of each file that starts with `"use client"` and ask what would break if that line were removed. If the answer is one small part of the file, split that part out.
+
+## Pass data, not functions
+
+Props that cross from server to client must be serialisable. Plain objects, arrays, strings, and numbers are fine. Functions, class instances, and Dates are not, and the error messages are not always obvious. Format dates on the server and pass strings. If a client component needs to trigger something on the server, use a Server Action rather than passing a callback.
+
+## Watch the bundle
+
+Two habits keep the client bundle honest. First, run `next build` and read the route table: the First Load JS column tells you how much each route ships. Second, when a route jumps in size, look for a client component that imports a heavy library only for a small feature. Charting, rich text editors, and date libraries are the usual culprits, and they can often be loaded on demand with `next/dynamic`.
+
+## What this looks like in practice
+
+On this site, page sections that only present content are Server Components. The few pieces that respond to the visitor, such as the service explorer, the project filters, and the contact form, are small client components that receive their data from the server. That keeps first paint fast and keeps the interactive parts easy to find.
+
+The boundary is not a limitation. It is a design tool. Draw it low, keep it explicit, and the codebase stays fast by default.

@@ -106,9 +106,10 @@ export default function ServiceExplorer() {
             })}
           </ul>
 
-          <div className="min-w-0 p-8 tablet:p-12">
-            {/* The field's photo, the same size for every service. */}
-            <div className="relative h-[220px] overflow-hidden rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] tablet:h-[300px]">
+          <div className="min-w-0">
+            {/* The field's photo runs edge to edge across the top of the panel,
+                the same size for every service. */}
+            <div className="relative h-[220px] overflow-hidden bg-[#F6F6F7] tablet:h-[320px]">
               {services.map((item, i) => {
                 const image = serviceImages[item.slug];
                 if (!image) return null;
@@ -140,7 +141,7 @@ export default function ServiceExplorer() {
             {/* From laptop width up, all nine copy blocks share one grid cell,
                 so this area is as tall as the longest of them and the card
                 never resizes. Stacked layouts just show the active one. */}
-            <div className="mt-9 laptop:grid">
+            <div className="p-8 tablet:p-12 laptop:grid">
               {services.map((item, i) => {
                 const isActive = i === active;
                 return (

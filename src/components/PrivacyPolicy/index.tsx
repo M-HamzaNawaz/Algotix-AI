@@ -2,31 +2,25 @@ import Link from "next/link";
 
 const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="bg-white text-black min-h-screen py-12 px-4 sm:px-6 lg:px-8 mt-8 md:mt-14 desktop:mt-16 text-justify">
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Header */}
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-black mb-4">Privacy Policy</h1>
-          <p className="text-lg text-black">Last updated: June 12, 2025</p>
-        </div>
-
+    <div className="mx-auto max-w-3xl text-[16px] leading-relaxed text-[#3A3D45] [&_h2]:text-[#14141D] [&_h3]:text-[#14141D] [&_strong]:text-[#14141D]">
+      <div className="space-y-10">
         {/* Interpretation and Definitions */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-black">
+        <section className="space-y-5">
+          <h2 className="text-[24px] font-bold leading-tight">
             Interpretation and Definitions
           </h2>
-          <h3 className="text-xl font-medium text-black">Interpretation</h3>
-          <p className="text-black leading-relaxed">
+          <h3 className="text-[19px] font-semibold">Interpretation</h3>
+          <p className="leading-relaxed">
             The words of which the initial letter is capitalized have meanings
             defined under the following conditions. The following definitions
             shall have the same meaning regardless of whether they appear in
             singular or in plural.
           </p>
-          <h3 className="text-xl font-medium text-black">Definitions</h3>
-          <p className="text-black leading-relaxed">
+          <h3 className="text-[19px] font-semibold">Definitions</h3>
+          <p className="leading-relaxed">
             For the purposes of this Privacy Policy:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-black">
+          <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>Account</strong> means a unique account created for You to
               access our Service or parts of our Service.
@@ -98,38 +92,36 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Collecting and Using Personal Data */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-black">
+        <section className="space-y-5">
+          <h2 className="text-[24px] font-bold leading-tight">
             Collecting and Using Your Personal Data
           </h2>
-          <h3 className="text-xl font-medium text-black">
-            Types of Data Collected
-          </h3>
-          <h4 className="text-lg font-medium text-black">Personal Data</h4>
-          <p className="text-black leading-relaxed">
+          <h3 className="text-[19px] font-semibold">Types of Data Collected</h3>
+          <h4 className="text-lg font-medium">Personal Data</h4>
+          <p className="leading-relaxed">
             While using Our Service, We may ask You to provide Us with certain
             personally identifiable information that can be used to contact or
             identify You. Personally identifiable information may include, but
             is not limited to:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-black">
+          <ul className="list-disc list-inside space-y-2">
             <li>Email address</li>
             <li>First name and last name</li>
             <li>Phone number</li>
             <li>Usage Data</li>
           </ul>
-          <h4 className="text-lg font-medium text-black">Usage Data</h4>
-          <p className="text-black leading-relaxed">
+          <h4 className="text-lg font-medium">Usage Data</h4>
+          <p className="leading-relaxed">
             Usage Data is collected automatically when using the Service.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Usage Data may include information such as Your Device&apos;s
             Internet Protocol address (e.g. IP address), browser type, browser
             version, the pages of our Service that You visit, the time and date
             of Your visit, the time spent on those pages, unique device
             identifiers and other diagnostic data.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             When You access the Service by or through a mobile device, We may
             collect certain information automatically, including, but not
             limited to, the type of mobile device You use, Your mobile device
@@ -137,22 +129,22 @@ const PrivacyPolicy: React.FC = () => {
             operating system, the type of mobile Internet browser You use,
             unique device identifiers and other diagnostic data.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             We may also collect information that Your browser sends whenever You
             visit our Service or when You access the Service by or through a
             mobile device.
           </p>
-          <h4 className="text-lg font-medium text-black">
+          <h4 className="text-lg font-medium">
             Tracking Technologies and Cookies
           </h4>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             We use Cookies and similar tracking technologies to track the
             activity on Our Service and store certain information. Tracking
             technologies used are beacons, tags, and scripts to collect and
             track information and to improve and analyze Our Service. The
             technologies We use may include:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-black">
+          <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>Cookies or Browser Cookies.</strong> A cookie is a small
               file placed on Your Device. You can instruct Your browser to
@@ -172,7 +164,7 @@ const PrivacyPolicy: React.FC = () => {
               certain section and verifying system and server integrity).
             </li>
           </ul>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Cookies can be &quot;Persistent&quot; or &quot;Session&quot;
             Cookies. Persistent Cookies remain on Your personal computer or
             mobile device when You go offline, while Session Cookies are deleted
@@ -188,7 +180,7 @@ const PrivacyPolicy: React.FC = () => {
             </Link>{" "}
             article.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             We use both Session and Persistent Cookies for the purposes set out
             below:
           </p>
@@ -236,7 +228,7 @@ const PrivacyPolicy: React.FC = () => {
             </li>
           </ul>
 
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             For more information about the cookies we use and your choices
             regarding cookies, please visit our Cookies Policy or the Cookies
             section of our Privacy Policy.
@@ -244,14 +236,14 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Use of Personal Data */}
-        <section className="space-y-6">
-          <h3 className="text-xl font-medium text-black">
+        <section className="space-y-5">
+          <h3 className="text-[19px] font-semibold">
             Use of Your Personal Data
           </h3>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             The Company may use Personal Data for the following purposes:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-black">
+          <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>To provide and maintain our Service</strong>, including to
               monitor the usage of our Service.
@@ -305,10 +297,10 @@ const PrivacyPolicy: React.FC = () => {
               marketing and your experience.
             </li>
           </ul>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             We may share Your personal information in the following situations:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-black">
+          <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>With Service Providers:</strong> We may share Your
               personal information with Service Providers to monitor and analyze
@@ -348,11 +340,11 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Retention of Personal Data */}
-        <section className="space-y-6">
-          <h3 className="text-xl font-medium text-black">
+        <section className="space-y-5">
+          <h3 className="text-[19px] font-semibold">
             Retention of Your Personal Data
           </h3>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             The Company will retain Your Personal Data only for as long as is
             necessary for the purposes set out in this Privacy Policy. We will
             retain and use Your Personal Data to the extent necessary to comply
@@ -360,7 +352,7 @@ const PrivacyPolicy: React.FC = () => {
             retain your data to comply with applicable laws), resolve disputes,
             and enforce our legal agreements and policies.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             The Company will also retain Usage Data for internal analysis
             purposes. Usage Data is generally retained for a shorter period of
             time, except when this data is used to strengthen the security or to
@@ -370,11 +362,11 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Transfer of Personal Data */}
-        <section className="space-y-6">
-          <h3 className="text-xl font-medium text-black">
+        <section className="space-y-5">
+          <h3 className="text-[19px] font-semibold">
             Transfer of Your Personal Data
           </h3>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Your information, including Personal Data, is processed at the
             Company&apos;s operating offices and in any other places where the
             parties involved in the processing are located. It means that this
@@ -383,11 +375,11 @@ const PrivacyPolicy: React.FC = () => {
             governmental jurisdiction where the data protection laws may differ
             than those from Your jurisdiction.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Your consent to this Privacy Policy followed by Your submission of
             such information represents Your agreement to that transfer.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             The Company will take all steps reasonably necessary to ensure that
             Your data is treated securely and in accordance with this Privacy
             Policy and no transfer of Your Personal Data will take place to an
@@ -398,60 +390,56 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Delete Personal Data */}
-        <section className="space-y-6">
-          <h3 className="text-xl font-medium text-black">
+        <section className="space-y-5">
+          <h3 className="text-[19px] font-semibold">
             Delete Your Personal Data
           </h3>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             You have the right to delete or request that We assist in deleting
             the Personal Data that We have collected about You.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Our Service may give You the ability to delete certain information
             about You from within the Service.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             You may update, amend, or delete Your information at any time by
             signing in to Your Account, if you have one, and visiting the
             account settings section that allows you to manage Your personal
             information. You may also contact Us to request access to, correct,
             or delete any personal information that You have provided to Us.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Please note, however, that We may need to retain certain information
             when we have a legal obligation or lawful basis to do so.
           </p>
         </section>
 
         {/* Disclosure of Personal Data */}
-        <section className="space-y-6">
-          <h3 className="text-xl font-medium text-black">
+        <section className="space-y-5">
+          <h3 className="text-[19px] font-semibold">
             Disclosure of Your Personal Data
           </h3>
-          <h4 className="text-lg font-medium text-black">
-            Business Transactions
-          </h4>
-          <p className="text-black leading-relaxed">
+          <h4 className="text-lg font-medium">Business Transactions</h4>
+          <p className="leading-relaxed">
             If the Company is involved in a merger, acquisition or asset sale,
             Your Personal Data may be transferred. We will provide notice before
             Your Personal Data is transferred and becomes subject to a different
             Privacy Policy.
           </p>
-          <h4 className="text-lg font-medium text-black">Law Enforcement</h4>
-          <p className="text-black leading-relaxed">
+          <h4 className="text-lg font-medium">Law Enforcement</h4>
+          <p className="leading-relaxed">
             Under certain circumstances, the Company may be required to disclose
             Your Personal Data if required to do so by law or in response to
             valid requests by public authorities (e.g. a court or a government
             agency).
           </p>
-          <h4 className="text-lg font-medium text-black">
-            Other Legal Requirements
-          </h4>
-          <p className="text-black leading-relaxed">
+          <h4 className="text-lg font-medium">Other Legal Requirements</h4>
+          <p className="leading-relaxed">
             The Company may disclose Your Personal Data in the good faith belief
             that such action is necessary to:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-black">
+          <ul className="list-disc list-inside space-y-2">
             <li>Comply with a legal obligation</li>
             <li>Protect and defend the rights or property of the Company</li>
             <li>
@@ -466,11 +454,11 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Security of Personal Data */}
-        <section className="space-y-6">
-          <h3 className="text-xl font-medium text-black">
+        <section className="space-y-5">
+          <h3 className="text-[19px] font-semibold">
             Security of Your Personal Data
           </h3>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             The security of Your Personal Data is important to Us, but remember
             that no method of transmission over the Internet, or method of
             electronic storage is 100% secure. While We strive to use
@@ -480,11 +468,11 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Children's Privacy */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-black">
+        <section className="space-y-5">
+          <h2 className="text-[24px] font-bold leading-tight">
             Children&apos;s Privacy
           </h2>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Our Service does not address anyone under the age of 13. We do not
             knowingly collect personally identifiable information from anyone
             under the age of 13. If You are a parent or guardian and You are
@@ -493,7 +481,7 @@ const PrivacyPolicy: React.FC = () => {
             from anyone under the age of 13 without verification of parental
             consent, We take steps to remove that information from Our servers.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             If We need to rely on consent as a legal basis for processing Your
             information and Your country requires consent from a parent, We may
             require Your parent&apos;s consent before We collect and use that
@@ -502,17 +490,17 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Links to Other Websites */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-black">
+        <section className="space-y-5">
+          <h2 className="text-[24px] font-bold leading-tight">
             Links to Other Websites
           </h2>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             Our Service may contain links to other websites that are not
             operated by Us. If You click on a third party link, You will be
             directed to that third party&apos;s site. We strongly advise You to
             review the Privacy Policy of every site You visit.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             We have no control over and assume no responsibility for the
             content, privacy policies or practices of any third party sites or
             services.
@@ -520,20 +508,20 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Changes to Privacy Policy */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-black">
+        <section className="space-y-5">
+          <h2 className="text-[24px] font-bold leading-tight">
             Changes to this Privacy Policy
           </h2>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             We may update Our Privacy Policy from time to time. We will notify
             You of any changes by posting the new Privacy Policy on this page.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             We will let You know via email and/or a prominent notice on Our
             Service, prior to the change becoming effective and update the
             &quot;Last updated&quot; date at the top of this Privacy Policy.
           </p>
-          <p className="text-black leading-relaxed">
+          <p className="leading-relaxed">
             You are advised to review this Privacy Policy periodically for any
             changes. Changes to this Privacy Policy are effective when they are
             posted on this page.
@@ -541,13 +529,13 @@ const PrivacyPolicy: React.FC = () => {
         </section>
 
         {/* Contact Us */}
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold text-black">Contact Us</h2>
-          <p className="text-black leading-relaxed">
+        <section className="space-y-5">
+          <h2 className="text-[24px] font-bold leading-tight">Contact Us</h2>
+          <p className="leading-relaxed">
             If you have any questions about this Privacy Policy, You can contact
             us:
           </p>
-          <ul className="list-disc list-inside space-y-2 text-black">
+          <ul className="list-disc list-inside space-y-2">
             <li>
               By email:{" "}
               <a

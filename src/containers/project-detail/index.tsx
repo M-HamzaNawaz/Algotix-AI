@@ -1,34 +1,37 @@
+import { notFound } from "next/navigation";
+
+import PageHero from "@/src/components/landing/page-hero";
+import Testimonials from "@/src/components/landing/testimonials";
+import ValueBand from "@/src/components/landing/value-band";
+import Overview from "@/src/components/project-detail-page/overview";
+import EngagementModels from "@/src/components/services-page/engagement-models";
 import { projects } from "./data";
-import ProjectDetailSection from "@/src/components/project-detail/projectDetailSection";
-import EmailSubscribeSection from "@/src/components/project-detail/EmailSubscribeSection";
-import HeroSection from "@/src/components/project-detail/HeroSection";
-import ProjectOverview from "@/src/components/project-detail/projectOverview";
-import TransformAiSection from "@/src/components/project-detail/TransformAiSection";
-import TestimonialsSection from "@/src/components/common/Testimonials/TestimonialsSection";
 
 type tParams = Promise<{ slug: string }>;
 
+/** One case study, in the landing recipe: dark hero, then alternating bands. */
 export default async function ProjectDetail(props: { params: tParams }) {
   const { slug } = await props.params;
   const project = projects.find((p) => p.slug === slug);
 
-  if (!project) {
-    return <p>Project not found</p>;
-  }
+  if (!project) notFound();
 
   return (
-    <section className="container mx-auto ">
-      <HeroSection project={project} />
-      <ProjectOverview project={project} />
-
-      <main className="text-left tablet-lg:items-start px-4 sm:px-12 mt-4 laptop:ml-10 max-w-full lg:max-w-[1200px] xl:max-w-[1350px] 2xl:max-w-[1700px]">
-        <ProjectDetailSection slug={slug} />
-      </main>
-      <ProjectOverview project={project} bottom={true} />
-
-      <TransformAiSection />
-      <TestimonialsSection />
-      <EmailSubscribeSection />
-    </section>
+    <>
+      <PageHero
+        image="/images/heroes/projects.jpg"
+        imageAlt="A developer working across three monitors in a dark studio"
+        imagePosition="center 40%"
+        eyebrow="Case study"
+        title={project.title}
+        description={project.description}
+        primary={{ label: "Start a project" }}
+        secondary={{ label: "All projects", href: "/projects" }}
+      />
+      <Overview project={project} />
+      <Testimonials tone="dark" />
+      <EngagementModels />
+      <ValueBand />
+    </>
   );
 }

@@ -1,0 +1,44 @@
+---
+title: "From notebook to production: shipping a machine learning model"
+slug: "ml-model-to-production"
+date: "2026-07-16"
+author: "Algotix AI Team"
+excerpt: "A model that scores well in a notebook is the start, not the finish. Packaging, serving, monitoring, and retraining are what make it useful to a product."
+bannerImage: "/images/blogs/local/ml-model-to-production.jpg"
+---
+
+Most machine learning projects stall at the same point: the model works in a notebook, the metrics look good, and nobody is sure what happens next. Getting from there to a model that serves real requests is mostly software engineering, and it goes smoothly when it is planned from the start.
+
+## Freeze the inputs before the model
+
+The single biggest source of production surprises is a mismatch between the features the model was trained on and the features it receives live. Write the feature computation once, as a function or a small library, and use that same code for training and serving. If training uses a pandas pipeline and serving uses a hand-written SQL query, the two will drift.
+
+Version the training data as well, even if that is only a snapshot in object storage with a date in its name. When a model behaves oddly, you want to be able to reproduce the exact run that produced it.
+
+## Package the model as an artefact
+
+Treat the trained model like any other build output. Save it with its version, the code version that trained it, and the metrics it achieved. A model registry helps at scale, but a folder per version with a metadata file is enough at the start. What matters is that a deployment refers to a specific artefact and can be rolled back to the previous one.
+
+## Choose the serving pattern deliberately
+
+There are three common patterns, and the right one depends on how predictions are used.
+
+* **Batch.** Score all records on a schedule and store the results. Simple, cheap, and right when predictions are not needed instantly, such as nightly risk scores.
+* **Online.** Serve predictions from an API in real time. Needed for interactive features such as recommendations on page load. Requires attention to latency and to the cost of the features computed per request.
+* **Embedded.** Ship the model with the application, for example in a mobile app. Avoids network calls but makes updates slower.
+
+Start with batch if the product allows it. Online serving can be added later once the model has proven its value.
+
+## Monitor the data, not just the service
+
+Standard service monitoring tells you whether the API is up and how fast it responds. Model monitoring adds two things: the distribution of incoming features compared with training data, and the distribution of predictions over time. A sudden change in either usually means something upstream changed, such as a new form field, a currency change, or a broken integration. Catching that early is far cheaper than discovering it from a customer complaint.
+
+When ground truth arrives later, such as whether a flagged transaction was actually fraud, log it against the prediction so real accuracy can be tracked.
+
+## Plan for retraining
+
+Models decay as the world changes. Decide up front how retraining will be triggered: on a schedule, when monitored accuracy drops below a threshold, or manually after a known change. Automate the training pipeline so retraining is a job to run, not a project to start. Evaluate the new model against the current one on the same held-out set before promoting it.
+
+## Keep the first version small
+
+A logistic regression that ships this month and improves a real metric beats a deep model that stays in a notebook. Once the pipeline from data to predictions to monitoring exists, swapping in a better model is a small change. Building that pipeline is the work.

@@ -41,6 +41,10 @@ export interface DetailBlogPost {
   date: string;
   body: Document;
   tags?: string[];
+  /** Markdown source, for posts kept in the repo under src/content/blogs. */
+  content?: string;
+  /** Short summary for cards; derived from the body when absent. */
+  excerpt?: string;
 }
 
 export interface Topic {

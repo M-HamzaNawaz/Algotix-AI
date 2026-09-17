@@ -1,0 +1,45 @@
+---
+title: "CI/CD for small teams: a minimal pipeline that scales"
+slug: "ci-cd-for-small-teams"
+date: "2026-08-13"
+author: "Algotix AI Team"
+excerpt: "You do not need a platform team to ship safely. Four stages, one branch strategy, and a few rules cover most products from the first release to the hundredth."
+bannerImage: "/images/blogs/local/ci-cd-for-small-teams.jpg"
+---
+
+Continuous integration and delivery are often described with diagrams that only make sense for large organisations. For a team of two to ten engineers, the goal is much simpler: every change is checked automatically, and getting a change to production is a boring, repeatable action rather than an event.
+
+## Four stages are enough
+
+A pipeline for a typical web product needs four stages, and each should be fast enough that people do not avoid running it.
+
+1. **Check.** Install dependencies, lint, and type-check. This catches the majority of mistakes in under a couple of minutes.
+2. **Test.** Run unit and integration tests. Keep the suite fast; slow tests get skipped, and skipped tests are worse than no tests.
+3. **Build.** Produce the same artefact you will deploy: a container image or a build output. Never rebuild on the server.
+4. **Deploy.** Push the artefact to a staging environment on every merge, and to production on a tag or an approved release.
+
+Everything else, such as end-to-end tests, security scans, and performance budgets, can be added once these four are reliable.
+
+## One branch strategy
+
+Trunk-based development with short-lived feature branches keeps merges small and conflicts rare. Every branch gets the check, test, and build stages on each push. Merging to the main branch deploys to staging. A release is a tag on main, which deploys to production. This gives you a clear history and an easy rollback: deploy the previous tag.
+
+## Rules that keep it honest
+
+* The main branch must always be deployable. If it is broken, fixing it comes before new work.
+* No manual steps on servers. If something must be done by hand, write it down as a task to automate.
+* Secrets live in the CI provider or a secrets manager, never in the repository.
+* Every deploy is logged with the commit, the person, and the time.
+* Rollback is tested at least once before you rely on it.
+
+## Environments without the overhead
+
+Small teams do not need a fleet of environments. Two is usually right: staging, which mirrors production and receives every merge, and production. Preview deployments per pull request are a cheap addition on most hosting platforms and are worth turning on for anything with a user interface, because reviewers can click through a change instead of imagining it.
+
+## Databases are the hard part
+
+Application code is easy to roll back. Schema changes are not. Two habits keep migrations safe: make each migration backwards compatible with the previous version of the code, and run migrations as a separate, explicit step in the pipeline rather than at application start. Adding a column, deploying code that writes to it, and only then removing the old column is slower than a single big change, but it never leaves you with a version of the app that cannot run.
+
+## Growing later
+
+When the team grows, the pipeline usually grows in two directions: more checks in the first two stages, and more control around the last one, such as approvals, canary releases, and feature flags. Because the four stages and the branch strategy stay the same, none of that requires a rewrite. That is what a minimal pipeline that scales looks like: not clever, just consistent.

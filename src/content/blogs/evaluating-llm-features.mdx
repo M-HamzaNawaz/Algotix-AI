@@ -1,0 +1,41 @@
+---
+title: "Before you ship an LLM feature: how to evaluate it"
+slug: "evaluating-llm-features"
+date: "2026-07-30"
+author: "Algotix AI Team"
+excerpt: "A demo that works on ten prompts tells you little about production. A small evaluation set, clear scoring, and a few guardrails turn a promising prototype into a feature you can stand behind."
+bannerImage: "/images/blogs/local/evaluating-llm-features.jpg"
+---
+
+Large language models make impressive demos easy. A prototype that summarises support tickets or drafts product descriptions can be built in an afternoon. The gap between that prototype and a feature customers rely on is evaluation: knowing, with numbers, how the feature behaves across the range of inputs it will actually see.
+
+## Build a small evaluation set first
+
+Before tuning prompts, collect between fifty and two hundred real or realistic inputs. Include the easy cases, the awkward ones, and the ones that should be refused. For each input, write down what a good output looks like. This does not need to be a single exact answer; a short rubric is often better. The set becomes the fixed target that every prompt change, model change, and retrieval change is measured against.
+
+Without this, teams tune by anecdote. Someone tries three prompts, one looks better, and it ships. Two weeks later a different set of inputs shows the regression nobody measured.
+
+## Score in a way you can repeat
+
+Some outputs can be scored automatically. Classification tasks have exact answers, extraction tasks can be compared field by field, and format requirements can be checked with code. For open-ended text, a second model scoring against the rubric works well as long as a person spot-checks a sample of its judgements every time the rubric changes.
+
+Track a handful of metrics rather than one: task accuracy, refusal rate on inputs that should be refused, format compliance, latency, and cost per request. A prompt that improves accuracy by two points while doubling latency is not an improvement for most products.
+
+## Test retrieval separately
+
+If the feature uses retrieval, evaluate retrieval on its own before evaluating the whole pipeline. Does the right document appear in the top results for each query in your set? Many disappointing answers trace back to retrieval returning the wrong passage, and no amount of prompt work fixes that. Measuring the two stages separately tells you where to spend effort.
+
+## Add guardrails that do not depend on the model
+
+A few checks belong outside the prompt:
+
+* Validate structured output with a schema and retry or fall back when it fails.
+* Limit input length and strip content that should never reach the model, such as secrets or personal data the feature does not need.
+* Set a timeout and a graceful fallback so a slow response degrades the feature rather than the page.
+* Log inputs and outputs, with the user's consent and your retention policy in mind, so you can extend the evaluation set from real usage.
+
+## Ship with a feedback loop
+
+Launch to a subset of users with a simple thumbs up or down and a free-text field. Feed the negative examples back into the evaluation set. Over a few cycles the set starts to look like your real traffic, and each change can be judged against it before it reaches everyone.
+
+None of this is heavy. A spreadsheet, a script, and an hour of review per iteration are enough for most features. The discipline is what turns a good demo into a feature that keeps working after launch.

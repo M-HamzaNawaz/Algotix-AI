@@ -1,33 +1,80 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import HeroSectionBlogDetail from "@/src/components/blog-detail/HeroSectionBlogDetail";
-import BlogDetailSection from "@/src/components/blog-detail/BlogDetailSection";
-import BlogsSidebar from "@/src/components/blogs/BlogsSidebar";
-import EmailSubscribeSection from "@/src/components/project-detail/EmailSubscribeSection";
+
+import ArticleBody from "@/src/components/blog-detail-page/article-body";
+import MarkdownBody from "@/src/components/blog-detail-page/markdown-body";
+import { formatDate } from "@/src/components/landing/blog-card";
+import PageHero from "@/src/components/landing/page-hero";
+import PageSection from "@/src/components/landing/page-section";
+import SubscribeBand from "@/src/components/landing/subscribe-band";
+import { Reveal } from "@/src/components/motion/reveal";
 import { fetchBlogPost } from "@/src/utils/contentful-clients";
+import { getLocalBlogPost } from "@/src/utils/local-blogs";
 
 interface PageProps {
   params: { slug: string };
 }
 
+/** One article: its banner as the hero, the body, then the subscribe band. */
 export default async function BlogDetail({ params }: PageProps) {
-  const blog = await fetchBlogPost(params.slug);
-
+  const blog =
+    (await fetchBlogPost(params.slug)) ?? (await getLocalBlogPost(params.slug));
   if (!blog) return notFound();
+
+  const date = formatDate(blog.date);
+  const byline = [blog.author, date].filter(Boolean).join(" · ");
 
   return (
     <>
-      <HeroSectionBlogDetail blog={blog} />
-      <section className="w-full py-8 md:py-12">
-        <div className="container mx-auto flex flex-col laptop:flex-row gap-6 lg:gap-8 px-4 sm:px-6">
-          <div className="w-full laptop:w-2/3 laptop:ml-12">
-            <BlogDetailSection blog={blog} />
-          </div>
-          <div className="w-full laptop:w-1/3 mt-6 laptop:mt-0">
-            <BlogsSidebar />
-          </div>
-        </div>
-      </section>
-      <EmailSubscribeSection />
+      <PageHero
+        image={blog.bannerImage || "/images/heroes/blogs.jpg"}
+        imageAlt={blog.title}
+        eyebrow="Insights"
+        title={blog.title}
+        description={byline}
+        secondary={{ label: "All articles", href: "/blogs" }}
+      />
+
+      <PageSection>
+        <Reveal amount={0.05}>
+          <article className="mx-auto max-w-3xl">
+            {(blog.author || date) && (
+              <div className="mb-10 flex items-center gap-4 border-b border-[#E4E4E8] pb-8">
+                {blog.authorImage && (
+                  <span className="relative h-12 w-12 overflow-hidden rounded-full bg-[#F2F2F4]">
+                    <Image
+                      src={blog.authorImage}
+                      alt=""
+                      fill
+                      sizes="48px"
+                      className="object-cover"
+                    />
+                  </span>
+                )}
+                <div>
+                  {blog.author && (
+                    <p className="text-[15px] font-semibold text-[#14141D]">
+                      {blog.author}
+                    </p>
+                  )}
+                  {date && (
+                    <p className="text-[13px] uppercase tracking-[0.14em] text-[#A0A4AB]">
+                      {date}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+            {blog.content ? (
+              <MarkdownBody content={blog.content} />
+            ) : (
+              <ArticleBody blog={blog} />
+            )}
+          </article>
+        </Reveal>
+      </PageSection>
+
+      <SubscribeBand />
     </>
   );
 }

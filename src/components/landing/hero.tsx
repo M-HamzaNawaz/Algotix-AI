@@ -158,9 +158,7 @@ export default function LandingHero() {
                   href={item.href}
                   className="group text-sm font-medium leading-snug text-white/85 transition-colors duration-300 hover:text-primary"
                 >
-                  <span className="border-b border-white/25 pb-1 transition-colors duration-300 group-hover:border-primary">
-                    {item.label}
-                  </span>
+                  <span>{item.label}</span>
                 </Link>
               ))}
             </div>

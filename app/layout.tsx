@@ -78,16 +78,14 @@ export const metadata: Metadata = {
     canonical: DOMAIN,
   },
   icons: [
-    {
-      rel: "apple-touch-icon",
-      sizes: "180x180",
-      url: "/fav-icon/apple-touch-icon.svg",
-    },
+    /* SVG first: it swaps to a white mark on dark tab strips. The PNGs and
+       favicon.ico are fallbacks for browsers without SVG icon support. */
+    { rel: "icon", type: "image/svg+xml", url: "/fav-icon/favicon.svg" },
     {
       rel: "icon",
       sizes: "32x32",
       type: "image/png",
-      url: "/fav-icon/favicon-32x32.svg",
+      url: "/fav-icon/favicon-32x32.png",
     },
     {
       rel: "icon",
@@ -95,11 +93,11 @@ export const metadata: Metadata = {
       type: "image/png",
       url: "/fav-icon/favicon-16x16.png",
     },
+    { rel: "shortcut icon", url: "/favicon.ico" },
     {
-      rel: "mask-icon",
-      sizes: "16x16",
-      type: "image/png",
-      url: "/fav-icon/favicon-16x16.png",
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "/fav-icon/apple-touch-icon.png",
     },
   ],
 };
