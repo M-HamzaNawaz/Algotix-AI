@@ -7,6 +7,10 @@ const mdxConfig = withMDX({
 });
 
 const nextConfig: NextConfig = {
+  /* Next leaves next-mdx-remote out of the server bundle by default, so in
+     development it renders with the project's React instead of the copy
+     bundled inside Next, and the two disagree. Bundling it keeps one React. */
+  transpilePackages: ["next-mdx-remote"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   webpack(config) {
     config.resolve.fallback = {
