@@ -84,8 +84,8 @@ const TestimonialsSection: React.FC = () => {
   }
 
   return (
-    <section className="bg-[#F6F6F6] relative border-t border-b  md:py-0 border-orange-400 mb-10 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-10 lg:px-20 flex flex-col md:flex-row items-center justify-between">
+    <section className="bg-[#F6F6F6] relative border-t border-b md:py-0 border-orange-400 overflow-hidden">
+      <div className="flex flex-col md:flex-row items-center justify-between">
         {/* Left */}
         <div className="hidden lg:block lg:w-2/5 px-4 lg:px-10 text-center lg:text-left">
           <h2 className="font-medium text-[28px] lg:text-[38px] leading-[37px] text-primary">

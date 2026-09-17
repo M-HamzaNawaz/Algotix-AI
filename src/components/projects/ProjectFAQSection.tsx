@@ -28,12 +28,12 @@ const ProjectFAQSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden bg-grid">
+    <section className="relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-80 h-80 bg-primaryLight/5 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-primaryLight bg-clip-text text-transparent inline-block">
             Frequently Asked Questions

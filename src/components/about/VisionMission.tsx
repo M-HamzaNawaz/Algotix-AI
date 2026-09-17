@@ -5,7 +5,7 @@ import { missionData, visionData } from "@/src/containers/about/data";
 
 const MissionVisionSection: React.FC = () => {
   return (
-    <section className="relative py-5 mt-20 overflow-hidden">
+    <section className="relative overflow-hidden">
       <div className="absolute left-0 top-0 -z-10">
         <Image
           src={missionData.backgroundIcon}
@@ -16,7 +16,7 @@ const MissionVisionSection: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-16 relative z-10">
+      <div className="relative z-10">
         <div className="mb-8 text-center">
           <h2 className="font-medium text-[30px] 4k:text-[40px] leading-[150%] text-primary">
             Our Mission
@@ -68,8 +68,8 @@ const MissionVisionSection: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-16 relative z-10">
-        <div className="mb-8 text-center ml-20">
+      <div className="relative z-10">
+        <div className="mb-8 text-center">
           <h2 className="font-medium text-[30px]  4k:text-[40px] leading-[150%] text-primary">
             Our Vision
           </h2>

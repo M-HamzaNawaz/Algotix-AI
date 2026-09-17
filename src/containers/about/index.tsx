@@ -6,43 +6,56 @@ import MissionVisionSection from "@/src/components/about/VisionMission";
 import GetInTouchForm from "@/src/components/about-us/GetInTouchForm";
 import React from "react";
 import TransformSection from "@/src/components/about/TransformSection";
-// import Testimonials from "@/src/components/about/updateTestimonialsPart";
 import TestimonialsSection from "@/src/components/common/Testimonials/TestimonialsSection";
 import { Reveal } from "@/src/components/motion/reveal";
+import PageSection from "@/src/components/landing/page-section";
 
 const AboutUs = () => {
   return (
-    <div className="container max-w-full !w-full mx-auto">
+    <div>
       <HeroAboutSection />
 
-      <Reveal amount={0.1}>
-        <OurMilestones />
-      </Reveal>
+      <PageSection dark>
+        <Reveal amount={0.1}>
+          <OurMilestones />
+        </Reveal>
+      </PageSection>
 
-      <Reveal amount={0.1}>
-        <FeaturesAboutSection />
-      </Reveal>
+      <PageSection>
+        <Reveal amount={0.1}>
+          <FeaturesAboutSection />
+        </Reveal>
+      </PageSection>
 
-      <Reveal amount={0.1}>
-        <TransformSection />
-      </Reveal>
+      <PageSection>
+        <Reveal amount={0.1}>
+          <TransformSection />
+        </Reveal>
+      </PageSection>
 
-      <Reveal amount={0.1}>
-        <MissionVisionSection />
-      </Reveal>
+      <PageSection dark>
+        <Reveal amount={0.1}>
+          <MissionVisionSection />
+        </Reveal>
+      </PageSection>
 
-      <Reveal amount={0.1}>
-        <BenefitsSection />
-      </Reveal>
+      <PageSection>
+        <Reveal amount={0.1}>
+          <BenefitsSection />
+        </Reveal>
+      </PageSection>
 
-      <Reveal amount={0.1}>
-        <TestimonialsSection />
-      </Reveal>
+      <PageSection dark>
+        <Reveal amount={0.1}>
+          <TestimonialsSection />
+        </Reveal>
+      </PageSection>
 
-      {/* <Testimonials /> */}
-      {/* Left un-animated on purpose: the form embeds the Turnstile widget,
-          which is unreliable inside an element that starts at opacity 0. */}
-      <GetInTouchForm />
+      {/* Not revealed on purpose: the form embeds the Turnstile widget, which
+          is unreliable inside an element that starts at opacity 0. */}
+      <PageSection>
+        <GetInTouchForm />
+      </PageSection>
     </div>
   );
 };

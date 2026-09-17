@@ -5,7 +5,7 @@ import React from "react";
 const OurMilestones = () => {
   return (
     <div className="relative ">
-      <div className="container mx-auto max-w-6xl 4k:max-w-7xl mt-8 text-center px-4 md:px-0 relative z-10">
+      <div className="mx-auto max-w-6xl text-center relative z-10">
         <h2 className="font-medium md:text-[38px] md:leading-[57px] text-[30px] leading-[45px] tracking-[0px] text-center">
           <span className="text-primary">Algotix AI</span> is dedicated to
           providing <span className="text-primary">innovative solutions</span>{" "}

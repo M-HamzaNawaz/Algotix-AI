@@ -34,7 +34,7 @@ const TrendingTopics = ({ blogs }: Props) => {
 
   return (
     <>
-      <section className="py-12 px-4 text-center">
+      <section className="text-center">
         <h2 className="font-normal text-[20px] text-center text-primary mb-8">
           EXPLORE TRENDING TOPICS
         </h2>

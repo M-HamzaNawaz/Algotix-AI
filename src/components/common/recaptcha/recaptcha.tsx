@@ -6,9 +6,14 @@ const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "SITE_KEY";
 
 interface TurnstileCaptchaProps {
   onChange: (value: string | null) => void;
+  /** Matches the widget to the card it sits on. */
+  theme?: "light" | "dark";
 }
 
-const TurnstileCaptcha: React.FC<TurnstileCaptchaProps> = ({ onChange }) => {
+const TurnstileCaptcha: React.FC<TurnstileCaptchaProps> = ({
+  onChange,
+  theme = "light",
+}) => {
   if (!SITE_KEY) {
     console.warn(
       "NEXT_PUBLIC_TURNSTILE_SITE_KEY is not set. Turnstile will not function.",
@@ -24,7 +29,13 @@ const TurnstileCaptcha: React.FC<TurnstileCaptchaProps> = ({ onChange }) => {
     }
   };
 
-  return <Turnstile siteKey={SITE_KEY} onSuccess={handleOnChange} />;
+  return (
+    <Turnstile
+      siteKey={SITE_KEY}
+      onSuccess={handleOnChange}
+      options={{ theme }}
+    />
+  );
 };
 
 export default TurnstileCaptcha;

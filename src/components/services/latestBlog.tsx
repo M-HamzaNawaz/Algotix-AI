@@ -86,7 +86,7 @@ const LatestBlog = ({ blogs }: LatestBlogProps) => {
   );
 
   return (
-    <div className="bg-white w-full bg-grid overflow-hidden relative pt-10 lg:pt-44 md:pt-50 p-8 lg:h-[750px] md:h-auto sm:h-auto desktop:h-[750px]">
+    <div className="bg-white w-full bg-grid overflow-hidden relative">
       <div className="max-w-7xl mx-auto 4k:max-w-[1950px]">
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           {/* Left Column */}

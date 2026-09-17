@@ -1,17 +1,13 @@
-import { Reveal, RevealGroup, RevealItem } from "@/src/components/motion/reveal";
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@/src/components/motion/reveal";
 import { capabilityMarquee, stats } from "./data";
 
 export default function Proof() {
   return (
-    <section className="relative overflow-hidden border-t border-white/[0.06] bg-[#0B0B12] pb-0 pt-20 tablet:pt-28">
-      <div
-        className="pointer-events-none absolute -right-40 top-0 h-[520px] w-[520px] rounded-full blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(254,89,1,0.18) 0%, rgba(254,89,1,0) 70%)",
-        }}
-      />
-
+    <section className="band-gradient relative overflow-hidden border-t border-white/[0.06] pb-0 pt-20 tablet:pt-28">
       <div className="relative z-10 mx-auto w-full max-w-[1300px] px-6 sm:px-10">
         <div className="grid gap-14 laptop:grid-cols-2 laptop:items-center laptop:gap-20">
           <Reveal amount={0.2}>
@@ -20,9 +16,7 @@ export default function Proof() {
             </p>
             <h2 className="mt-4 text-[28px] font-bold leading-tight text-white tablet:text-4xl">
               Rooted in Bahawalpur.
-              <span className="block text-primary">
-                Delivering worldwide.
-              </span>
+              <span className="block text-primary">Delivering worldwide.</span>
             </h2>
             <p className="mt-5 max-w-lg text-base leading-relaxed text-white/60">
               We partner with startups and enterprises across industries,
@@ -38,7 +32,7 @@ export default function Proof() {
           >
             {stats.map((stat) => (
               <RevealItem key={stat.label} distance={26}>
-                <div className="h-full bg-[#0B0B12] px-6 py-9 text-center tablet:px-5">
+                <div className="h-full bg-[#0B0B12]/70 px-6 py-9 text-center backdrop-blur-sm tablet:px-5">
                   <p className="text-[40px] font-bold leading-none text-primary tablet:text-[44px]">
                     {stat.value}
                   </p>

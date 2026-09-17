@@ -8,13 +8,13 @@ const ContactInfoSection: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="w-full py-12 lg:py-12">
-      <div className="container mx-auto px-4 xl:max-w-[1440px] 4k:max-w-[1920px] xl:px-12">
-        <h2 className="font-medium text-[30px] leading-[100%] tracking-[0px] mb-10 px-10">
+    <section className="w-full">
+      <div className="relative">
+        <h2 className="font-medium text-[30px] leading-[100%] tracking-[0px] mb-10">
           Contact Us
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-5 px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {contactData.map((item, index) => (
             <Link
               href={item.link}

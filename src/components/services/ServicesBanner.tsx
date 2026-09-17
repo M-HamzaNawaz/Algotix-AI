@@ -20,8 +20,8 @@ const ServicesBanner = () => {
   return (
     <>
       <div className="relative w-full overflow-hidden">
-        <div className="container mx-auto px-4 pt-16 sm:pt-24 flex flex-col tablet-lg:flex-row items-center tablet-lg:items-start gap-8 mb-12 ">
-          <div className="w-full tablet-lg:w-2/3 px-4 sm:px-12 mt-24 text-left space-y-4 4k:px-24">
+        <div className="mx-auto flex w-full max-w-[1500px] flex-col items-center gap-10 px-6 pb-16 pt-28 sm:px-10 tablet-lg:min-h-[640px] tablet-lg:flex-row tablet-lg:gap-8 desktop:px-16">
+          <div className="w-full space-y-4 text-left tablet-lg:w-1/2">
             <h2 className="text-2xl sm:text-[44px] leading-tight text-black lg:text-[40px] desktop-lg:text-6xl font-bold mb-8">
               <span className="text-primary">Smart Solutions </span>
               for Every Stage of Your
@@ -51,7 +51,7 @@ const ServicesBanner = () => {
             </div>
           </div>
 
-          <div className="w-full tablet-lg:w-1/2 justify-center tablet-lg:justify-end tablet-lg:mt-0 laptop:mr-10">
+          <div className="w-full tablet-lg:w-1/2">
             <OrbitDesign />
           </div>
         </div>

@@ -30,7 +30,7 @@ export default function TechStack() {
   );
 }
 
-function LogoRow({
+export function LogoRow({
   items,
   reverse = false,
   className = "",

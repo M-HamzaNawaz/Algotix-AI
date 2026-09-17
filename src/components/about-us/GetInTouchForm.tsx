@@ -28,7 +28,16 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const GetInTouchForm: React.FC = () => {
+interface GetInTouchFormProps {
+  /** `dark` renders the glass card used on the gradient bands. */
+  tone?: "light" | "dark";
+}
+
+const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
+  const dark = tone === "dark";
+  const field = dark
+    ? "bg-[rgba(255,255,255,0.08)] text-white placeholder:text-white/40"
+    : "bg-secondary";
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -141,16 +150,29 @@ const GetInTouchForm: React.FC = () => {
   };
 
   return (
-    <div
-      id="get-in-touch"
-      className="p-4 relative sm:p-6 lg:p-8 mx-auto bg-grid w-full overflow-hidden"
-    >
-      <div className="bg-gray-50 max-w-5xl mx-auto z-10 relative rounded-lg border border-orange-100 shadow-md overflow-hidden">
-        <div className="absolute -inset-10 z-[-100] animate-spin-border py-8 bg-gradient-to-r from-transparent via-primary to-transparent ease-in-out blur-[5px]"></div>
+    <div id="get-in-touch" className="relative mx-auto w-full overflow-hidden">
+      <div
+        className={`max-w-5xl mx-auto z-10 relative overflow-hidden ${
+          dark
+            ? "rounded-3xl border border-white/15 bg-[rgba(255,255,255,0.06)] backdrop-blur-xl"
+            : "bg-gray-50 rounded-lg border border-orange-100 shadow-md"
+        }`}
+      >
+        {!dark && (
+          <div className="absolute -inset-10 z-[-100] animate-spin-border py-8 bg-gradient-to-r from-transparent via-primary to-transparent ease-in-out blur-[5px]"></div>
+        )}
 
-        <div className="flex flex-col lg:flex-row m-[2px] bg-gray-50">
+        <div
+          className={`flex flex-col lg:flex-row m-[2px] ${dark ? "" : "bg-gray-50"}`}
+        >
           {/* Left side (stats) */}
-          <div className="bg-secondary p-4 sm:p-6 lg:w-1/3">
+          <div
+            className={`p-4 sm:p-6 lg:w-1/3 ${
+              dark
+                ? "bg-[rgba(255,255,255,0.04)] lg:border-r lg:border-white/10"
+                : "bg-secondary"
+            }`}
+          >
             <h3 className="font-medium text-xl sm:text-2xl mb-4">
               Company&apos;s <span className="text-primary">stats</span>
             </h3>
@@ -164,7 +186,7 @@ const GetInTouchForm: React.FC = () => {
                       alt="Security icon"
                       width={50}
                       height={50}
-                      className="text-primary w-[50px] md:w-[60px]"
+                      className={`text-primary w-[50px] md:w-[60px] ${dark ? "invert" : ""}`}
                     />
                   </div>
                   <h4 className="text-xl sm:text-2xl font-bold">
@@ -185,7 +207,7 @@ const GetInTouchForm: React.FC = () => {
                 {AWARD_CIRCLES.map((circle) => (
                   <div
                     key={circle.id}
-                    className="w-16 h-16 flex justify-center items-center overflow-hidden sm:w-20 sm:h-20 bg-gray-300 rounded-full"
+                    className={`w-16 h-16 flex justify-center items-center overflow-hidden sm:w-20 sm:h-20 rounded-full ${dark ? "bg-[rgba(255,255,255,0.1)]" : "bg-gray-300"}`}
                   >
                     <Image
                       src={circle.img}
@@ -265,7 +287,7 @@ const GetInTouchForm: React.FC = () => {
                         placeholder="First name"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
                       />
                       {errors.firstName && (
                         <p className="text-red-500 text-xs mt-1">
@@ -279,7 +301,7 @@ const GetInTouchForm: React.FC = () => {
                         value={formData.lastName}
                         name="lastName"
                         placeholder="Last name"
-                        className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.lastName ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.lastName ? "border border-red-500" : ""}`}
                         onChange={handleInputChange}
                       />
                       {errors.lastName && (
@@ -294,7 +316,7 @@ const GetInTouchForm: React.FC = () => {
                         name="phone"
                         placeholder="Phone"
                         value={formData.phone}
-                        className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.phone ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.phone ? "border border-red-500" : ""}`}
                         onChange={handleInputChange}
                       />
                       {errors.phone && (
@@ -310,7 +332,7 @@ const GetInTouchForm: React.FC = () => {
                         value={formData.email}
                         placeholder="Email"
                         onChange={handleInputChange}
-                        className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
                       />
                       {errors.email && (
                         <p className="text-red-500 text-xs mt-1">
@@ -326,7 +348,7 @@ const GetInTouchForm: React.FC = () => {
                       name="techStack"
                       value={formData.techStack}
                       placeholder="Enter you preferred tech stack..."
-                      className="w-full p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
+                      className={`w-full p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary`}
                       onChange={handleInputChange}
                     />
                   </div>
@@ -338,7 +360,7 @@ const GetInTouchForm: React.FC = () => {
                       onChange={handleInputChange}
                       placeholder="Write message here.."
                       rows={4}
-                      className={`w-full p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
+                      className={`w-full p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
                     ></textarea>
                     {errors.message && (
                       <p className="text-red-500 text-xs mt-1">
@@ -350,7 +372,10 @@ const GetInTouchForm: React.FC = () => {
                   {/* CAPTCHA and checkboxes */}
                   <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center mb-4 gap-8">
                     <div className="flex flex-col items-start">
-                      <Recaptcha onChange={handleCaptchaChange} />
+                      <Recaptcha
+                        onChange={handleCaptchaChange}
+                        theme={dark ? "dark" : "light"}
+                      />
                       {errors.captcha && (
                         <p className="text-red-500 text-sm mt-2">
                           {errors.captcha}
@@ -405,22 +430,6 @@ const GetInTouchForm: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Top Bottom Background Circles */}
-      <div
-        className="absolute -right-20 -top-20 w-48 h-48 rounded-full z-0 text-red-300 hidden lg:block"
-        style={{
-          background:
-            "linear-gradient(135deg, var(--primary), var(--primary-light))",
-        }}
-      ></div>
-      <div
-        className="absolute -left-20 -bottom-20 w-48 h-48 rounded-full z-0 text-red-300 hidden lg:block"
-        style={{
-          background:
-            "linear-gradient(135deg, var(--primary), var(--primary-light))",
-        }}
-      ></div>
     </div>
   );
 };

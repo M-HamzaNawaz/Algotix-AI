@@ -112,7 +112,7 @@ const OurServices = () => {
   }, [handleResize]);
 
   return (
-    <div className="relative w-full max-w-7xl 4k:max-w-[2000px] overflow-hidden mx-auto px-4 py-12">
+    <div className="relative w-full overflow-hidden">
       <div className="text-center mb-10">
         <h2 className="text-primary text-sm md:text-lg font-semibold mb-2  4k:text-3xl">
           Our Services

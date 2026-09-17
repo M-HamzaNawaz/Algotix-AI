@@ -40,14 +40,14 @@ const BenefitsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-blob"></div>
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-16 text-center relative z-10">
+      <div className="text-center relative z-10">
         <div>
           <h2 className="font-semibold text-[42px] 4k:text-5xl leading-[150%] text-center mb-4">
             Key{" "}

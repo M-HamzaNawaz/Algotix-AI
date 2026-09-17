@@ -8,9 +8,7 @@ interface WorkWithUsSectionProps {
 
 function WorkWithUsSection({ className = "" }: WorkWithUsSectionProps) {
   return (
-    <div
-      className={`tablet:px-44 px-2   md:pt-40 md:pb-20 bg-grid relative overflow-hidden ${className}`}
-    >
+    <div className={`relative overflow-hidden ${className}`}>
       <Subscribemail />
       <div className="absolute -bottom-32 tablet:-bottom-48 -left-10 tablet:-left-20 tablet-max:hidden">
         <Image src={ellipse} alt="Ellipse" />

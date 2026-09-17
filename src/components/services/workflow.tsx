@@ -103,7 +103,7 @@ const Workflow = () => {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="relative w-full pt-16 sm:pt-24 max-w-7xl mx-auto px-4 4k:max-w-[1950px] ">
+      <div className="relative w-full">
         <div className="text-center mb-10 w-full ">
           <h2 className="text-primary text-lg font-semibold mb-2 4k:text-3xl">
             Work Process

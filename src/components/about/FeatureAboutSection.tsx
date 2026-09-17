@@ -23,14 +23,14 @@ const FeaturesAboutSection: React.FC = () => {
 
   return (
     <>
-      <section className="relative mt-16 overflow-hidden">
-        <div className="container mx-auto px-6 md:px-16 lg:px-24 text-center relative z-10">
+      <section className="relative overflow-hidden">
+        <div className="text-center relative z-10">
           <h2 className="text-3xl 4k:text-5xl md:text-4xl font-semibold">
             Why Should You <span className="text-primary">Choose Us?</span>
           </h2>
         </div>
 
-        <div className="container mx-auto px-6 md:px-16 flex flex-col md:flex-row items-center justify-between relative z-10 mt-10 gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between relative z-10 mt-10 gap-6">
           {/* Left Side */}
           <div className="relative flex justify-center w-full md:w-[45%] ">
             <Image

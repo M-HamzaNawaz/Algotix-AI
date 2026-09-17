@@ -8,7 +8,7 @@ import { routes } from "@/src/constants/routes";
 
 const QuestionsSection: React.FC = () => {
   return (
-    <section className="mt-10 relative ">
+    <section className="relative">
       <div className="relative bg-[#F6F6F6] rounded-2xl py-12 sm:py-16 md:py-20 lg:py-40 flex flex-col items-center text-center">
         <div
           className="absolute left-4 bottom-4 

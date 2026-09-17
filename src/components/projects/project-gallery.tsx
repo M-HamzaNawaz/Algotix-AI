@@ -17,7 +17,7 @@ export default function ProjectsGallery() {
   return (
     <div className="flex flex-col tablet:flex-row min-h-screen p-4 px-6 md:px-2 lg:px-12 xl:px-16 gap-8 bg-project-bg bg-no-repeat bg-fixed bg-cover bg-center">
       {/* filters section */}
-      <div className="w-full md:w-1/6 mb-4 md:mb-0 laptop:ms-20 flex md:flex-col md:justify-center items-start h-max justify-between flex-wrap space-y-4 tablet:space-y-2 laptop:space-y-6">
+      <div className="w-full md:w-1/6 mb-4 md:mb-0 flex md:flex-col md:justify-center items-start h-max justify-between flex-wrap space-y-4 tablet:space-y-2 laptop:space-y-6">
         {dynamicFilters.map((filter) => (
           <Button
             variant={activeFilter === filter ? "custom" : "custom"}

@@ -8,7 +8,7 @@ import Pattern from "./patterns";
 
 export default function Difference() {
   return (
-    <section className="border-t border-white/[0.06] bg-[#0B0B12] py-20 tablet:py-28">
+    <section className="band-gradient relative overflow-hidden border-t border-white/[0.06] py-20 tablet:py-28">
       <div className="mx-auto w-full max-w-[1300px] px-6 sm:px-10">
         <Reveal className="text-center" amount={0.2}>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">

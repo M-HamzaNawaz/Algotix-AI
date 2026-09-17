@@ -19,7 +19,7 @@ const TransformSection: React.FC = () => {
 
   return (
     <>
-      <section className="container mx-auto px-10 py-8 relative lg:px-20 xl:px-40">
+      <section className="relative">
         <div className="relative bg-gradient-to-r from-primary via-orange-500 to-primary text-white rounded-2xl py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="absolute right-2 top-2 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 md:bg-grid-right"></div>
           <div className="absolute left-2 bottom-2 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 md:bg-grid-left"></div>
