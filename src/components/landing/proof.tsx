@@ -5,8 +5,8 @@ import {
 } from "@/src/components/motion/reveal";
 import { stats } from "./data";
 
-/* Each tread starts exactly at the bottom edge of the one above and two
-   thirds of a card further right, so the corners touch like real steps. The
+/* Each tread sits below the one above, with a gap between them, and three
+   quarters of a card further right, like a flight of steps. The
    sizes are fractions of the column so the shape holds at every width. */
 const STAIR_STEPS = [
   "tablet:w-[40%] tablet:ml-0",
@@ -36,7 +36,7 @@ export default function Proof() {
 
           {/* The figures step down like a staircase, one card per tread. */}
           <RevealGroup
-            className="flex flex-col gap-5 tablet:gap-0"
+            className="flex flex-col gap-5 tablet:gap-6"
             stagger={0.12}
             amount={0.2}
           >
