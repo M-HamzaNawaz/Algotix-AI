@@ -56,11 +56,11 @@ export default function Proof() {
                   >
                     <div className="h-full w-full animate-spin-border bg-[conic-gradient(from_0deg,transparent_0deg,transparent_250deg,rgba(254,90,1,0.35)_290deg,#FE5A01_330deg,transparent_360deg)] motion-reduce:animate-none" />
                   </div>
-                  <div className="relative rounded-[14px] bg-[#F6F6F7] px-7 py-7">
+                  <div className="relative rounded-[14px] bg-[#F6F6F7] px-6 py-8 text-center">
                     <p className="text-[40px] font-bold leading-none text-primary tablet:text-[46px]">
                       {stat.value}
                     </p>
-                    <p className="mt-3 max-w-[170px] text-sm leading-snug text-[#6B6F76]">
+                    <p className="mx-auto mt-3 max-w-[170px] text-sm leading-snug text-[#6B6F76]">
                       {stat.label}
                     </p>
                   </div>
