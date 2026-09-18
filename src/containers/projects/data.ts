@@ -45,6 +45,14 @@ const projects: projectsProps[] = [
     slug: "ecommerce-solution",
   },
   {
+    id: 5,
+    category: "Technology",
+    name: "AI Outreach Tool",
+    year: "2024",
+    image: "/images/project-detail/Dashboard-owli.jpg",
+    slug: "ai-dashboard",
+  },
+  {
     id: 6,
     category: "Technology",
     name: "Towing Management System",
