@@ -16,6 +16,11 @@ import {
   Sparkles,
   UserPlus,
   Users,
+  Building2,
+  Coins,
+  GraduationCap,
+  HeartPulse,
+  Truck,
   type LucideIcon,
 } from "lucide-react";
 
@@ -265,3 +270,61 @@ export const serviceImages: Record<string, { src: string; alt: string }> = {
     alt: "Chain of linked blocks rendered in 3D",
   },
 };
+
+export interface Industry {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  /** A real case study on the site that backs the claim up. */
+  caseStudy: { name: string; slug: string };
+}
+
+/* Sectors where we have shipped products. Every entry points at a case study
+   from src/containers/project-detail/data.ts, so nothing here is unbacked. */
+export const industries: Industry[] = [
+  {
+    icon: HeartPulse,
+    title: "Healthcare",
+    description:
+      "Hiring and workflow platforms that connect healthcare professionals with the organisations that need them.",
+    caseStudy: { name: "Medical Jobs Portal", slug: "medical-platform" },
+  },
+  {
+    icon: Coins,
+    title: "Fintech & Web3",
+    description:
+      "Token swap and liquidity tools for decentralised trading, with clear and dependable transaction flows.",
+    caseStudy: { name: "Token Swap & LP Tool", slug: "ecommerce-platform" },
+  },
+  {
+    icon: GraduationCap,
+    title: "Education",
+    description:
+      "Alerting and communication tools that let school administrators reach the right people in an emergency.",
+    caseStudy: { name: "School Alert System", slug: "crm-solution" },
+  },
+  {
+    icon: Truck,
+    title: "Logistics",
+    description:
+      "Operations software that keeps dispatch, jobs and fleets moving for companies on the road.",
+    caseStudy: { name: "Towing Management System", slug: "gaming-utility-app" },
+  },
+  {
+    icon: Building2,
+    title: "Real Estate",
+    description:
+      "Negotiation and deal management platforms that bring buyers, sellers and offers into one place.",
+    caseStudy: {
+      name: "Property Negotiation Platform",
+      slug: "customer-support-tool",
+    },
+  },
+  {
+    icon: Bot,
+    title: "AI & Automation",
+    description:
+      "AI assistants that take repetitive work off your team, from document transcription to scheduled outreach.",
+    caseStudy: { name: "AI Document Transcription Tool", slug: "ai-assistant" },
+  },
+];

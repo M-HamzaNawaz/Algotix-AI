@@ -4,6 +4,7 @@ import ValueBand from "@/src/components/landing/value-band";
 import FaqSection from "@/src/components/landing/faq-section";
 import DeliveryProcess from "@/src/components/services-page/delivery-process";
 import EngagementModels from "@/src/components/services-page/engagement-models";
+import Industries from "@/src/components/services-page/industries";
 import Metrics from "@/src/components/services-page/metrics";
 import ServiceExplorer from "@/src/components/services-page/service-explorer";
 import ServicesHero from "@/src/components/services-page/services-hero";
@@ -26,6 +27,7 @@ const Services = () => {
       <TechColumns />
       <WhyChoose />
       <EngagementModels />
+      <Industries />
 
       <FaqSection items={faqData} tone="light" id="faq" />
 
