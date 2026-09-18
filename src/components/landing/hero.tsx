@@ -86,7 +86,7 @@ export default function LandingHero() {
           }}
         />
 
-        <div className="relative z-10 mx-auto flex min-h-[760px] w-full max-w-[1600px] flex-col px-6 pb-10 pt-32 tablet:min-h-screen sm:px-10 xl:px-[60px]">
+        <div className="relative z-10 mx-auto flex min-h-[760px] w-full max-w-[1600px] flex-col px-6 pb-20 pt-32 tablet:min-h-screen sm:px-10 xl:px-[60px] tablet:pb-28">
           <motion.div
             className="flex flex-1 items-center"
             initial={{ opacity: 0, y: 28 }}
