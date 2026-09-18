@@ -8,7 +8,7 @@ import { memo } from "react";
 
 const renderLinks = (heading: string, links: NavLinksType[]) => {
   return (
-    <div className="flex flex-col gap-4 w-full mobile-lg:w-[250px]">
+    <div className="flex w-full flex-col gap-4">
       <p className="font-medium text-base mobile-lg:text-[18px] leading-[100%] tracking-[-1%]">
         {heading}
       </p>
@@ -38,10 +38,10 @@ const Footer = () => {
   const data = footerData;
 
   return (
-    <footer className="relative z-10 bg-white flex flex-col px-4 mobile-sm:px-6 tablet-sm:px-8 tablet:px-14 desktop:px-20 desktop-lg:px-24 pt-10 tablet-sm:pt-12 desktop-lg:pt-14 pb-0! pb-32 sm:pb-60 h-max overflow-hidden ">
-      <div className="flex flex-col tablet-lg:flex-row flex-wrap">
+    <footer className="relative z-10 bg-white flex flex-col px-6 sm:px-10 xl:px-[60px] pb-0! pb-32 sm:pb-60 h-max overflow-hidden  pt-20 tablet:pt-28">
+      <div className="mx-auto grid w-full max-w-[1480px] gap-10 laptop:grid-cols-[minmax(0,1.3fr)_minmax(0,2fr)] laptop:gap-16">
         {/* Left side. */}
-        <div className="w-full tablet-lg:w-1/2 tablet-lg:pr-10 laptop:pr-20 laptop-lg:pr-24 desktop:pr-60 mb-8 tablet-lg:mb-0">
+        <div className="w-full laptop:max-w-[460px]">
           <Logo />
           <p className="mt-6 tablet:mt-8 text-[#9B9B9C] font-medium text-[14px] leading-[24px] tracking-[0%]">
             {data.logo.subtitle}
@@ -64,7 +64,7 @@ const Footer = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex flex-col tablet-sm:flex-row flex-wrap flex-grow justify-between gap-8 tablet-sm:gap-4">
+        <div className="grid grid-cols-1 gap-8 tablet-sm:grid-cols-3 tablet-sm:gap-6">
           {/* Navigation */}
           <div className="tablet-sm:flex-1">
             {renderLinks("Navigation", data.links.navigation)}

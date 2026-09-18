@@ -5,7 +5,7 @@ import { Reveal } from "@/src/components/motion/reveal";
 
 export default function ValueBand() {
   return (
-    <section className="relative overflow-hidden bg-[#0B0B12] py-20 tablet:py-28 laptop:py-32">
+    <section className="relative overflow-hidden bg-[#0B0B12] py-20 tablet:py-28">
       {/* Layered blooms rather than a bitmap, so it stays crisp at any width. */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -23,7 +23,7 @@ export default function ValueBand() {
         }}
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <Reveal amount={0.2}>
           <div className="flex rounded-[28px] border border-white/15 bg-white/[0.06] p-10 backdrop-blur-xl tablet:p-14 laptop:min-h-[380px] laptop:p-16">
             <div className="flex w-full flex-col gap-10 laptop:flex-row laptop:items-center laptop:justify-between laptop:gap-16">
@@ -43,7 +43,7 @@ export default function ValueBand() {
               <div className="flex shrink-0 flex-col gap-4 sm:flex-row laptop:flex-col">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-white px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#14141D] laptop:px-10 transition-transform duration-300 hover:-translate-y-0.5"
+                  className="group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-primary px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A] laptop:px-10"
                 >
                   Contact us
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

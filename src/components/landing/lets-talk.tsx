@@ -12,7 +12,7 @@ const TILE =
 export default function LetsTalk() {
   return (
     <section className="bg-[#F6F6F7] py-20 tablet:py-28">
-      <div className="mx-auto w-full max-w-[1300px] px-6 sm:px-10">
+      <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <Reveal amount={0.2}>
           <div className="grid gap-12 laptop:grid-cols-2 laptop:items-center laptop:gap-16">
             <div>

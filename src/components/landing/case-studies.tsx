@@ -39,7 +39,7 @@ export default function CaseStudies() {
 
   return (
     <section className="bg-white py-20 tablet:py-28">
-      <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-10">
+      <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <Reveal className="text-center" amount={0.25}>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
             Case Studies

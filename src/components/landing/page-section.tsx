@@ -37,8 +37,8 @@ export default function PageSection({
         className={
           bleed
             ? "relative"
-            : `relative mx-auto w-full px-6 sm:px-10 ${
-                width === 1400 ? "max-w-[1400px]" : "max-w-[1300px]"
+            : `relative mx-auto w-full px-6 sm:px-10 xl:px-[60px] ${
+                width === 1400 ? "max-w-[1400px]" : "max-w-[1600px]"
               }`
         }
       >

@@ -15,7 +15,7 @@ export default function Insights({ blogs }: { blogs: DetailBlogPost[] }) {
 
   return (
     <section className="bg-white py-20 tablet:py-28">
-      <div className="mx-auto w-full max-w-[1300px] px-6 sm:px-10">
+      <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <Reveal amount={0.2}>
           <div className="flex flex-col gap-6 tablet:flex-row tablet:items-end tablet:justify-between">
             <div>

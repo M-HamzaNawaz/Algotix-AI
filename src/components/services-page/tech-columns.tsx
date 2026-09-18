@@ -13,7 +13,7 @@ const rowB = techCategories.slice(split).flatMap((c) => c.items);
 export default function TechColumns() {
   return (
     <PageSection bleed>
-      <div className="mx-auto w-full max-w-[1300px] px-6 sm:px-10">
+      <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <Reveal amount={0.25}>
           <SectionHeading
             eyebrow="Technologies"

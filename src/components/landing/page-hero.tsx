@@ -95,7 +95,7 @@ export default function PageHero({
           }}
         />
 
-        <div className="relative z-10 mx-auto flex min-h-[760px] w-full max-w-[1500px] flex-col px-6 pb-10 pt-32 tablet:min-h-screen sm:px-10 desktop:px-16">
+        <div className="relative z-10 mx-auto flex min-h-[760px] w-full max-w-[1600px] flex-col px-6 pb-10 pt-32 tablet:min-h-screen sm:px-10 xl:px-[60px]">
           <MountRevealGroup
             className="flex flex-1 items-center"
             stagger={0.12}

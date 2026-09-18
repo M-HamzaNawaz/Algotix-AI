@@ -12,9 +12,9 @@ export default function PageIntro({
   description?: string;
 }) {
   return (
-    <section className="band-dark relative overflow-hidden pb-20 pt-40 tablet:pb-24 tablet:pt-48">
+    <section className="band-dark relative overflow-hidden pb-20 pt-40 tablet:pb-28 tablet:pt-48">
       <MountRevealGroup
-        className="relative z-10 mx-auto w-full max-w-[1300px] px-6 sm:px-10"
+        className="relative z-10 mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]"
         stagger={0.12}
         delay={0.1}
       >

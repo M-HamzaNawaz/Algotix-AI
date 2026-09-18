@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import MeetingEmailForm from "../../meetingEmailForm";
 
 /**
@@ -118,7 +119,7 @@ const Navbar = () => {
         boxShadow: scrolled ? BAR_SHADOW : "none",
       }}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-[30px] md:h-[35px]">
+      <div className="mx-auto flex h-[30px] w-full max-w-[1600px] items-center justify-between px-6 sm:px-10 xl:px-[60px] md:h-[35px]">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="relative h-[37px] w-[120px]">
@@ -151,13 +152,14 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Call to action, styled like the reference's tinted "CONTACT" pill. */}
+        {/* Call to action: the same solid orange pill as the hero button. */}
         <div className="hidden lg:flex items-center">
           <button
             onClick={handleConsultationClick}
-            className="rounded-lg bg-[#FFEFE4] px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#FE5A01] font-['Poppins'] transition-all duration-300 hover:bg-[#FE5A01] hover:text-white"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white font-['Poppins'] shadow-[0_10px_24px_-12px_rgba(254,89,1,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A]"
           >
             Contact
+            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
 
@@ -211,7 +213,7 @@ const Navbar = () => {
         }`}
         style={{ backgroundColor: "#0B0B12" }}
       >
-        <div className="container mx-auto px-4 flex flex-col space-y-4 pb-6">
+        <div className="mx-auto flex w-full max-w-[1600px] flex-col space-y-4 px-6 pb-6 sm:px-10 xl:px-[60px]">
           {navItems.map((item) => (
             <Link
               key={item.name}
