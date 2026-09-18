@@ -127,7 +127,7 @@ export const projects: ProjectData[] = [
       techIcons: [
         "/images/technologies/nextjs.svg",
         "/images/technologies/aws.png",
-        "/images/technologies/typescript.svg",
+        "/images/technologies/typeScript.svg",
       ],
       platformIcon: "/images/project-detail/website.svg",
       contactIcons: {
@@ -186,7 +186,7 @@ export const projects: ProjectData[] = [
 
       techIcons: [
         "/images/project-detail/Next.js.svg",
-        "/images/technologies/typescript.svg",
+        "/images/technologies/typeScript.svg",
         "/images/technologies/nestjs.svg",
       ],
       platformIcon: "/images/project-detail/website.svg",
@@ -246,7 +246,7 @@ export const projects: ProjectData[] = [
       discussion: "/images/projects/project-discussion.png",
 
       techIcons: [
-        "/images/technologies/typescript.svg",
+        "/images/technologies/typeScript.svg",
         "/images/project-detail/Next.js.svg",
         "/images/technologies/vercel.svg",
       ],
@@ -309,7 +309,7 @@ export const projects: ProjectData[] = [
       techIcons: [
         "/images/project-detail/Next.js.svg",
         "/images/project-detail/aws-amplify-logo.png",
-        "/images/technologies/typescript.svg",
+        "/images/technologies/typeScript.svg",
         "/images/technologies/nestjs.svg",
       ],
       platformIcon: "/images/project-detail/website.svg",
@@ -370,9 +370,9 @@ export const projects: ProjectData[] = [
 
       techIcons: [
         "/images/project-detail/react-icon.svg",
-        "/images/technologies/javascript.svg",
+        "/images/technologies/JavaScript.svg",
         "/images/project-detail/aws-amplify-logo.png",
-        "/images/technologies/nodejs.svg",
+        "/images/technologies/NodeJs.svg",
       ],
       platformIcon: "/images/project-detail/website.svg",
       contactIcons: {
@@ -432,7 +432,7 @@ export const projects: ProjectData[] = [
 
       techIcons: [
         "/images/technologies/laravel.png",
-        "/images/technologies/vue.svg",
+        "/images/technologies/Vue.svg",
         "/images/technologies/aws.png",
       ],
       platformIcon: "/images/project-detail/website.svg",
@@ -493,7 +493,7 @@ export const projects: ProjectData[] = [
 
       techIcons: [
         "/images/project-detail/react-icon.svg",
-        "/images/technologies/javascript.svg",
+        "/images/technologies/JavaScript.svg",
         "/images/technologies/vercel.svg",
         "/images/project-detail/figma-icon.svg",
       ],
