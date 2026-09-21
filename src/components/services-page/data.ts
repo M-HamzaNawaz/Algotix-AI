@@ -21,6 +21,8 @@ import {
   GraduationCap,
   HeartPulse,
   Truck,
+  Megaphone,
+  Recycle,
   type LucideIcon,
 } from "lucide-react";
 
@@ -324,7 +326,21 @@ export const industries: Industry[] = [
     icon: Bot,
     title: "AI & Automation",
     description:
-      "AI assistants that take repetitive work off your team, from document transcription to scheduled outreach.",
+      "AI assistants that take repetitive work off your team, such as transcribing documents accurately at scale.",
     caseStudy: { name: "AI Document Transcription Tool", slug: "ai-assistant" },
+  },
+  {
+    icon: Megaphone,
+    title: "Sales & Marketing",
+    description:
+      "AI-powered outreach tools that plan, schedule and automate campaigns and customer communication.",
+    caseStudy: { name: "AI Outreach Tool", slug: "ai-dashboard" },
+  },
+  {
+    icon: Recycle,
+    title: "IT Services",
+    description:
+      "Professional marketing sites for IT asset disposition and decommissioning providers.",
+    caseStudy: { name: "ITAD Landing Page", slug: "ecommerce-solution" },
   },
 ];
