@@ -20,7 +20,7 @@ const PrivacyPolicy: React.FC = () => {
           <p className="leading-relaxed">
             For the purposes of this Privacy Policy:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-outside pl-6 marker:text-primary space-y-2">
             <li>
               <strong>Account</strong> means a unique account created for You to
               access our Service or parts of our Service.
@@ -104,7 +104,7 @@ const PrivacyPolicy: React.FC = () => {
             identify You. Personally identifiable information may include, but
             is not limited to:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-outside pl-6 marker:text-primary space-y-2">
             <li>Email address</li>
             <li>First name and last name</li>
             <li>Phone number</li>
@@ -144,7 +144,7 @@ const PrivacyPolicy: React.FC = () => {
             track information and to improve and analyze Our Service. The
             technologies We use may include:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-outside pl-6 marker:text-primary space-y-2">
             <li>
               <strong>Cookies or Browser Cookies.</strong> A cookie is a small
               file placed on Your Device. You can instruct Your browser to
@@ -243,7 +243,7 @@ const PrivacyPolicy: React.FC = () => {
           <p className="leading-relaxed">
             The Company may use Personal Data for the following purposes:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-outside pl-6 marker:text-primary space-y-2">
             <li>
               <strong>To provide and maintain our Service</strong>, including to
               monitor the usage of our Service.
@@ -300,7 +300,7 @@ const PrivacyPolicy: React.FC = () => {
           <p className="leading-relaxed">
             We may share Your personal information in the following situations:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-outside pl-6 marker:text-primary space-y-2">
             <li>
               <strong>With Service Providers:</strong> We may share Your
               personal information with Service Providers to monitor and analyze
@@ -439,7 +439,7 @@ const PrivacyPolicy: React.FC = () => {
             The Company may disclose Your Personal Data in the good faith belief
             that such action is necessary to:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-outside pl-6 marker:text-primary space-y-2">
             <li>Comply with a legal obligation</li>
             <li>Protect and defend the rights or property of the Company</li>
             <li>
@@ -535,7 +535,7 @@ const PrivacyPolicy: React.FC = () => {
             If you have any questions about this Privacy Policy, You can contact
             us:
           </p>
-          <ul className="list-disc list-inside space-y-2">
+          <ul className="list-disc list-outside pl-6 marker:text-primary space-y-2">
             <li>
               By email:{" "}
               <a
