@@ -53,6 +53,10 @@ const footerNavLinks: NavLinksType[] = [
   {
     ...routes.CONTACT,
   },
+  {
+    title: "FAQ",
+    path: "/faq",
+  },
 ];
 
 const footerMiscLinks: NavLinksType[] = [
