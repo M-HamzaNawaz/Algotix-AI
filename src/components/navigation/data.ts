@@ -1,7 +1,6 @@
 import { routes } from "@/src/constants/routes";
 import linkedInLogo from "@/public/linkedin logo.svg";
 import facebookLogo from "@/public/facebook logo.svg";
-import twitterLogo from "@/public/Twitter logo.svg";
 import instagramLogo from "@/public/instagram logo.svg";
 import location from "@/public/location.svg";
 import email from "@/public/email.svg";
@@ -89,11 +88,9 @@ const socialLinks: SocialItemType[] = [
     link: "https://www.facebook.com/algotixai",
     logo: facebookLogo,
   },
-  {
-    title: "Twitter / X",
-    link: "https://www.facebook.com/algotixai",
-    logo: twitterLogo,
-  },
+  /* Twitter / X is left out until there is a real profile to link to: the
+     entry used to point at the Facebook page. To restore it, import the logo
+     from "@/public/Twitter logo.svg" and add an entry with the profile URL. */
   {
     title: "LinkedIn",
     link: "https://www.linkedin.com/company/algotix",
