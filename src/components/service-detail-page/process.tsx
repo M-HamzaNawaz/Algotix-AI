@@ -7,11 +7,21 @@ import {
   RevealGroup,
   RevealItem,
 } from "@/src/components/motion/reveal";
+import { deliverySteps } from "@/src/components/services-page/data";
 import type { OurServiceData } from "@/src/containers/services/data";
 
 /** What we focus on, beside the numbered steps of the process. */
 export default function Process({ service }: { service: OurServiceData }) {
-  if (!service.steps.length) return null;
+  /* Services without their own steps fall back to the company's four delivery
+     stages, so every service page keeps its dark band between the two light
+     ones instead of showing two white sections in a row. */
+  const steps = service.steps.length
+    ? service.steps
+    : deliverySteps.map((step, i) => ({
+        step: `STEP ${i + 1}`,
+        title: step.title,
+        description: step.description,
+      }));
 
   return (
     <PageSection dark>
@@ -51,8 +61,8 @@ export default function Process({ service }: { service: OurServiceData }) {
         </div>
 
         <RevealGroup stagger={0.12} amount={0.15}>
-          {service.steps.map((step, i) => {
-            const last = i === service.steps.length - 1;
+          {steps.map((step, i) => {
+            const last = i === steps.length - 1;
             return (
               <RevealItem key={step.title} direction="left" distance={28}>
                 <div className="relative flex gap-6 pb-10">
