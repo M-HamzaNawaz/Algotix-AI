@@ -255,7 +255,8 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                   Brand, <span className="text-primary">together</span>
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
-                  Partnering with Algatix offers a multitude
+                  Partnering with Algotix AI gives you a choice of ways to work
+                  together.
                 </p>
 
                 <div className="flex flex-wrap mb-4 sm:mb-6 gap-4 sm:gap-6">
