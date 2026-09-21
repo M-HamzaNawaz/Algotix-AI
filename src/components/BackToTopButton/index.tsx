@@ -2,7 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
-import { smoothScrollTo } from "@/src/components/motion/lenis-instance";
+import {
+  easeInOutCubic,
+  smoothScrollTo,
+} from "@/src/components/motion/lenis-instance";
 
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +27,9 @@ const BackToTopButton: React.FC = () => {
   // Lenis disables native smooth scrolling while it is running, so route the
   // scroll through it and fall back to the browser when it is not active.
   const scrollToTop = () => {
-    smoothScrollTo(0, { duration: 1.2 });
+    // Ease in and out: the default curve covers a third of the page in the
+    // first few frames, which reads as a jump rather than a glide.
+    smoothScrollTo(0, { duration: 1.4, easing: easeInOutCubic });
   };
 
   return (

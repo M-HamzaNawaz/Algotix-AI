@@ -20,7 +20,13 @@ interface SmoothScrollOptions {
   duration?: number;
   offset?: number;
   immediate?: boolean;
+  /** Progress curve, 0 to 1. Lenis defaults to a sharp ease-out. */
+  easing?: (t: number) => number;
 }
+
+/** Gentle start and gentle stop, for long programmatic scrolls. */
+export const easeInOutCubic = (t: number) =>
+  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 /**
  * Scrolls to a target with Lenis when it is running, and falls back to the
@@ -30,10 +36,16 @@ export function smoothScrollTo(
   target: number | string | HTMLElement,
   options: SmoothScrollOptions = {},
 ) {
-  const { duration = 1.15, offset = 0, immediate = false } = options;
+  const { duration = 1.15, offset = 0, immediate = false, easing } = options;
 
   if (instance) {
-    instance.scrollTo(target, { duration, offset, immediate, force: true });
+    instance.scrollTo(target, {
+      duration,
+      offset,
+      immediate,
+      force: true,
+      ...(easing ? { easing } : {}),
+    });
     return;
   }
 
