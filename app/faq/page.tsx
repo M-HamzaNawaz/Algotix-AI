@@ -6,7 +6,7 @@ import ValueBand from "@/src/components/landing/value-band";
 import { faqData } from "@/src/containers/projects/data";
 
 export const metadata: Metadata = {
-  title: "FAQ | Algotix AI",
+  title: "Frequently Asked Questions",
   description:
     "Answers to common questions about working with Algotix AI: services, engagement models, security and support.",
 };
