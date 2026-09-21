@@ -164,30 +164,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   return (
     <div className="p-4 sm:p-6 mt-2 relative">
       {/* Close Button */}
-      <div className="absolute top-0 right-0 mt-2 mr-2 sm:mt-8 sm:mr-4 hover:cursor-pointer hover:bg-primary hover:text-white rounded-full transition-colors duration-300">
-        <Button
-          type="button"
-          variant="tertiary"
-          className="p-1 sm:p-2 px-2  text-gray-600 hover:text-white"
-          onClick={onClose}
-        >
-          <span className="sr-only">Close contact form</span>
-          <svg
-            className="w-5 h-5 sm:w-6 sm:h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </Button>
-      </div>
+
       <h2 className="text-xl sm:text-2xl font-medium mb-2 sm:mb-4 break-words max-w-[220px] xs:max-w-[240px] sm:max-w-full">
         Let&apos;s <span className="text-primary">Build</span> up your Brand,{" "}
         <span className="text-primary">together</span>

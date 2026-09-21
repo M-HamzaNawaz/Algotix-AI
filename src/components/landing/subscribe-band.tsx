@@ -64,7 +64,7 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
                 }}
                 placeholder="Your email"
                 aria-invalid={Boolean(error)}
-                className={`h-14 flex-1 rounded-full border bg-white/[0.08] px-6 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/60 ${
+                className={`h-14 flex-1 rounded-full border bg-white/[0.08] px-6 text-sm !text-white placeholder:!text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/60 ${
                   error ? "border-primary" : "border-white/15"
                 }`}
               />
