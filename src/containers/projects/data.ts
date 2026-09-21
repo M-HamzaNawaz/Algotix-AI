@@ -104,7 +104,7 @@ export const faqData = [
   {
     question: "What industries do you specialize in?",
     answer:
-      "Our solutions are industry-agnostic, but we have strong experience in fintech, healthcare, e-commerce, education, logistics, and enterprise automation.",
+      "Our solutions are industry-agnostic, but we have strong experience in healthcare, fintech, education, logistics, real estate, e-commerce, and AI-driven enterprise automation.",
   },
   {
     question: "How do you ensure the security of software and data?",
