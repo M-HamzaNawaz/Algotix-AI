@@ -7,8 +7,12 @@ import "lenis/dist/lenis.css";
 
 import { getLenisInstance, setLenisInstance } from "./lenis-instance";
 
-/** The navbar is fixed, so anchor targets need to clear it. */
-const NAV_OFFSET = -110;
+/**
+ * Anchor targets clear the fixed navbar through `scroll-margin-top` in
+ * globals.css, which Lenis also honours. An extra offset here would stack on
+ * top of it and leave in-page links stopping far too low.
+ */
+const NAV_OFFSET = 0;
 
 /**
  * Installs momentum scrolling for the whole site. Renders nothing.
