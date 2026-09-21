@@ -132,7 +132,7 @@ export default function LandingHero() {
 
                 <Link
                   href="/projects"
-                  className="group inline-flex items-center gap-2 text-sm font-medium text-white/75 transition-colors duration-300 hover:text-primary"
+                  className="group inline-flex min-h-[40px] items-center gap-2 text-sm font-medium text-white/75 transition-colors duration-300 hover:text-primary"
                 >
                   See our work
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -151,12 +151,12 @@ export default function LandingHero() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45">
               Our Expertise
             </p>
-            <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-4 tablet:grid-cols-3 laptop:grid-cols-6">
+            <div className="-mb-2 mt-3 grid grid-cols-2 gap-x-8 gap-y-0 tablet:grid-cols-3 laptop:grid-cols-6">
               {expertiseLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group text-sm font-medium leading-snug text-white/85 transition-colors duration-300 hover:text-primary"
+                  className="group block py-2 text-sm font-medium leading-snug text-white/85 transition-colors duration-300 hover:text-primary"
                 >
                   <span>{item.label}</span>
                 </Link>
