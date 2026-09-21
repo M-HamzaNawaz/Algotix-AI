@@ -20,8 +20,8 @@ export const contactData: ContactData[] = [
   },
   {
     icon: "phone-icon.svg",
-    title: "(415) 739-28463",
+    title: "+1 (530) 992-8933",
     description: "Say Hello to Algotix AI!",
-    link: "tel:(415) 739-28463",
+    link: "tel:+15309928933",
   },
 ];
