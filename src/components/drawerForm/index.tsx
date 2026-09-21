@@ -171,6 +171,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
           className="p-1 sm:p-2 px-2  text-gray-600 hover:text-white"
           onClick={onClose}
         >
+          <span className="sr-only">Close contact form</span>
           <svg
             className="w-5 h-5 sm:w-6 sm:h-6"
             fill="none"

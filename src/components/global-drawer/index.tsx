@@ -43,9 +43,10 @@ const GlobalDrawer: React.FC = () => {
         </button>
       )}
 
-      {/* Right Drawer Form */}
+      {/* Right Drawer Form. It sits above the fixed navbar (z-100) so the bar
+          never covers the drawer's own header and close button. */}
       <div
-        className={`fixed top-0 right-0 h-full w-full sm:max-w-md bg-gray-50 shadow-xl transform transition-transform duration-300 ease-in-out z-[60] ${
+        className={`fixed top-0 right-0 h-full w-full sm:max-w-md bg-gray-50 shadow-xl transform transition-transform duration-300 ease-in-out z-[120] ${
           isDrawerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -53,6 +54,7 @@ const GlobalDrawer: React.FC = () => {
           <h2 className="text-xl font-medium">Contact Us</h2>
           <button
             onClick={toggleDrawer}
+            aria-label="Close contact form"
             className="text-gray-600 hover:text-gray-800"
           >
             <svg
@@ -84,7 +86,7 @@ const GlobalDrawer: React.FC = () => {
       {/* Overlay */}
       {isDrawerOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 z-[110] bg-black bg-opacity-50"
           onClick={toggleDrawer}
         ></div>
       )}
