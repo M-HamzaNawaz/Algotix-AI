@@ -14,8 +14,9 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const submit = (event: FormEvent) => {
+  const submit = async (event: FormEvent) => {
     event.preventDefault();
     const result = emailSchema.safeParse(email.trim());
     if (!result.success) {
@@ -23,8 +24,26 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
       return;
     }
     setError("");
-    // The original form validated only; there is no subscription endpoint yet.
-    setDone(true);
+    setSending(true);
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: result.data }),
+      });
+      if (!response.ok) {
+        const body = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        setError(body?.error || "Something went wrong. Please try again.");
+        return;
+      }
+      setDone(true);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -70,9 +89,10 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
               />
               <button
                 type="submit"
-                className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-8 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5"
+                disabled={sending}
+                className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-8 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
               >
-                Subscribe
+                {sending ? "Subscribing…" : "Subscribe"}
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </form>
