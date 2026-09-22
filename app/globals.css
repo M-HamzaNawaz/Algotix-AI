@@ -334,6 +334,11 @@ h3 {
 
 .page-transition {
   animation: page-fade-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* Scroll entrances park content a few px past an edge while hidden. Clip
+     here (not on body, whose value the browser hands to the viewport) so a
+     waiting entrance can never widen the page. `clip` is not a scroll
+     container, so sticky and smooth scrolling are unaffected. */
+  overflow-x: clip;
 }
 
 @keyframes page-fade-in {
