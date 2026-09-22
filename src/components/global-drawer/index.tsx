@@ -73,7 +73,7 @@ const GlobalDrawer: React.FC = () => {
             </svg>
           </button>
         </div>
-        <div className="p-4 overflow-y-auto h-[calc(100%-4rem)]">
+        <div className="h-[calc(100%-4rem)] overflow-y-auto p-5 sm:p-6">
           <DrawerForm
             toggleDrawer={toggleDrawer}
             serviceOptions={SERVICE_OPTIONS}

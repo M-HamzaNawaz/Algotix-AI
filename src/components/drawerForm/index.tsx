@@ -162,17 +162,17 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   };
 
   return (
-    <div className="p-4 sm:p-6 mt-2 relative">
-      <h2 className="text-xl sm:text-2xl font-medium mb-2 sm:mb-4 break-words max-w-[220px] xs:max-w-[240px] sm:max-w-full">
+    <div className="relative">
+      <h2 className="text-xl sm:text-2xl font-medium mb-2 sm:mb-3 break-words max-w-[220px] xs:max-w-[240px] sm:max-w-full">
         Let&apos;s <span className="text-primary">Build</span> up your Brand,{" "}
         <span className="text-primary">together</span>
       </h2>
 
-      <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
+      <p className="text-gray-600 text-sm sm:text-base mb-3">
         Partnering with Algotix AI gives you a choice of ways to work together.
       </p>
 
-      <div className="flex flex-wrap mb-4 sm:mb-6 gap-4 sm:gap-6">
+      <div className="flex flex-wrap mb-4 gap-x-4 gap-y-2">
         {serviceOptions.map((option) => (
           <label key={option.id} className="flex items-center">
             <input
@@ -184,7 +184,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               onChange={handleRadioChange}
               value={option.value}
             />
-            <span className="text-sm sm:text-base">{option.label}</span>
+            <span className="text-[13px]">{option.label}</span>
           </label>
         ))}
       </div>
@@ -198,7 +198,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               placeholder="First name"
               value={formData.firstName}
               onChange={handleInputChange}
-              className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
+              className={`p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
             />
             {errors.firstName && (
               <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
@@ -210,7 +210,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               value={formData.lastName}
               name="lastName"
               placeholder="Last name"
-              className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.lastName ? "border border-red-500" : ""}`}
+              className={`p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.lastName ? "border border-red-500" : ""}`}
               onChange={handleInputChange}
             />
             {errors.lastName && (
@@ -223,7 +223,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               name="phone"
               placeholder="Phone"
               value={formData.phone}
-              className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.phone ? "border border-red-500" : ""}`}
+              className={`p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.phone ? "border border-red-500" : ""}`}
               onChange={handleInputChange}
             />
             {errors.phone && (
@@ -237,7 +237,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               value={formData.email}
               placeholder="Email"
               onChange={handleInputChange}
-              className={`p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
+              className={`p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
             />
             {errors.email && (
               <p className="text-red-500 text-xs mt-1">{errors.email}</p>
@@ -251,7 +251,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
             name="techStack"
             value={formData.techStack}
             placeholder="Enter your preferred tech stack..."
-            className="w-full p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
+            className="w-full p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary"
             onChange={handleInputChange}
           />
         </div>
@@ -262,15 +262,15 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
             value={formData.message}
             onChange={handleInputChange}
             placeholder="Write message here.."
-            rows={4}
-            className={`w-full p-2 sm:p-3 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
+            rows={3}
+            className={`w-full p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
           ></textarea>
           {errors.message && (
             <p className="text-red-500 text-xs mt-1">{errors.message}</p>
           )}
         </div>
 
-        <div className="flex flex-col justify-start items-start sm:items-center mb-4 gap-8">
+        <div className="flex flex-col justify-start items-start sm:items-center mb-4 gap-3">
           <div className="flex flex-col items-start w-full">
             <Recaptcha onChange={handleCaptchaChange} />
             {errors.captcha && (
