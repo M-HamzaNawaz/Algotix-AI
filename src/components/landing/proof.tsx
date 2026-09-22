@@ -25,7 +25,7 @@ export default function Proof() {
               Rooted in Pakistan.
               <span className="block text-primary">Delivering worldwide.</span>
             </h2>
-            <p className="text-lead mt-7 max-w-xl text-[#6B6F76]">
+            <p className="text-body mt-7 max-w-xl text-[#6B6F76]">
               We partner with startups and enterprises across industries,
               pairing global engineering standards with the responsiveness of a
               close-knit team.
@@ -56,7 +56,7 @@ export default function Proof() {
                     <div className="h-full w-full animate-spin-border bg-[conic-gradient(from_0deg,transparent_0deg,transparent_250deg,rgba(254,90,1,0.35)_290deg,#FE5A01_330deg,transparent_360deg)] motion-reduce:animate-none" />
                   </div>
                   <div className="relative rounded-[14px] bg-[#F6F6F7] px-6 py-8 text-center">
-                    <p className="text-figure text-primary">{stat.value}</p>
+                    <p className="text-heading text-primary">{stat.value}</p>
                     <p className="text-small mx-auto mt-3 max-w-[170px] text-[#6B6F76]">
                       {stat.label}
                     </p>

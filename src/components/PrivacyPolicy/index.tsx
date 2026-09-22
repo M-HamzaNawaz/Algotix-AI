@@ -95,7 +95,7 @@ const PrivacyPolicy: React.FC = () => {
             Collecting and Using Your Personal Data
           </h2>
           <h3 className="text-subheading">Types of Data Collected</h3>
-          <h4 className="text-lead">Personal Data</h4>
+          <h4 className="text-body">Personal Data</h4>
           <p className="leading-relaxed">
             While using Our Service, We may ask You to provide Us with certain
             personally identifiable information that can be used to contact or
@@ -108,7 +108,7 @@ const PrivacyPolicy: React.FC = () => {
             <li>Phone number</li>
             <li>Usage Data</li>
           </ul>
-          <h4 className="text-lead">Usage Data</h4>
+          <h4 className="text-body">Usage Data</h4>
           <p className="leading-relaxed">
             Usage Data is collected automatically when using the Service.
           </p>
@@ -132,7 +132,7 @@ const PrivacyPolicy: React.FC = () => {
             visit our Service or when You access the Service by or through a
             mobile device.
           </p>
-          <h4 className="text-lead">Tracking Technologies and Cookies</h4>
+          <h4 className="text-body">Tracking Technologies and Cookies</h4>
           <p className="leading-relaxed">
             We use Cookies and similar tracking technologies to track the
             activity on Our Service and store certain information. Tracking
@@ -406,21 +406,21 @@ const PrivacyPolicy: React.FC = () => {
         {/* Disclosure of Personal Data */}
         <section className="space-y-5">
           <h3 className="text-subheading">Disclosure of Your Personal Data</h3>
-          <h4 className="text-lead">Business Transactions</h4>
+          <h4 className="text-body">Business Transactions</h4>
           <p className="leading-relaxed">
             If the Company is involved in a merger, acquisition or asset sale,
             Your Personal Data may be transferred. We will provide notice before
             Your Personal Data is transferred and becomes subject to a different
             Privacy Policy.
           </p>
-          <h4 className="text-lead">Law Enforcement</h4>
+          <h4 className="text-body">Law Enforcement</h4>
           <p className="leading-relaxed">
             Under certain circumstances, the Company may be required to disclose
             Your Personal Data if required to do so by law or in response to
             valid requests by public authorities (e.g. a court or a government
             agency).
           </p>
-          <h4 className="text-lead">Other Legal Requirements</h4>
+          <h4 className="text-body">Other Legal Requirements</h4>
           <p className="leading-relaxed">
             The Company may disclose Your Personal Data in the good faith belief
             that such action is necessary to:

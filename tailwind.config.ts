@@ -23,14 +23,14 @@ export default {
           { lineHeight: "1.15", fontWeight: "700" },
         ],
         subheading: ["1.25rem", { lineHeight: "1.35", fontWeight: "600" }],
-        lead: ["1.125rem", { lineHeight: "1.65" }],
         body: ["1rem", { lineHeight: "1.65" }],
         small: ["0.875rem", { lineHeight: "1.5" }],
+        // Not a sixth size: Small with label styling (semibold, tracked) for
+        // eyebrows, buttons and nav pills.
         label: [
-          "0.75rem",
-          { lineHeight: "1.4", letterSpacing: "0.18em", fontWeight: "600" },
+          "0.875rem",
+          { lineHeight: "1.4", letterSpacing: "0.14em", fontWeight: "600" },
         ],
-        figure: ["2.75rem", { lineHeight: "1", fontWeight: "700" }],
       },
       screens: {
         // Mobile Devices

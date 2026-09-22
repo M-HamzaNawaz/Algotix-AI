@@ -105,7 +105,7 @@ export default function CaseStudies() {
                         />
                       )}
                       <span
-                        className={`text-lead w-8 shrink-0 tabular-nums transition-colors duration-500 ${isActive ? "text-primary" : "text-[#14141D]/60"}`}
+                        className={`text-body w-8 shrink-0 tabular-nums transition-colors duration-500 ${isActive ? "text-primary" : "text-[#14141D]/60"}`}
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>

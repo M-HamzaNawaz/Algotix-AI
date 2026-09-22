@@ -242,7 +242,7 @@ export function LogoRow({
               >
                 <LogoMark tech={tech} dark={dark} />
                 <span
-                  className={`text-lead whitespace-nowrap font-semibold ${dark ? " text-white/65 transition-colors duration-300 group-hover:text-white " : " text-[#6B6F76] "}`}
+                  className={`text-body whitespace-nowrap font-semibold ${dark ? " text-white/65 transition-colors duration-300 group-hover:text-white " : " text-[#6B6F76] "}`}
                 >
                   {tech.name}
                 </span>

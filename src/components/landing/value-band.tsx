@@ -37,7 +37,7 @@ export default function ValueBand() {
                   Get In Touch
                 </p>
                 <h2 className="text-heading text-white">Let&apos;s talk</h2>
-                <p className="text-lead mt-6 max-w-2xl text-white/65">
+                <p className="text-body mt-6 max-w-2xl text-white/65">
                   Tell us what you are trying to build. We will come back with a
                   clear view of scope, approach, and what it takes to ship it.
                 </p>

@@ -40,7 +40,7 @@ export default function Overview({ project }: { project: ProjectData }) {
 
       <div className="mt-16 grid gap-12 laptop:grid-cols-[minmax(0,1fr)_320px] laptop:gap-16">
         <Reveal amount={0.05}>
-          <div className="text-lead prose-project max-w-none text-[#3A3D45]">
+          <div className="text-body prose-project max-w-none text-[#3A3D45]">
             <ProjectDetailSection slug={project.mdx ?? project.slug} />
           </div>
         </Reveal>

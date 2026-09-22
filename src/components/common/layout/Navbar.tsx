@@ -167,7 +167,7 @@ const Navbar = () => {
               key={item.name}
               href={item.path}
               onClick={() => rememberHash(item.path)}
-              className={`text-body ${getLinkClass(item.path)}`}
+              className={`text-small ${getLinkClass(item.path)}`}
             >
               {item.name}
             </Link>
@@ -245,7 +245,7 @@ const Navbar = () => {
               key={item.name}
               href={item.path}
               onClick={() => rememberHash(item.path)}
-              className={`block text-body py-2 px-4 rounded-md transition-colors duration-200 ${
+              className={`block text-small py-2 px-4 rounded-md transition-colors duration-200 ${
                 isActive(item.path)
                   ? `font-semibold text-[#ff5a01] ${scrolled ? "bg-primary/10" : "bg-white/10"}`
                   : scrolled
@@ -263,7 +263,7 @@ const Navbar = () => {
             <div className="px-4 pt-2">
               <button
                 onClick={handleConsultationClick}
-                className="text-body block w-full bg-gradient-to-l from-[#ff5a01] to-[#fd5901] text-white font-semibold px-5 py-3 rounded-full text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="text-label uppercase block w-full bg-gradient-to-l from-[#ff5a01] to-[#fd5901] text-white font-semibold px-5 py-3 rounded-full text-center shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 Request a Consultation
               </button>

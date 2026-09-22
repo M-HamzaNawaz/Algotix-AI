@@ -41,7 +41,7 @@ const BackToTopButton: React.FC = () => {
             className="relative flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 4k:w-18 4k:h-18 bg-primary text-white rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-2xl hover:outline-none hover:ring-2 hover:ring-primary animate-bounce-in group"
             aria-label="Back to top"
           >
-            <FaArrowUp className="text-lead group-hover:animate-spin-pulse" />
+            <FaArrowUp className="text-body group-hover:animate-spin-pulse" />
             {/* Pulsating Glow */}
             <div className="absolute inset-0 rounded-full bg-primary opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-500 animate-pulse-glow"></div>
             {/* Outer Ring for Extra Animation */}

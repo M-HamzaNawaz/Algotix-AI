@@ -22,12 +22,12 @@ const options = {
       </h3>
     ),
     [BLOCKS.UL_LIST]: (_node: any, children: any) => (
-      <ul className="text-lead my-5 list-disc space-y-2 pl-6 text-[#3A3D45] marker:text-primary">
+      <ul className="text-body my-5 list-disc space-y-2 pl-6 text-[#3A3D45] marker:text-primary">
         {children}
       </ul>
     ),
     [BLOCKS.OL_LIST]: (_node: any, children: any) => (
-      <ol className="text-lead my-5 list-decimal space-y-2 pl-6 text-[#3A3D45] marker:text-primary">
+      <ol className="text-body my-5 list-decimal space-y-2 pl-6 text-[#3A3D45] marker:text-primary">
         {children}
       </ol>
     ),
@@ -35,7 +35,7 @@ const options = {
       <li className="[&>p]:my-0">{children}</li>
     ),
     [BLOCKS.QUOTE]: (_node: any, children: any) => (
-      <blockquote className="text-lead my-8 border-l-4 border-primary pl-6 italic text-[#14141D] [&>p]:my-0">
+      <blockquote className="text-body my-8 border-l-4 border-primary pl-6 italic text-[#14141D] [&>p]:my-0">
         {children}
       </blockquote>
     ),
