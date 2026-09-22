@@ -8,12 +8,18 @@ import { ArrowRight } from "lucide-react";
 import MeetingEmailForm from "../../meetingEmailForm";
 
 /**
- * The reference bar is one constant, slightly translucent dark surface at every
- * scroll position — never transparent over the hero, never hidden — and the only
- * thing scrolling changes is a faint shadow. This mirrors that in the brand dark.
+ * At the top of the page the bar is a near-solid brand dark. Once the visitor
+ * scrolls it becomes light frosted glass: a translucent white with the page
+ * blurred through it, a faint bottom line and a soft shadow. The logo, the
+ * links and the phone menu switch to dark with it.
  */
 const BAR_BACKGROUND = "rgba(11, 11, 18, 0.9)";
-const BAR_SHADOW = "0 2px 4px rgba(0, 0, 0, 0.075)";
+const GLASS_BACKGROUND = "rgba(255, 255, 255, 0.55)";
+const GLASS_BLUR = "blur(18px) saturate(180%)";
+const GLASS_SHADOW = "0 4px 30px rgba(0, 0, 0, 0.08)";
+const GLASS_BORDER = "1px solid rgba(255, 255, 255, 0.35)";
+/** How far the page must scroll before the glass state kicks in. */
+const SCROLL_THRESHOLD = 20;
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +32,7 @@ const Navbar = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
+    const handleScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -109,29 +115,47 @@ const Navbar = () => {
   const getLinkClass = (path: string) =>
     isActive(path)
       ? "font-medium text-[#ff5a01]"
-      : "text-white/85 hover:text-white transition-colors duration-300";
+      : scrolled
+        ? "text-[#0B0B12]/85 hover:text-primary transition-colors duration-300"
+        : "text-white/85 hover:text-white transition-colors duration-300";
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-[100] py-4 transition-shadow duration-300 xl:py-5"
+      className="fixed top-0 left-0 right-0 z-[100] py-4 transition-[background-color,box-shadow,border-color] duration-300 xl:py-5"
       style={{
-        backgroundColor: BAR_BACKGROUND,
-        boxShadow: scrolled ? BAR_SHADOW : "none",
+        backgroundColor: scrolled ? GLASS_BACKGROUND : BAR_BACKGROUND,
+        backdropFilter: scrolled ? GLASS_BLUR : "none",
+        WebkitBackdropFilter: scrolled ? GLASS_BLUR : "none",
+        boxShadow: scrolled ? GLASS_SHADOW : "none",
+        borderBottom: scrolled ? GLASS_BORDER : "1px solid transparent",
       }}
     >
       <div className="mx-auto flex h-[30px] w-full max-w-[1600px] items-center justify-between px-6 sm:px-10 xl:px-[60px] md:h-[35px]">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="relative h-[37px] w-[120px]">
+          <Link href="/" className="relative block h-[37px] w-[120px]">
+            {/* White-lettered logo for the dark bar and the original dark
+                logo for the glass bar, cross-faded so the swap is smooth.
+                Both keep the orange dot over the "i". */}
             <Image
-              /* White-lettered copy of the logo for the dark bar, so the
-                 orange dot over the "i" keeps its colour. */
               src="/images/logo/logo-white.png"
               alt="AlgotixAI"
               fill
               sizes="120px"
-              className="object-contain"
+              className={`object-contain transition-opacity duration-300 ${
+                scrolled ? "opacity-0" : "opacity-100"
+              }`}
               priority
+            />
+            <Image
+              src="/images/logo/logo.svg"
+              alt=""
+              aria-hidden
+              fill
+              sizes="120px"
+              className={`object-contain transition-opacity duration-300 ${
+                scrolled ? "opacity-100" : "opacity-0"
+              }`}
             />
           </Link>
         </div>
@@ -167,7 +191,9 @@ const Navbar = () => {
         <div className="lg:hidden flex">
           <button
             onClick={toggleMenu}
-            className="text-white focus:outline-none p-2"
+            className={`p-2 transition-colors duration-300 focus:outline-none ${
+              scrolled ? "text-[#0B0B12]" : "text-white"
+            }`}
             aria-label="Toggle mobile menu"
           >
             {isOpen ? (
@@ -211,7 +237,11 @@ const Navbar = () => {
         className={`lg:hidden absolute w-full top-14 shadow-lg shadow-black/30 transition-all duration-300 overflow-hidden ${
           isOpen ? "max-h-[500px] py-4" : "max-h-0"
         }`}
-        style={{ backgroundColor: "#0B0B12" }}
+        style={{
+          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.92)" : "#0B0B12",
+          backdropFilter: scrolled ? GLASS_BLUR : "none",
+          WebkitBackdropFilter: scrolled ? GLASS_BLUR : "none",
+        }}
       >
         <div className="mx-auto flex w-full max-w-[1600px] flex-col space-y-4 px-6 pb-6 sm:px-10 xl:px-[60px]">
           {navItems.map((item) => (
@@ -221,15 +251,19 @@ const Navbar = () => {
               onClick={() => rememberHash(item.path)}
               className={`block text-sm py-2 px-4 font-normal rounded-md transition-colors duration-200 ${
                 isActive(item.path)
-                  ? "font-semibold text-[#ff5a01] bg-white/10"
-                  : "text-white/85 hover:bg-white/5"
+                  ? `font-semibold text-[#ff5a01] ${scrolled ? "bg-primary/10" : "bg-white/10"}`
+                  : scrolled
+                    ? "text-[#0B0B12]/85 hover:bg-black/5"
+                    : "text-white/85 hover:bg-white/5"
               }`}
             >
               {item.name}
             </Link>
           ))}
 
-          <div className="pt-2 border-t border-white/10 mt-2">
+          <div
+            className={`mt-2 border-t pt-2 ${scrolled ? "border-black/10" : "border-white/10"}`}
+          >
             <div className="px-4 pt-2">
               <button
                 onClick={handleConsultationClick}
