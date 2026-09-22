@@ -69,7 +69,7 @@ export default async function BlogDetail({ params }: PageProps) {
               </div>
             </Reveal>
           )}
-          <Reveal amount={0.05} distance={32} delay={0.1}>
+          <Reveal amount={0.05} distance={32} delay={0.15}>
             {blog.content ? (
               <MarkdownBody content={blog.content} />
             ) : (

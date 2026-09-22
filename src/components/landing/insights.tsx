@@ -37,7 +37,7 @@ export default function Insights({ blogs }: { blogs: DetailBlogPost[] }) {
 
         <RevealGroup
           className="mt-12 grid gap-8 tablet:grid-cols-2 laptop:grid-cols-3"
-          stagger={0.1}
+          stagger={0.14}
           amount={0.08}
         >
           {posts.map((post) => (

@@ -26,7 +26,7 @@ export default function DeliveryProcess() {
             />
           </Reveal>
 
-          <RevealGroup className="mt-12" stagger={0.12} amount={0.15}>
+          <RevealGroup className="mt-12" stagger={0.17} amount={0.15}>
             {deliverySteps.map((step, i) => {
               const Icon = step.icon;
               const last = i === deliverySteps.length - 1;

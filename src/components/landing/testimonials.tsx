@@ -43,7 +43,7 @@ export default function Testimonials({
 
       <RevealGroup
         className="mt-14 grid gap-6 tablet:grid-cols-2 laptop:grid-cols-3"
-        stagger={0.08}
+        stagger={0.12}
         amount={0.1}
       >
         {testimonialsData.map((item) => (

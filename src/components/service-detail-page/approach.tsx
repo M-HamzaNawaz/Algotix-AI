@@ -25,7 +25,7 @@ export default function Approach({ service }: { service: OurServiceData }) {
 
       <RevealGroup
         className={`mt-14 grid gap-6 tablet:grid-cols-2 ${columns}`}
-        stagger={0.1}
+        stagger={0.14}
         amount={0.1}
       >
         {service.tags.map((tag, i) => (

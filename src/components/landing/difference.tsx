@@ -23,7 +23,7 @@ export default function Difference() {
 
         <RevealGroup
           className="mt-14 grid gap-4 tablet:grid-cols-2 laptop:grid-cols-3"
-          stagger={0.09}
+          stagger={0.13}
           amount={0.08}
         >
           {differentiators.map((item, index) => {

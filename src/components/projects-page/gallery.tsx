@@ -92,7 +92,7 @@ export default function Gallery() {
                 className="h-full"
                 amount={0.15}
                 distance={28}
-                delay={(index % 3) * 0.09}
+                delay={(index % 3) * 0.14}
               >
                 <Link
                   href={`/project-detail/${project.slug}`}

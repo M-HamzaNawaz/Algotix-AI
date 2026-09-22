@@ -70,7 +70,7 @@ export default function CaseStudies() {
               as="ul"
               className="flex min-w-0 flex-col border-t border-[#E4E4E8]"
               amount={0.15}
-              stagger={0.08}
+              stagger={0.12}
             >
               {Projects.map((item, i) => {
                 const isActive = i === active;

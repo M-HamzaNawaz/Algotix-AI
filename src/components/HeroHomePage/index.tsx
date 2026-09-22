@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             flex layout that CSS targets by class is untouched. */}
         <MountRevealGroup
           className="content-wrapper"
-          stagger={0.12}
+          stagger={0.15}
           delay={0.15}
         >
           <div className="lg:px-8 4k:px-16">

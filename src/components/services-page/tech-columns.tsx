@@ -31,7 +31,7 @@ export default function TechColumns() {
       <RevealGroup
         className="mt-24 w-full overflow-hidden tablet:mt-32"
         amount={0.3}
-        stagger={0.15}
+        stagger={0.22}
       >
         <RevealItem direction="right" distance={48}>
           <LogoRow items={rowA} reverse />

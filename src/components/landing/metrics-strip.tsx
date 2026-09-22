@@ -17,7 +17,7 @@ export default function MetricsStrip({ items }: { items: Metric[] }) {
     <section className="border-b border-[#E4E4E8] bg-white pt-8 tablet:pt-12">
       <RevealGroup
         className={`mx-auto grid w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px] ${columns}`}
-        stagger={0.08}
+        stagger={0.12}
         amount={0.3}
       >
         {items.map((m, i) => (

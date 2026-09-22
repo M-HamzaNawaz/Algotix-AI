@@ -25,7 +25,7 @@ export default function Industries() {
 
       <RevealGroup
         className="mt-14 grid gap-6 tablet:grid-cols-2 laptop-lg:grid-cols-4"
-        stagger={0.08}
+        stagger={0.12}
         amount={0.08}
       >
         {industries.map((item) => {

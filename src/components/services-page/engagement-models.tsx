@@ -20,7 +20,7 @@ export default function EngagementModels() {
 
       <RevealGroup
         className="mt-14 grid gap-6 tablet:grid-cols-3"
-        stagger={0.1}
+        stagger={0.14}
         amount={0.15}
       >
         {engagementModels.map((model) => {

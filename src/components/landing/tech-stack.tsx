@@ -149,7 +149,7 @@ export default function TechStack() {
       <RevealGroup
         className="relative z-10 mt-24 w-full overflow-hidden tablet:mt-32"
         amount={0.3}
-        stagger={0.15}
+        stagger={0.22}
       >
         <RevealItem direction="right" distance={48}>
           <LogoRow items={techLogosRowA} tone="dark" reverse />

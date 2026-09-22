@@ -32,7 +32,7 @@ export default function OpenRoles() {
       </Reveal>
 
       {hiring ? (
-        <RevealGroup className="mt-14 space-y-4" stagger={0.08} amount={0.1}>
+        <RevealGroup className="mt-14 space-y-4" stagger={0.12} amount={0.1}>
           {openRoles.map((role) => (
             <RevealItem key={role.title} distance={20}>
               <Link

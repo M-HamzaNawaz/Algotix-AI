@@ -29,7 +29,7 @@ export default function FaqAccordion({
       className={`overflow-hidden rounded-2xl border ${
         dark ? "border-white/10 bg-white/[0.04]" : "border-[#E4E4E8] bg-white"
       }`}
-      stagger={0.06}
+      stagger={0.09}
       amount={0.1}
     >
       {items.map((item, i) => {

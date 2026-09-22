@@ -121,7 +121,7 @@ const MeetingRequestPage: React.FC = () => {
               {steps.map((step, i) => {
                 const Icon = step.icon;
                 return (
-                  <Reveal key={step.title} amount={0.2} delay={i * 0.08}>
+                  <Reveal key={step.title} amount={0.2} delay={i * 0.12}>
                     <li className="glow-card glow-light sheen sheen-light relative isolate overflow-hidden flex gap-5 rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-6 transition-all duration-400 hover:-translate-y-1 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
                       <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
                         <Icon className="h-6 w-6" strokeWidth={1.6} />

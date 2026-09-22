@@ -46,7 +46,7 @@ export default function ValueBand() {
               <Reveal
                 direction="left"
                 distance={32}
-                delay={0.12}
+                delay={0.18}
                 amount={0.2}
                 className="flex shrink-0 flex-col gap-4 sm:flex-row laptop:flex-col"
               >

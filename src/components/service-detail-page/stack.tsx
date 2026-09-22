@@ -32,7 +32,7 @@ export default function Stack({ service }: { service: OurServiceData }) {
 
       <RevealGroup
         className="mx-auto mt-14 flex max-w-4xl flex-wrap justify-center gap-4"
-        stagger={0.06}
+        stagger={0.09}
         amount={0.2}
       >
         {service.logos.map((logo) => (

@@ -9,7 +9,7 @@ const NotFound = () => {
     <section className="band-dark relative flex min-h-screen items-center overflow-hidden pb-20 pt-40">
       <MountRevealGroup
         className="relative z-10 mx-auto w-full max-w-[1600px] px-6 text-center sm:px-10 xl:px-[60px]"
-        stagger={0.12}
+        stagger={0.15}
         delay={0.1}
       >
         <RevealItem>

@@ -22,7 +22,7 @@ export default function Benefits() {
 
       <RevealGroup
         className="mt-14 grid gap-6 sm:grid-cols-2 laptop:grid-cols-4"
-        stagger={0.07}
+        stagger={0.1}
         amount={0.1}
       >
         {benefitsData.map((benefit) => (

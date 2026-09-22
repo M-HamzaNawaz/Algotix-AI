@@ -23,7 +23,7 @@ export default function Values() {
 
       <RevealGroup
         className="mt-14 grid gap-6 sm:grid-cols-2 laptop:grid-cols-3"
-        stagger={0.08}
+        stagger={0.12}
         amount={0.15}
       >
         {valuesData.features.map((value) => (

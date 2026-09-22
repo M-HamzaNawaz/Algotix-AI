@@ -38,7 +38,11 @@ export default function Process({ service }: { service: OurServiceData }) {
           </Reveal>
 
           {service.cardsData.length > 0 && (
-            <RevealGroup className="mt-10 space-y-4" stagger={0.1} amount={0.2}>
+            <RevealGroup
+              className="mt-10 space-y-4"
+              stagger={0.14}
+              amount={0.2}
+            >
               {service.cardsData.map((card) => (
                 <RevealItem key={card.title} distance={20}>
                   <div className="flex gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
@@ -60,7 +64,7 @@ export default function Process({ service }: { service: OurServiceData }) {
           )}
         </div>
 
-        <RevealGroup stagger={0.12} amount={0.15}>
+        <RevealGroup stagger={0.17} amount={0.15}>
           {steps.map((step, i) => {
             const last = i === steps.length - 1;
             return (

@@ -25,7 +25,7 @@ const HeroAboutSection: React.FC = () => {
             stay siblings and the cascade reaches both. */}
         <MountRevealGroup
           className="flex flex-col tablet-lg:flex-row tablet-lg:items-start justify-center h-full tablet-lg:justify-between items-center gap-8"
-          stagger={0.14}
+          stagger={0.17}
           delay={0.1}
         >
           {/* `space-y-6` targets direct children, so each wrapper stands in for

@@ -35,7 +35,7 @@ export default function Proof() {
           {/* The figures step down like a staircase, one card per tread. */}
           <RevealGroup
             className="flex flex-col gap-5 tablet:gap-6"
-            stagger={0.12}
+            stagger={0.17}
             amount={0.2}
           >
             {stats.map((stat, i) => (

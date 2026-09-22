@@ -49,7 +49,7 @@ export default function ServiceExplorer() {
             as="ul"
             className="flex flex-col border-b border-[#E4E4E8] laptop:border-b-0 laptop:border-r"
             amount={0.15}
-            stagger={0.07}
+            stagger={0.1}
           >
             {services.map((item, i) => {
               const Icon = serviceIcons[item.slug];
