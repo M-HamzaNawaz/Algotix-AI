@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Quote } from "lucide-react";
 
-import GlowCard from "@/src/components/landing/glow-card";
 import PageSection from "@/src/components/landing/page-section";
 import SectionHeading from "@/src/components/landing/section-heading";
 import {
@@ -49,9 +48,8 @@ export default function Testimonials({
       >
         {testimonialsData.map((item) => (
           <RevealItem key={item.id} className="h-full" distance={24}>
-            <GlowCard
-              as="figure"
-              className={`sheen group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-500 ease-out hover:-translate-y-1.5 ${card}`}
+            <figure
+              className={`glow-card sheen group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-500 ease-out hover:-translate-y-1.5 ${card}`}
             >
               <span
                 className={`flex h-12 w-12 items-center justify-center rounded-lg border text-primary transition-all duration-500 ease-out group-hover:-translate-y-0.5 group-hover:-rotate-6 group-hover:shadow-[0_10px_24px_-8px_rgba(254,89,1,0.5)] ${quoteTile}`}
@@ -89,7 +87,7 @@ export default function Testimonials({
                   {item.name.trim()}
                 </span>
               </figcaption>
-            </GlowCard>
+            </figure>
           </RevealItem>
         ))}
 

@@ -682,3 +682,21 @@ div[id] {
     display: none;
   }
 }
+
+/* Lighter variants for cards on white and grey bands: a fainter glow, and
+   an orange sheen because a white band is invisible on a white card. */
+.glow-light::before {
+  background: radial-gradient(
+    460px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(254, 89, 1, 0.09),
+    transparent 45%
+  );
+}
+.sheen-light::after {
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgba(254, 89, 1, 0.07) 50%,
+    transparent 65%
+  );
+}

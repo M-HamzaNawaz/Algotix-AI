@@ -34,7 +34,7 @@ export default function Industries() {
             <RevealItem key={item.title} className="h-full" distance={24}>
               <Link
                 href={`/project-detail/${item.caseStudy.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.04)] p-7 backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/60 hover:bg-[rgba(255,255,255,0.07)]"
+                className="glow-card sheen relative isolate overflow-hidden group flex h-full flex-col rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.04)] p-7 backdrop-blur-sm transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/60 hover:bg-[rgba(255,255,255,0.07)]"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/15 bg-[rgba(255,255,255,0.06)] text-primary transition-colors duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
                   <Icon className="h-6 w-6" strokeWidth={1.7} />

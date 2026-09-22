@@ -17,6 +17,7 @@ import SmoothScrollProvider from "@/src/components/motion/smooth-scroll-provider
 import PageTransition from "@/src/components/motion/page-transition";
 import ScrollProgress from "@/src/components/motion/scroll-progress";
 import IntroLoader from "@/src/components/intro-loader";
+import PointerGlow from "@/src/components/motion/pointer-glow";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -118,6 +119,7 @@ export default function RootLayout({
           <SelectionStyle />
           <SmoothScrollProvider />
           <IntroLoader />
+          <PointerGlow />
           <ScrollProgress />
           <GlobalDrawer />
           <NextTopLoader

@@ -91,7 +91,7 @@ export default function Gallery() {
             >
               <Link
                 href={`/project-detail/${project.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#ECECEF] bg-white transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.4)]"
+                className="glow-card glow-light sheen sheen-light relative isolate group flex h-full flex-col overflow-hidden rounded-2xl border border-[#ECECEF] bg-white transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.4)]"
               >
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-[#ECECEF] bg-[#F2F2F4]">
                   <Image

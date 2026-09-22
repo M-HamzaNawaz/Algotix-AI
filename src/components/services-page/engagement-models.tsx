@@ -27,7 +27,7 @@ export default function EngagementModels() {
           const Icon = model.icon;
           return (
             <RevealItem key={model.title} className="h-full" distance={24}>
-              <div className="group flex h-full flex-col items-center rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-8 text-center transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
+              <div className="glow-card glow-light sheen sheen-light relative isolate overflow-hidden group flex h-full flex-col items-center rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-8 text-center transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
                 <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary shadow-sm transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
                   <Icon className="h-6 w-6" strokeWidth={1.6} />
                 </span>

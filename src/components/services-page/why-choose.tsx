@@ -28,7 +28,7 @@ export default function WhyChoose() {
           const Icon = item.icon;
           return (
             <RevealItem key={item.title} distance={22}>
-              <div className="h-full border-b border-white/10 p-8 tablet:border-r [&:nth-child(2n)]:tablet:border-r-0 laptop:[&:nth-child(2n)]:border-r laptop:[&:nth-child(3n)]:border-r-0">
+              <div className="glow-card sheen relative isolate overflow-hidden group h-full border-b border-white/10 p-8 tablet:border-r [&:nth-child(2n)]:tablet:border-r-0 laptop:[&:nth-child(2n)]:border-r laptop:[&:nth-child(3n)]:border-r-0">
                 <span
                   className="flex h-12 w-12 items-center justify-center rounded-lg text-white"
                   style={{ backgroundColor: item.accent }}

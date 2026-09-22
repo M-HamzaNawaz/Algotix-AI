@@ -48,7 +48,7 @@ export default function ContactChannels() {
                 href={item.link}
                 target={external ? "_blank" : undefined}
                 rel={external ? "noopener noreferrer" : undefined}
-                className="group flex h-full flex-col rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-8 transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]"
+                className="glow-card glow-light sheen sheen-light relative isolate overflow-hidden group flex h-full flex-col rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-8 transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]"
               >
                 <div className="flex items-start justify-between">
                   <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary shadow-sm transition-colors duration-300 group-hover:bg-primary group-hover:text-white">

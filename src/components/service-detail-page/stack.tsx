@@ -37,7 +37,7 @@ export default function Stack({ service }: { service: OurServiceData }) {
       >
         {service.logos.map((logo) => (
           <RevealItem key={logo} distance={16}>
-            <div className="flex h-24 w-36 items-center justify-center rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
+            <div className="glow-card glow-light sheen sheen-light relative isolate overflow-hidden flex h-24 w-36 items-center justify-center rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
               <Image
                 src={logo}
                 alt={nameFromPath(logo)}

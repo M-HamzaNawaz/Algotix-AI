@@ -30,7 +30,7 @@ export default function Difference() {
             const Icon = item.icon;
             return (
               <RevealItem key={item.title} className="h-full" distance={28}>
-                <article className="group relative flex h-full min-h-[320px] flex-col overflow-hidden rounded-xl border border-white/[0.06] bg-[#17171F] p-7 transition-all duration-400 hover:-translate-y-1.5 hover:border-white/15">
+                <article className="glow-card sheen isolate group relative flex h-full min-h-[320px] flex-col overflow-hidden rounded-xl border border-white/[0.06] bg-[#17171F] p-7 transition-all duration-400 hover:-translate-y-1.5 hover:border-white/15">
                   <Pattern
                     kind={item.pattern}
                     color={item.accent}

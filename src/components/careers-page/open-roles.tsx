@@ -37,7 +37,7 @@ export default function OpenRoles() {
             <RevealItem key={role.title} distance={20}>
               <Link
                 href={role.href}
-                className="group flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-primary/50 tablet:flex-row tablet:items-center tablet:justify-between tablet:p-7"
+                className="glow-card sheen relative isolate overflow-hidden group flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-400 hover:-translate-y-1 hover:border-primary/50 tablet:flex-row tablet:items-center tablet:justify-between tablet:p-7"
               >
                 <div>
                   <h3 className="text-subheading text-white transition-colors duration-300 group-hover:text-primary">

@@ -30,7 +30,7 @@ export default function Approach({ service }: { service: OurServiceData }) {
       >
         {service.tags.map((tag, i) => (
           <RevealItem key={tag.name} className="h-full" distance={24}>
-            <div className="group flex h-full flex-col rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-8 transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
+            <div className="glow-card glow-light sheen sheen-light relative isolate overflow-hidden group flex h-full flex-col rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-8 transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
               <span className="text-label uppercase text-primary">
                 Phase {String(i + 1).padStart(2, "0")}
               </span>
