@@ -56,7 +56,7 @@ export default function Gallery() {
                   setFilter(item);
                   setShowAll(false);
                 }}
-                className={`relative isolate rounded-full px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ${
+                className={`relative isolate rounded-full px-5 py-2 text-label uppercase transition-colors duration-300 ${
                   isActive ? "text-white" : "text-[#3A3D45] hover:text-primary"
                 }`}
               >
@@ -103,14 +103,14 @@ export default function Gallery() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#A0A4AB]">
+                  <div className="text-label flex items-center justify-between gap-4 uppercase text-[#A0A4AB]">
                     <span className="text-primary">{project.category}</span>
                     <span>{project.year}</span>
                   </div>
-                  <h3 className="mt-3 text-lg font-semibold leading-snug text-[#14141D] transition-colors duration-300 group-hover:text-primary">
+                  <h3 className="text-subheading mt-3 text-[#14141D] transition-colors duration-300 group-hover:text-primary">
                     {project.name}
                   </h3>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                  <span className="text-small mt-5 inline-flex items-center gap-2 font-semibold text-primary">
                     View case study
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
@@ -126,7 +126,7 @@ export default function Gallery() {
           <button
             type="button"
             onClick={() => setShowAll(true)}
-            className="group inline-flex items-center gap-3 rounded-full border border-[#14141D]/25 px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#14141D] transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
+            className="group inline-flex items-center gap-3 rounded-full border border-[#14141D]/25 px-8 py-4 text-label uppercase text-[#14141D] transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
           >
             Show all projects
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

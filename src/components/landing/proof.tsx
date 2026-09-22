@@ -20,14 +20,12 @@ export default function Proof() {
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <div className="grid gap-14 laptop:grid-cols-2 laptop:items-center laptop:gap-20">
           <Reveal amount={0.2}>
-            <p className="text-[12px] font-semibold uppercase tracking-[0.24em] text-primary tablet:text-[13px]">
-              Global Reach
-            </p>
-            <h2 className="mt-5 text-[28px] font-bold leading-[1.12] text-[#14141D] tablet:text-[40px] laptop:text-[34px] laptop-lg:text-[42px] laptop-xl:text-[48px]">
+            <p className="text-label uppercase text-primary">Global Reach</p>
+            <h2 className="text-heading mt-5 text-[#14141D]">
               Rooted in Bahawalpur.
               <span className="block text-primary">Delivering worldwide.</span>
             </h2>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#6B6F76] laptop:text-[20px]">
+            <p className="text-lead mt-7 max-w-xl text-[#6B6F76]">
               We partner with startups and enterprises across industries,
               pairing global engineering standards with the responsiveness of a
               close-knit team.
@@ -57,10 +55,8 @@ export default function Proof() {
                     <div className="h-full w-full animate-spin-border bg-[conic-gradient(from_0deg,transparent_0deg,transparent_250deg,rgba(254,90,1,0.35)_290deg,#FE5A01_330deg,transparent_360deg)] motion-reduce:animate-none" />
                   </div>
                   <div className="relative rounded-[14px] bg-[#F6F6F7] px-6 py-8 text-center">
-                    <p className="text-[40px] font-bold leading-none text-primary tablet:text-[46px]">
-                      {stat.value}
-                    </p>
-                    <p className="mx-auto mt-3 max-w-[170px] text-sm leading-snug text-[#6B6F76]">
+                    <p className="text-figure text-primary">{stat.value}</p>
+                    <p className="text-small mx-auto mt-3 max-w-[170px] text-[#6B6F76]">
                       {stat.label}
                     </p>
                   </div>

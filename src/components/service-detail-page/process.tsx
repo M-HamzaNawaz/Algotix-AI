@@ -46,10 +46,10 @@ export default function Process({ service }: { service: OurServiceData }) {
                       <Check className="h-3.5 w-3.5" strokeWidth={3} />
                     </span>
                     <div>
-                      <h3 className="text-[17px] font-semibold text-white">
+                      <h3 className="text-subheading text-white">
                         {card.title}
                       </h3>
-                      <p className="mt-1.5 text-[15px] leading-relaxed text-white/60">
+                      <p className="text-body mt-1.5 text-white/60">
                         {card.description}
                       </p>
                     </div>
@@ -69,17 +69,17 @@ export default function Process({ service }: { service: OurServiceData }) {
                   {!last && (
                     <span className="absolute left-6 top-14 h-[calc(100%-3.5rem)] w-px bg-white/15" />
                   )}
-                  <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/60 bg-[#0B0B12] text-[15px] font-semibold text-primary">
+                  <span className="text-body relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/60 bg-[#0B0B12] font-semibold text-primary">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45">
+                    <p className="text-label uppercase text-white/45">
                       {step.step}
                     </p>
-                    <h3 className="mt-1.5 text-[19px] font-semibold text-white">
+                    <h3 className="text-subheading mt-1.5 text-white">
                       {step.title}
                     </h3>
-                    <p className="mt-2 max-w-lg text-[15px] leading-relaxed text-white/60">
+                    <p className="text-body mt-2 max-w-lg text-white/60">
                       {step.description}
                     </p>
                   </div>

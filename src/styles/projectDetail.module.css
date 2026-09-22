@@ -1,60 +1,80 @@
-.mdxContent h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  border-bottom: 2px solid #ecf0f1;
-  margin: 1rem 0;
-  
-}
+/* Case-study write-ups come from Markdown, so their text is styled here
+   rather than with utility classes. The values follow the site's type scale:
+   headings use the subheading step, sub-headings and paragraphs the body
+   step, with the same weights and line heights as the components. */
 
+.mdxContent h1,
 .mdxContent h2 {
-  font-size: 2rem;
-  font-weight: 500;
-  margin: 1rem 0;
-  letter-spacing: 0%;
-  
+  font-size: 1.25rem; /* subheading */
+  font-weight: 600;
+  line-height: 1.35;
+  color: #14141d;
+  margin: 2.5rem 0 0.75rem;
 }
 
 .mdxContent h3 {
-  font-size: 1.75rem;
-  font-weight: 500;
-  margin: 1rem 0;
-  
+  font-size: 1rem; /* body, semibold */
+  font-weight: 600;
+  line-height: 1.35;
+  color: #14141d;
+  margin: 2rem 0 0.5rem;
+}
+
+.mdxContent p,
+.mdxContent li {
+  font-size: 1rem; /* body */
+  font-weight: 400;
+  line-height: 1.65;
+  color: #3a3d45;
 }
 
 .mdxContent p {
-  font-size: 16px;
-  font-weight: normal;
   margin: 1rem 0;
-  line-height: 1.6;
+}
+
+.mdxContent ul,
+.mdxContent ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.mdxContent ul {
+  list-style: disc;
+}
+
+.mdxContent ol {
+  list-style: decimal;
+}
+
+.mdxContent li {
+  margin: 0.35rem 0;
+}
+
+.mdxContent li::marker {
+  color: #fe5a01;
 }
 
 .mdxContent a {
-  text-decoration: none;
-  color: inherit;
+  color: #fe5a01;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(254, 90, 1, 0.4);
+  text-underline-offset: 4px;
 }
 
 .mdxContent a:hover {
-  text-decoration: underline;
+  text-decoration-color: #fe5a01;
 }
 
 .mdxContent strong {
   font-weight: 600;
+  color: #14141d;
 }
-
-.mdxContent ul li {
-  margin: 0.2rem 0;
-}
-
-.mdxContent ol li {
-  margin: 0.2rem 0;
-}
-
-
-
 
 .mdxContent img {
   max-width: 100%;
   height: auto;
   margin: 2rem 0;
-  border-radius: 8px;
+  border-radius: 16px;
+  border: 1px solid #e4e4e8;
 }

@@ -47,20 +47,20 @@ export default function BlogCard({ post }: { post: DetailBlogPost }) {
 
       <div className="flex flex-1 flex-col p-6">
         {formatDate(post.date) && (
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#A0A4AB]">
+          <p className="text-label uppercase text-[#A0A4AB]">
             {formatDate(post.date)}
           </p>
         )}
 
-        <h3 className="mt-3 text-lg font-semibold leading-snug text-[#14141D] transition-colors duration-300 group-hover:text-primary">
+        <h3 className="text-subheading mt-3 text-[#14141D] transition-colors duration-300 group-hover:text-primary">
           {post.title}
         </h3>
 
-        <p className="mt-3 flex-1 text-sm leading-relaxed text-[#6B6F76]">
+        <p className="text-small mt-3 flex-1 text-[#6B6F76]">
           {post.excerpt || excerpt(post)}
         </p>
 
-        <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+        <span className="text-small mt-5 inline-flex items-center gap-2 font-semibold text-primary">
           Read more
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
         </span>

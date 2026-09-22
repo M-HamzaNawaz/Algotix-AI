@@ -40,19 +40,19 @@ export default function Industries() {
                   <Icon className="h-6 w-6" strokeWidth={1.7} />
                 </span>
 
-                <h3 className="mt-6 text-[19px] font-semibold text-white">
+                <h3 className="text-subheading mt-6 text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-white/60">
+                <p className="text-body mt-3 flex-1 text-white/60">
                   {item.description}
                 </p>
 
                 <div className="mt-7 flex items-end justify-between gap-4 border-t border-white/10 pt-5">
                   <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/45">
+                    <p className="text-label uppercase text-white/45">
                       Case study
                     </p>
-                    <p className="mt-1.5 text-[15px] font-medium text-white transition-colors duration-300 group-hover:text-primary">
+                    <p className="text-body mt-1.5 text-white transition-colors duration-300 group-hover:text-primary">
                       {item.caseStudy.name}
                     </p>
                   </div>

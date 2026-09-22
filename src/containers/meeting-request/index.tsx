@@ -127,13 +127,13 @@ const MeetingRequestPage: React.FC = () => {
                         <Icon className="h-6 w-6" strokeWidth={1.6} />
                       </span>
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
+                        <p className="text-label uppercase text-primary">
                           Step {String(i + 1).padStart(2, "0")}
                         </p>
-                        <h3 className="mt-1.5 text-[18px] font-semibold text-[#14141D]">
+                        <h3 className="text-subheading mt-1.5 text-[#14141D]">
                           {step.title}
                         </h3>
-                        <p className="mt-2 text-[15px] leading-relaxed text-[#6B6F76]">
+                        <p className="text-body mt-2 text-[#6B6F76]">
                           {step.description}
                         </p>
                       </div>
@@ -148,7 +148,7 @@ const MeetingRequestPage: React.FC = () => {
               itself, so it must not start scaled or hidden. */}
           <div className="overflow-hidden rounded-2xl border border-[#E4E4E8] bg-white shadow-[0_40px_80px_-40px_rgba(11,11,18,0.35)]">
             {isSubmitted && (
-              <p className="border-b border-[#E4E4E8] bg-[#FFF3EA] px-6 py-4 text-[15px] font-medium text-[#14141D]">
+              <p className="text-body border-b border-[#E4E4E8] bg-[#FFF3EA] px-6 py-4 text-[#14141D]">
                 You are booked. Check your inbox for the calendar invite.
               </p>
             )}

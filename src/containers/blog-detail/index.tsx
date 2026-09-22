@@ -53,12 +53,12 @@ export default async function BlogDetail({ params }: PageProps) {
                 )}
                 <div>
                   {blog.author && (
-                    <p className="text-[15px] font-semibold text-[#14141D]">
+                    <p className="text-body font-semibold text-[#14141D]">
                       {blog.author}
                     </p>
                   )}
                   {date && (
-                    <p className="text-[13px] uppercase tracking-[0.14em] text-[#A0A4AB]">
+                    <p className="text-small uppercase tracking-[0.14em] text-[#A0A4AB]">
                       {date}
                     </p>
                   )}

@@ -186,7 +186,7 @@ export default function IntroLoader() {
         </motion.div>
 
         <motion.p
-          className="mt-9 text-center text-[13px] font-medium tracking-wide text-white/55 sm:text-sm"
+          className="text-small mt-9 text-center tracking-wide text-white/55"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25, ease: EASE_OUT_EXPO }}
@@ -211,7 +211,7 @@ export default function IntroLoader() {
               }}
             />
           </div>
-          <div className="mt-3 flex items-center justify-between text-[10px] font-medium tracking-[0.28em] text-white/35">
+          <div className="text-label mt-3 flex items-center justify-between text-white/35">
             <span>LOADING</span>
             <span className="tabular-nums text-white/60">
               {String(Math.round(progress)).padStart(2, "0")}%

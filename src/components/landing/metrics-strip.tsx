@@ -23,10 +23,8 @@ export default function MetricsStrip({ items }: { items: Metric[] }) {
         {items.map((m, i) => (
           <RevealItem key={m.label} distance={18}>
             <div className={`px-2 py-10 text-center ${i > 0 ? divider : ""}`}>
-              <p className="text-[32px] font-bold leading-none text-primary tablet:text-[44px]">
-                {m.value}
-              </p>
-              <p className="mx-auto mt-3 max-w-[180px] text-sm leading-snug text-[#6B6F76]">
+              <p className="text-figure text-primary">{m.value}</p>
+              <p className="text-small mx-auto mt-3 max-w-[180px] text-[#6B6F76]">
                 {m.label}
               </p>
             </div>

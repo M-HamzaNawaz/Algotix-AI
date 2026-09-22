@@ -163,12 +163,12 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
 
   return (
     <div className="relative">
-      <h2 className="text-xl sm:text-2xl font-medium mb-2 sm:mb-3 break-words max-w-[220px] xs:max-w-[240px] sm:max-w-full">
+      <h2 className="text-heading mb-2 sm:mb-3 break-words max-w-[220px] xs:max-w-[240px] sm:max-w-full">
         Let&apos;s <span className="text-primary">Build</span> up your Brand,{" "}
         <span className="text-primary">together</span>
       </h2>
 
-      <p className="text-gray-600 text-sm sm:text-base mb-3">
+      <p className="text-small text-gray-600 mb-3">
         Partnering with Algotix AI gives you a choice of ways to work together.
       </p>
 
@@ -184,7 +184,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               onChange={handleRadioChange}
               value={option.value}
             />
-            <span className="text-[13px]">{option.label}</span>
+            <span className="text-small">{option.label}</span>
           </label>
         ))}
       </div>
@@ -201,7 +201,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               className={`p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
             />
             {errors.firstName && (
-              <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>
+              <p className="text-label text-red-500 mt-1">{errors.firstName}</p>
             )}
           </div>
           <div>
@@ -214,7 +214,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               onChange={handleInputChange}
             />
             {errors.lastName && (
-              <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>
+              <p className="text-label text-red-500 mt-1">{errors.lastName}</p>
             )}
           </div>
           <div>
@@ -227,7 +227,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               onChange={handleInputChange}
             />
             {errors.phone && (
-              <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+              <p className="text-label text-red-500 mt-1">{errors.phone}</p>
             )}
           </div>
           <div>
@@ -240,7 +240,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               className={`p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
             />
             {errors.email && (
-              <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              <p className="text-label text-red-500 mt-1">{errors.email}</p>
             )}
           </div>
         </div>
@@ -266,7 +266,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
             className={`w-full p-2.5 bg-secondary rounded-md focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
           ></textarea>
           {errors.message && (
-            <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+            <p className="text-label text-red-500 mt-1">{errors.message}</p>
           )}
         </div>
 
@@ -274,15 +274,17 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
           <div className="flex flex-col items-start w-full">
             <Recaptcha onChange={handleCaptchaChange} />
             {errors.captcha && (
-              <p className="text-red-500 text-sm mt-2">{errors.captcha}</p>
+              <p className="text-small text-red-500 mt-2">{errors.captcha}</p>
             )}
             {errors.agreeToTerms && (
-              <p className="text-red-500 text-sm mt-2">{errors.agreeToTerms}</p>
+              <p className="text-small text-red-500 mt-2">
+                {errors.agreeToTerms}
+              </p>
             )}
           </div>
 
           <div className="space-y-2 w-full">
-            <label className={`flex items-center text-sm`}>
+            <label className={`text-small flex items-center`}>
               <input
                 type="checkbox"
                 name="agreeToTerms"
@@ -292,7 +294,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               />
               I agree with T&Cs
             </label>
-            <label className="flex items-center text-sm text-gray-600">
+            <label className="text-small flex items-center text-gray-600">
               <input
                 type="checkbox"
                 name="newsletter"
@@ -306,13 +308,13 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
         </div>
 
         {errors.form && (
-          <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+          <p className="text-small text-red-500 mb-4">{errors.form}</p>
         )}
 
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-2 sm:py-3 bg-primary text-white font-medium rounded-md hover:bg-orange-600 transition-colors disabled:bg-gray-400"
+          className="w-full py-2 sm:py-3 bg-primary text-white font-semibold rounded-md hover:bg-orange-600 transition-colors disabled:bg-gray-400"
         >
           {isSubmitting ? "Submitting..." : "Submit"}
         </Button>

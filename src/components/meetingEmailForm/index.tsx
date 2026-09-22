@@ -152,10 +152,10 @@ const MeetingEmailForm: React.FC<MeetingEmailFormProps> = ({
                 />
               </svg>
             </div>
-            <h3 className="text-xl sm:text-2xl font-extrabold bg-gradient-to-r from-orange-500 to-purple-400/80 bg-clip-text text-transparent animate-pulse-slow">
+            <h3 className="text-subheading bg-gradient-to-r from-orange-500 to-purple-400/80 bg-clip-text text-transparent animate-pulse-slow">
               {formData.heading}
             </h3>
-            <p className="text-sm font-medium tracking-wide text-gray-600 mt-2">
+            <p className="text-small tracking-wide text-gray-600 mt-2">
               {formData.subheading}
             </p>
           </div>
@@ -169,10 +169,10 @@ const MeetingEmailForm: React.FC<MeetingEmailFormProps> = ({
                 setEmailError("");
               }}
               placeholder="Enter your email"
-              className="w-full px-4 py-2 sm:px-6 sm:py-3 bg-white/80 backdrop-blur-sm border border-orange-200/40 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-400 text-sm sm:text-base"
+              className="w-full px-4 py-2 sm:px-6 sm:py-3 bg-white/80 backdrop-blur-sm border border-orange-200/40 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-400 text-body sm:text-body"
             />
             {emailError && (
-              <p className="mt-2 text-xs sm:text-sm text-red-600/70 flex items-center">
+              <p className="text-label mt-2 text-red-600/70 flex items-center">
                 <svg
                   className="w-4 h-4 mr-1"
                   fill="none"
@@ -193,7 +193,7 @@ const MeetingEmailForm: React.FC<MeetingEmailFormProps> = ({
           <Button
             type="submit"
             variant="custom"
-            className="w-full py-2 px-4 sm:py-3 sm:px-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl shadow-lg hover:from-orange-600 hover:to-orange-700 hover:shadow-xl transition-all duration-400 transform hover:scale-102 text-sm sm:text-base"
+            className="text-small font-semibold w-full py-2 px-4 sm:py-3 sm:px-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold rounded-xl shadow-lg hover:from-orange-600 hover:to-orange-700 hover:shadow-xl transition-all duration-400 transform hover:scale-102"
           >
             Continue to Schedule
           </Button>

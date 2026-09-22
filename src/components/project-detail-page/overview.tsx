@@ -40,7 +40,7 @@ export default function Overview({ project }: { project: ProjectData }) {
 
       <div className="mt-16 grid gap-12 laptop:grid-cols-[minmax(0,1fr)_320px] laptop:gap-16">
         <Reveal amount={0.05}>
-          <div className="prose-project max-w-none text-[17px] leading-relaxed text-[#3A3D45]">
+          <div className="text-lead prose-project max-w-none text-[#3A3D45]">
             <ProjectDetailSection slug={project.mdx ?? project.slug} />
           </div>
         </Reveal>
@@ -48,14 +48,12 @@ export default function Overview({ project }: { project: ProjectData }) {
         <aside className="space-y-6">
           <Reveal direction="left" amount={0.2}>
             <div className="rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-7">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
-                Project
-              </p>
-              <h3 className="mt-3 text-[20px] font-semibold text-[#14141D]">
+              <p className="text-label uppercase text-primary">Project</p>
+              <h3 className="text-subheading mt-3 text-[#14141D]">
                 {project.companyName}
               </h3>
 
-              <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#A0A4AB]">
+              <p className="text-label mt-7 uppercase text-[#A0A4AB]">
                 {project.technology}
               </p>
               <div className="mt-3 flex flex-wrap gap-3">
@@ -75,7 +73,7 @@ export default function Overview({ project }: { project: ProjectData }) {
                 ))}
               </div>
 
-              <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#A0A4AB]">
+              <p className="text-label mt-7 uppercase text-[#A0A4AB]">
                 {project.platformAvailability}
               </p>
               <span className="mt-3 flex h-14 w-14 items-center justify-center rounded-xl bg-white shadow-sm">
@@ -92,10 +90,8 @@ export default function Overview({ project }: { project: ProjectData }) {
 
           <Reveal direction="left" amount={0.2}>
             <div className="rounded-2xl border border-[#E4E4E8] bg-white p-7">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
-                Need help?
-              </p>
-              <p className="mt-3 text-[15px] leading-relaxed text-[#6B6F76]">
+              <p className="text-label uppercase text-primary">Need help?</p>
+              <p className="text-body mt-3 text-[#6B6F76]">
                 Let us know if you have any concern or query and we will be
                 happy to help.
               </p>
@@ -108,10 +104,10 @@ export default function Overview({ project }: { project: ProjectData }) {
                         <Icon className="h-5 w-5" strokeWidth={1.8} />
                       </span>
                       <div>
-                        <p className="text-[14px] font-semibold text-[#14141D]">
+                        <p className="text-small font-semibold text-[#14141D]">
                           {item.title}
                         </p>
-                        <p className="mt-0.5 text-[14px] leading-snug text-[#6B6F76]">
+                        <p className="text-small mt-0.5 text-[#6B6F76]">
                           {item.value}
                         </p>
                       </div>

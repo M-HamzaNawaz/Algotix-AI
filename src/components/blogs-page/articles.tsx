@@ -21,7 +21,7 @@ export default function Articles({ blogs }: { blogs: DetailBlogPost[] }) {
       </Reveal>
 
       {blogs.length === 0 ? (
-        <p className="mt-14 text-center text-[15px] text-[#6B6F76]">
+        <p className="text-body mt-14 text-center text-[#6B6F76]">
           No articles published yet. Check back soon.
         </p>
       ) : (

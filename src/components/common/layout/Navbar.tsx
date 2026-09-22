@@ -114,7 +114,7 @@ const Navbar = () => {
 
   const getLinkClass = (path: string) =>
     isActive(path)
-      ? "font-medium text-[#ff5a01]"
+      ? "font-semibold text-[#ff5a01]"
       : scrolled
         ? "text-[#0B0B12]/85 hover:text-primary transition-colors duration-300"
         : "text-white/85 hover:text-white transition-colors duration-300";
@@ -167,7 +167,7 @@ const Navbar = () => {
               key={item.name}
               href={item.path}
               onClick={() => rememberHash(item.path)}
-              className={`text-sm xl:text-[16px] font-normal font-['Poppins'] ${getLinkClass(
+              className={`text-body font-['Poppins'] ${getLinkClass(
                 item.path,
               )}`}
             >
@@ -180,7 +180,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center">
           <button
             onClick={handleConsultationClick}
-            className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white font-['Poppins'] shadow-[0_10px_24px_-12px_rgba(254,89,1,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A]"
+            className="text-label group inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-2.5 uppercase text-white font-['Poppins'] shadow-[0_10px_24px_-12px_rgba(254,89,1,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A]"
           >
             Contact
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -247,7 +247,7 @@ const Navbar = () => {
               key={item.name}
               href={item.path}
               onClick={() => rememberHash(item.path)}
-              className={`block text-sm py-2 px-4 font-normal rounded-md transition-colors duration-200 ${
+              className={`block text-body py-2 px-4 rounded-md transition-colors duration-200 ${
                 isActive(item.path)
                   ? `font-semibold text-[#ff5a01] ${scrolled ? "bg-primary/10" : "bg-white/10"}`
                   : scrolled
@@ -265,7 +265,7 @@ const Navbar = () => {
             <div className="px-4 pt-2">
               <button
                 onClick={handleConsultationClick}
-                className="block w-full bg-gradient-to-l from-[#ff5a01] to-[#fd5901] text-white text-base font-semibold px-5 py-3 rounded-full text-center shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="text-body block w-full bg-gradient-to-l from-[#ff5a01] to-[#fd5901] text-white font-semibold px-5 py-3 rounded-full text-center shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 Request a Consultation
               </button>

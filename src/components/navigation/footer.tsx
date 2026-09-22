@@ -9,9 +9,7 @@ import { memo } from "react";
 const renderLinks = (heading: string, links: NavLinksType[]) => {
   return (
     <div className="flex w-full flex-col gap-4">
-      <p className="font-medium text-base mobile-lg:text-[18px] leading-[100%] tracking-[-1%]">
-        {heading}
-      </p>
+      <p className="text-body font-semibold tracking-[-1%]">{heading}</p>
       {links.map((link, idx) => (
         <Link
           key={idx}
@@ -25,7 +23,7 @@ const renderLinks = (heading: string, links: NavLinksType[]) => {
               className="w-5 h-5 transition-opacity duration-200 group-hover:opacity-80"
             />
           )}
-          <p className="text-[#9B9B9C] text-sm leading-6 font-medium transition-colors duration-200 group-hover:text-primary">
+          <p className="text-small text-[#9B9B9C] transition-colors duration-200 group-hover:text-primary">
             {link.title}
           </p>
         </Link>
@@ -43,7 +41,7 @@ const Footer = () => {
         {/* Left side. */}
         <div className="w-full laptop:max-w-[460px]">
           <Logo />
-          <p className="mt-6 tablet:mt-8 text-[#9B9B9C] font-medium text-[14px] leading-[24px] tracking-[0%]">
+          <p className="text-small mt-6 tablet:mt-8 text-[#9B9B9C] tracking-[0%]">
             {data.logo.subtitle}
           </p>
           <div className="flex gap-6 tablet:gap-8 my-6 tablet:my-8 ">

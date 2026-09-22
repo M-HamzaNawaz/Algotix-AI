@@ -45,9 +45,7 @@ export default function Testimonials({
             >
               <Quote className="h-7 w-7 text-primary" strokeWidth={1.6} />
               <blockquote
-                className={`mt-5 flex-1 text-[15px] leading-relaxed ${
-                  dark ? "text-white/70" : "text-[#3A3D45]"
-                }`}
+                className={`text-body mt-5 flex-1 ${dark ? "text-white/70" : "text-[#3A3D45]"}`}
               >
                 {item.text.trim()}
               </blockquote>
@@ -62,9 +60,7 @@ export default function Testimonials({
                   />
                 </span>
                 <span
-                  className={`text-[15px] font-semibold ${
-                    dark ? "text-white" : "text-[#14141D]"
-                  }`}
+                  className={`text-body font-semibold ${dark ? "text-white" : "text-[#14141D]"}`}
                 >
                   {item.name.trim()}
                 </span>
@@ -78,14 +74,12 @@ export default function Testimonials({
             href="/contact"
             className="group flex h-full flex-col justify-between rounded-2xl bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] p-8 text-white shadow-[0_24px_50px_-24px_rgba(254,89,1,0.8)] transition-transform duration-300 hover:-translate-y-1"
           >
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/80">
+            <p className="text-label uppercase text-white/80">
               Your project next
             </p>
             <div>
-              <h3 className="text-[24px] font-bold leading-tight">
-                Want to be one of them?
-              </h3>
-              <span className="mt-5 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em]">
+              <h3 className="text-subheading">Want to be one of them?</h3>
+              <span className="text-label mt-5 inline-flex items-center gap-2 uppercase">
                 Talk to us
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </span>

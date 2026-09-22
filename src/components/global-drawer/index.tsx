@@ -51,7 +51,7 @@ const GlobalDrawer: React.FC = () => {
         }`}
       >
         <div className="flex justify-between items-center p-4 border-b">
-          <h2 className="text-xl font-medium">Contact Us</h2>
+          <h2 className="text-heading">Contact Us</h2>
           <button
             onClick={toggleDrawer}
             aria-label="Close contact form"

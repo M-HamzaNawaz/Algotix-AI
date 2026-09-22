@@ -102,19 +102,19 @@ export default function LandingHero() {
                   exit={{ opacity: 0, y: -18 }}
                   transition={{ duration: 0.6, ease: EASE }}
                 >
-                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur-sm">
+                  <span className="text-label inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 uppercase text-white/80 backdrop-blur-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     {slide.eyebrow}
                   </span>
 
-                  <h1 className="mt-7 text-[28px] font-bold leading-[1.1] text-white mobile-lg:text-[34px] sm:text-5xl laptop:text-6xl desktop-lg:text-[68px]">
+                  <h1 className="text-display mt-7 text-white">
                     {slide.title}
                     <span className="mt-1 block text-primary">
                       {slide.titleAccent}
                     </span>
                   </h1>
 
-                  <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
+                  <p className="text-body mt-6 max-w-xl text-white/65">
                     {slide.description}
                   </p>
                 </motion.div>
@@ -124,7 +124,7 @@ export default function LandingHero() {
                 <button
                   type="button"
                   onClick={() => setShowForm(true)}
-                  className="group inline-flex items-center gap-3 rounded-full border border-white/35 px-7 py-3.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:border-primary hover:bg-primary"
+                  className="group inline-flex items-center gap-3 rounded-full border border-white/35 px-7 py-3.5 text-label uppercase text-white transition-all duration-300 hover:border-primary hover:bg-primary"
                 >
                   Request a Consultation
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -132,7 +132,7 @@ export default function LandingHero() {
 
                 <Link
                   href="/projects"
-                  className="group inline-flex min-h-[40px] items-center gap-2 text-sm font-medium text-white/75 transition-colors duration-300 hover:text-primary"
+                  className="text-small group inline-flex min-h-[40px] items-center gap-2 text-white/75 transition-colors duration-300 hover:text-primary"
                 >
                   See our work
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -148,15 +148,13 @@ export default function LandingHero() {
             animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.25, ease: EASE }}
           >
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45">
-              Our Expertise
-            </p>
+            <p className="text-label uppercase text-white/45">Our Expertise</p>
             <div className="-mb-2 mt-3 grid grid-cols-2 gap-x-8 gap-y-0 tablet:grid-cols-3 laptop:grid-cols-6">
               {expertiseLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="group block py-2 text-sm font-medium leading-snug text-white/85 transition-colors duration-300 hover:text-primary"
+                  className="text-small group block py-2 text-white/85 transition-colors duration-300 hover:text-primary"
                 >
                   <span>{item.label}</span>
                 </Link>
@@ -182,7 +180,7 @@ export default function LandingHero() {
           </button>
 
           <div className="flex flex-col items-center gap-2 py-1">
-            <span className="text-xs font-semibold tabular-nums text-white/80">
+            <span className="text-label tabular-nums text-white/80">
               {String(index + 1).padStart(2, "0")}
             </span>
             <span className="h-14 w-px bg-white/20">
@@ -197,7 +195,7 @@ export default function LandingHero() {
                 }}
               />
             </span>
-            <span className="text-xs font-semibold tabular-nums text-white/35">
+            <span className="text-label tabular-nums text-white/35">
               {String(heroSlides.length).padStart(2, "0")}
             </span>
           </div>

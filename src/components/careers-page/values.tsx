@@ -32,9 +32,7 @@ export default function Values() {
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FFF3EA] text-primary">
                 <Check className="h-4 w-4" strokeWidth={3} />
               </span>
-              <h3 className="text-[17px] font-semibold text-[#14141D]">
-                {value}
-              </h3>
+              <h3 className="text-subheading text-[#14141D]">{value}</h3>
             </div>
           </RevealItem>
         ))}

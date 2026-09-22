@@ -37,18 +37,18 @@ export default function DeliveryProcess() {
                     {!last && (
                       <span className="absolute left-6 top-14 h-[calc(100%-3.5rem)] w-px bg-white/15" />
                     )}
-                    <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/60 bg-[#0B0B12] text-[15px] font-semibold text-primary">
+                    <span className="text-body relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/60 bg-[#0B0B12] font-semibold text-primary">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div>
-                      <h3 className="flex items-center gap-2.5 text-[19px] font-semibold text-white">
+                      <h3 className="text-subheading flex items-center gap-2.5 text-white">
                         <Icon
                           className="h-5 w-5 text-primary"
                           strokeWidth={1.8}
                         />
                         {step.title}
                       </h3>
-                      <p className="mt-2 max-w-lg text-[15px] leading-relaxed text-white/60">
+                      <p className="text-body mt-2 max-w-lg text-white/60">
                         {step.description}
                       </p>
                     </div>
@@ -61,7 +61,7 @@ export default function DeliveryProcess() {
           <Reveal amount={0.3}>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 rounded-full bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
+              className="text-label group inline-flex items-center gap-3 rounded-full bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
             >
               Get a free consultation
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

@@ -42,17 +42,13 @@ export default function FaqSection({
       <Reveal className="mt-12" amount={0.3}>
         <div className="text-center">
           <p
-            className={`text-[15px] ${dark ? "text-white/60" : "text-[#6B6F76]"}`}
+            className={`text-body ${dark ? "text-white/60" : "text-[#6B6F76]"}`}
           >
             Still have questions? We are here to help.
           </p>
           <Link
             href="/contact"
-            className={`group mt-5 inline-flex items-center gap-3 rounded-full px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] transition-transform duration-300 hover:-translate-y-0.5 ${
-              dark
-                ? "bg-white text-[#14141D]"
-                : "bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)]"
-            }`}
+            className={`text-label group mt-5 inline-flex items-center gap-3 rounded-full px-8 py-4 uppercase transition-transform duration-300 hover:-translate-y-0.5 ${dark ? "bg-white text-[#14141D]" : "bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)]"}`}
           >
             Contact our support team
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

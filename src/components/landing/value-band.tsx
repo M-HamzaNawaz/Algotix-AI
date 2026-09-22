@@ -28,13 +28,11 @@ export default function ValueBand() {
           <div className="flex rounded-[28px] border border-white/15 bg-white/[0.06] p-10 backdrop-blur-xl tablet:p-14 laptop:min-h-[380px] laptop:p-16">
             <div className="flex w-full flex-col gap-10 laptop:flex-row laptop:items-center laptop:justify-between laptop:gap-16">
               <div className="max-w-3xl">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
+                <p className="text-label uppercase text-primary">
                   Get In Touch
                 </p>
-                <h2 className="text-[30px] font-bold leading-[1.1] text-white tablet:text-[44px] laptop:text-[52px]">
-                  Let&apos;s talk
-                </h2>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
+                <h2 className="text-heading text-white">Let&apos;s talk</h2>
+                <p className="text-lead mt-6 max-w-2xl text-white/65">
                   Tell us what you are trying to build. We will come back with a
                   clear view of scope, approach, and what it takes to ship it.
                 </p>
@@ -43,14 +41,14 @@ export default function ValueBand() {
               <div className="flex shrink-0 flex-col gap-4 sm:flex-row laptop:flex-col">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-primary px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A] laptop:px-10"
+                  className="text-label group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-primary px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A] laptop:px-10"
                 >
                   Contact us
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/meeting-request"
-                  className="group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full border border-white/30 px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-white laptop:px-10 transition-colors duration-300 hover:border-primary hover:bg-primary"
+                  className="text-label group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full border border-white/30 px-8 py-4 uppercase text-white laptop:px-10 transition-colors duration-300 hover:border-primary hover:bg-primary"
                 >
                   Book a meeting
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

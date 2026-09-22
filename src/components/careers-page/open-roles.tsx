@@ -40,10 +40,10 @@ export default function OpenRoles() {
                 className="group flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-primary/50 tablet:flex-row tablet:items-center tablet:justify-between tablet:p-7"
               >
                 <div>
-                  <h3 className="text-[19px] font-semibold text-white transition-colors duration-300 group-hover:text-primary">
+                  <h3 className="text-subheading text-white transition-colors duration-300 group-hover:text-primary">
                     {role.title}
                   </h3>
-                  <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[14px] text-white/60">
+                  <div className="text-small mt-2 flex flex-wrap gap-x-5 gap-y-1 text-white/60">
                     <span className="inline-flex items-center gap-1.5">
                       <Briefcase className="h-4 w-4" strokeWidth={1.8} />
                       {role.team} · {role.type}
@@ -54,7 +54,7 @@ export default function OpenRoles() {
                     </span>
                   </div>
                 </div>
-                <span className="inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-white">
+                <span className="text-label inline-flex items-center gap-2 uppercase text-white">
                   Apply
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
@@ -65,17 +65,17 @@ export default function OpenRoles() {
       ) : (
         <Reveal className="mt-14" amount={0.2}>
           <div className="mx-auto max-w-3xl rounded-[28px] border border-white/15 bg-white/[0.06] p-10 text-center backdrop-blur-xl tablet:p-14">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
+            <p className="text-label uppercase text-primary">
               Speculative applications
             </p>
-            <h3 className="mt-4 text-[24px] font-bold leading-tight text-white tablet:text-[30px]">
+            <h3 className="text-subheading mt-4 text-white">
               Tell us what you would bring.
             </h3>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/65">
+            <p className="text-body mx-auto mt-4 max-w-xl text-white/65">
               Send your resume and a few lines about the work you enjoy to{" "}
               <a
                 href={`mailto:${careersEmail}`}
-                className="font-medium text-white underline decoration-white/40 underline-offset-4 hover:decoration-primary"
+                className="font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-primary"
               >
                 {careersEmail}
               </a>

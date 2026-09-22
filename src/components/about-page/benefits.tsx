@@ -37,7 +37,7 @@ export default function Benefits() {
                   className="h-7 w-7"
                 />
               </span>
-              <h3 className="mt-6 text-[17px] font-semibold text-[#14141D]">
+              <h3 className="text-subheading mt-6 text-[#14141D]">
                 {benefit.title}
               </h3>
               <span className="mt-4 h-1 w-10 rounded-full bg-primary/70 transition-all duration-300 group-hover:w-16 group-hover:bg-primary" />

@@ -67,7 +67,7 @@ export default function PageHero({
   const railColumns = rail ? RAIL_COLUMNS[Math.min(rail.items.length, 6)] : "";
 
   const actionClass =
-    "group inline-flex items-center gap-3 rounded-full border border-white/35 px-7 py-3.5 text-[12px] font-semibold uppercase tracking-[0.16em] text-white transition-all duration-300 hover:border-primary hover:bg-primary";
+    "group inline-flex items-center gap-3 rounded-full border border-white/35 px-7 py-3.5 text-label uppercase text-white transition-all duration-300 hover:border-primary hover:bg-primary";
 
   return (
     <>
@@ -103,14 +103,14 @@ export default function PageHero({
           >
             <div className="w-full max-w-3xl">
               <RevealItem>
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80 backdrop-blur-sm">
+                <span className="text-label inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 uppercase text-white/80 backdrop-blur-sm">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   {eyebrow}
                 </span>
               </RevealItem>
 
               <RevealItem>
-                <h1 className="mt-7 text-[28px] font-bold leading-[1.1] text-white mobile-lg:text-[34px] sm:text-5xl laptop:text-6xl desktop-lg:text-[68px]">
+                <h1 className="text-display mt-7 text-white">
                   {title}
                   {accent && (
                     <span className="mt-1 block text-primary">{accent}</span>
@@ -119,7 +119,7 @@ export default function PageHero({
               </RevealItem>
 
               <RevealItem>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
+                <p className="text-body mt-6 max-w-xl text-white/65">
                   {description}
                 </p>
               </RevealItem>
@@ -146,7 +146,7 @@ export default function PageHero({
                     {secondary && secondary.href && (
                       <Link
                         href={secondary.href}
-                        className="group inline-flex min-h-[40px] items-center gap-2 text-sm font-medium text-white/75 transition-colors duration-300 hover:text-primary"
+                        className="text-small group inline-flex min-h-[40px] items-center gap-2 text-white/75 transition-colors duration-300 hover:text-primary"
                       >
                         {secondary.label}
                         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -165,7 +165,7 @@ export default function PageHero({
               delay={0.35}
             >
               <RevealItem distance={20} duration={0.8}>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/45">
+                <p className="text-label uppercase text-white/45">
                   {rail.label}
                 </p>
                 <div
@@ -175,7 +175,7 @@ export default function PageHero({
                     <Link
                       key={`${item.label}-${item.href}`}
                       href={item.href}
-                      className="group block py-2 text-sm font-medium leading-snug text-white/85 transition-colors duration-300 hover:text-primary"
+                      className="text-small group block py-2 text-white/85 transition-colors duration-300 hover:text-primary"
                     >
                       <span>{item.label}</span>
                     </Link>

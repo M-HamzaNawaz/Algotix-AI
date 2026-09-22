@@ -19,17 +19,15 @@ export default function Insights({ blogs }: { blogs: DetailBlogPost[] }) {
         <Reveal amount={0.2}>
           <div className="flex flex-col gap-6 tablet:flex-row tablet:items-end tablet:justify-between">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
-                Insights
-              </p>
-              <h2 className="mt-4 max-w-2xl text-[28px] font-bold leading-tight text-[#14141D] tablet:text-4xl">
+              <p className="text-label uppercase text-primary">Insights</p>
+              <h2 className="text-heading mt-4 max-w-2xl text-[#14141D]">
                 Ideas worth building on
               </h2>
             </div>
 
             <Link
               href="/blogs"
-              className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-[#14141D] transition-colors duration-300 hover:text-primary"
+              className="text-small group inline-flex shrink-0 items-center gap-2 font-semibold text-[#14141D] transition-colors duration-300 hover:text-primary"
             >
               All insights
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

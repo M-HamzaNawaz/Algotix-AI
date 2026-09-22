@@ -26,22 +26,16 @@ export default function SectionHeading({
   return (
     <div className={`${centered ? "text-center" : ""} ${className}`}>
       {eyebrow && (
-        <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
-          {eyebrow}
-        </p>
+        <p className="text-label uppercase text-primary">{eyebrow}</p>
       )}
       <h2
-        className={`${eyebrow ? "mt-4" : ""} max-w-3xl text-[28px] font-bold leading-tight tablet:text-4xl ${titleColor} ${
-          centered ? "mx-auto" : ""
-        }`}
+        className={`text-heading ${eyebrow ? "mt-4" : ""} max-w-3xl ${titleColor} ${centered ? "mx-auto" : ""}`}
       >
         {title}
       </h2>
       {description && (
         <p
-          className={`mt-4 max-w-2xl text-base leading-relaxed ${bodyColor} ${
-            centered ? "mx-auto" : ""
-          }`}
+          className={`text-body mt-4 max-w-2xl ${bodyColor} ${centered ? "mx-auto" : ""}`}
         >
           {description}
         </p>

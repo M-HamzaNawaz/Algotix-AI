@@ -69,13 +69,11 @@ export default function MissionVision() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-white">
                   <Icon className="h-6 w-6" strokeWidth={1.8} />
                 </span>
-                <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
+                <p className="text-label mt-6 uppercase text-primary">
                   {row.kicker}
                 </p>
-                <h3 className="mt-3 text-[24px] font-bold leading-tight text-white tablet:text-[30px]">
-                  {row.title}
-                </h3>
-                <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-white/60 tablet:text-[17px]">
+                <h3 className="text-subheading mt-3 text-white">{row.title}</h3>
+                <p className="text-body mt-5 max-w-xl text-white/60">
                   {row.description}
                 </p>
               </Reveal>

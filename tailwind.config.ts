@@ -8,6 +8,30 @@ export default {
   ],
   theme: {
     extend: {
+      /* The site's type scale: eight sizes, used everywhere instead of ad-hoc
+         pixel values. The display and heading steps scale with the viewport
+         (32→56px and 28→40px between phone and desktop), the rest are fixed.
+         Line height, and where it is fixed, weight and tracking, come with
+         the size so components only choose a role. */
+      fontSize: {
+        display: [
+          "clamp(2rem, 0.9rem + 3.2vw, 3.5rem)",
+          { lineHeight: "1.08", fontWeight: "700" },
+        ],
+        heading: [
+          "clamp(1.75rem, 0.6rem + 2.2vw, 2.5rem)",
+          { lineHeight: "1.15", fontWeight: "700" },
+        ],
+        subheading: ["1.25rem", { lineHeight: "1.35", fontWeight: "600" }],
+        lead: ["1.125rem", { lineHeight: "1.65" }],
+        body: ["1rem", { lineHeight: "1.65" }],
+        small: ["0.875rem", { lineHeight: "1.5" }],
+        label: [
+          "0.75rem",
+          { lineHeight: "1.4", letterSpacing: "0.18em", fontWeight: "600" },
+        ],
+        figure: ["2.75rem", { lineHeight: "1", fontWeight: "700" }],
+      },
       screens: {
         // Mobile Devices
         "mobile-xs": { min: "320px" },

@@ -50,18 +50,16 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
     <PageSection dark id={id}>
       <Reveal amount={0.2}>
         <div className="mx-auto max-w-4xl rounded-[28px] border border-white/15 bg-white/[0.06] p-10 text-center backdrop-blur-xl tablet:p-14">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
-            Newsletter
-          </p>
-          <h2 className="mt-4 text-[28px] font-bold leading-tight text-white tablet:text-4xl">
+          <p className="text-label uppercase text-primary">Newsletter</p>
+          <h2 className="text-heading mt-4 text-white">
             Subscribe to get the latest news about us.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/65">
+          <p className="text-body mx-auto mt-4 max-w-xl text-white/65">
             New articles and company updates, straight to your inbox. No spam.
           </p>
 
           {done ? (
-            <p className="mt-8 text-sm font-medium text-white">
+            <p className="text-small mt-8 text-white">
               Thanks, you are on the list.
             </p>
           ) : (
@@ -83,14 +81,14 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
                 }}
                 placeholder="Your email"
                 aria-invalid={Boolean(error)}
-                className={`h-14 flex-1 rounded-full border bg-white/[0.08] px-6 text-sm !text-white placeholder:!text-white/40 focus:outline-none focus:ring-1 focus:ring-primary ${
+                className={`h-14 flex-1 rounded-full border bg-white/[0.08] px-6 text-body !text-white placeholder:!text-white/40 focus:outline-none focus:ring-1 focus:ring-primary ${
                   error ? "border-primary" : "border-white/15"
                 }`}
               />
               <button
                 type="submit"
                 disabled={sending}
-                className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-8 text-[12px] font-semibold uppercase tracking-[0.16em] text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
+                className="text-label group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-8 uppercase text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
               >
                 {sending ? "Subscribing…" : "Subscribe"}
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -98,7 +96,7 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
             </form>
           )}
           {error && (
-            <p role="alert" className="mt-3 text-sm text-primary">
+            <p role="alert" className="text-small mt-3 text-primary">
               {error}
             </p>
           )}

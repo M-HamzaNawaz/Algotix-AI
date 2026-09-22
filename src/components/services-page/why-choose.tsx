@@ -35,10 +35,10 @@ export default function WhyChoose() {
                 >
                   <Icon className="h-6 w-6" strokeWidth={1.8} />
                 </span>
-                <h3 className="mt-6 text-[18px] font-semibold text-white">
+                <h3 className="text-subheading mt-6 text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-white/60">
+                <p className="text-body mt-3 text-white/60">
                   {item.description}
                 </p>
               </div>

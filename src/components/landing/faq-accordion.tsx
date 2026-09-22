@@ -48,9 +48,7 @@ export default function FaqAccordion({
                 className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left tablet:px-8"
               >
                 <span
-                  className={`text-[16px] font-semibold leading-snug tablet:text-[17px] ${
-                    dark ? "text-white" : "text-[#14141D]"
-                  }`}
+                  className={`text-body font-semibold ${dark ? "text-white" : "text-[#14141D]"}`}
                 >
                   {item.question}
                 </span>
@@ -83,9 +81,7 @@ export default function FaqAccordion({
                     className="overflow-hidden"
                   >
                     <p
-                      className={`max-w-3xl px-6 pb-7 text-[15px] leading-relaxed tablet:px-8 ${
-                        dark ? "text-white/60" : "text-[#6B6F76]"
-                      }`}
+                      className={`text-body max-w-3xl px-6 pb-7 tablet:px-8 ${dark ? "text-white/60" : "text-[#6B6F76]"}`}
                     >
                       {item.answer}
                     </p>

@@ -11,13 +11,11 @@ export default function Difference() {
     <section className="band-gradient relative overflow-hidden border-t border-white/[0.06] py-20 tablet:py-28">
       <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <Reveal className="text-center" amount={0.2}>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
-            Why Algotix AI
-          </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-[28px] font-bold leading-tight text-white tablet:text-4xl">
+          <p className="text-label uppercase text-primary">Why Algotix AI</p>
+          <h2 className="text-heading mx-auto mt-4 max-w-3xl text-white">
             The Algotix difference
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/60">
+          <p className="text-body mx-auto mt-4 max-w-2xl text-white/60">
             We don&apos;t just build software. We bring the strategic depth and
             technical precision your product needs to hold up in the real world.
           </p>
@@ -49,19 +47,19 @@ export default function Difference() {
                     >
                       <Icon className="h-6 w-6" strokeWidth={1.8} />
                     </div>
-                    <span className="text-[11px] font-medium tabular-nums tracking-[0.12em] text-white/40">
+                    <span className="text-label tabular-nums text-white/40">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
 
                   <div className="relative z-10 mt-12 max-w-[72%]">
-                    <p className="text-[12px] text-white/55">{item.kicker}</p>
-                    <h3 className="mt-2 text-[21px] font-semibold leading-snug text-white">
+                    <p className="text-label text-white/55">{item.kicker}</p>
+                    <h3 className="text-subheading mt-2 text-white">
                       {item.title}
                     </h3>
                   </div>
 
-                  <p className="relative z-10 mt-auto max-w-[70%] pt-9 text-[13px] leading-relaxed text-white/50">
+                  <p className="text-small relative z-10 mt-auto max-w-[70%] pt-9 text-white/50">
                     {item.description}
                   </p>
                 </article>

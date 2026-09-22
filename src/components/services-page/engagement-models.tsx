@@ -31,10 +31,10 @@ export default function EngagementModels() {
                 <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-primary shadow-sm transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
                   <Icon className="h-6 w-6" strokeWidth={1.6} />
                 </span>
-                <h3 className="mt-6 text-[19px] font-semibold text-[#14141D]">
+                <h3 className="text-subheading mt-6 text-[#14141D]">
                   {model.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-[#6B6F76]">
+                <p className="text-body mt-3 text-[#6B6F76]">
                   {model.description}
                 </p>
               </div>

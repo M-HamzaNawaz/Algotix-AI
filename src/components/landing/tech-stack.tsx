@@ -130,13 +130,11 @@ export default function TechStack() {
     <section className="band-gradient relative overflow-hidden py-20 tablet:py-28">
       <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <Reveal className="text-center" amount={0.2}>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-primary">
-            Our Stack
-          </p>
-          <h2 className="mx-auto mt-4 max-w-3xl text-[28px] font-bold leading-tight text-white tablet:text-4xl">
+          <p className="text-label uppercase text-primary">Our Stack</p>
+          <h2 className="text-heading mx-auto mt-4 max-w-3xl text-white">
             Built on proven, production-grade technology
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/60">
+          <p className="text-body mx-auto mt-4 max-w-2xl text-white/60">
             We pick tools for longevity, not novelty, so what we ship stays
             maintainable long after launch.
           </p>
@@ -232,11 +230,7 @@ export function LogoRow({
               >
                 <LogoMark tech={tech} dark={dark} />
                 <span
-                  className={`whitespace-nowrap font-semibold ${
-                    dark
-                      ? "text-[17px] text-white/65 transition-colors duration-300 group-hover:text-white tablet:text-[20px]"
-                      : "text-[17px] text-[#6B6F76] tablet:text-[20px]"
-                  }`}
+                  className={`text-lead whitespace-nowrap font-semibold ${dark ? " text-white/65 transition-colors duration-300 group-hover:text-white " : " text-[#6B6F76] "}`}
                 >
                   {tech.name}
                 </span>

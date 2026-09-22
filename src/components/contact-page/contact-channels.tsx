@@ -56,10 +56,10 @@ export default function ContactChannels() {
                   </span>
                   <ArrowUpRight className="h-5 w-5 text-[#A0A4AB] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
                 </div>
-                <h3 className="mt-6 text-[19px] font-semibold text-[#14141D]">
+                <h3 className="text-subheading mt-6 text-[#14141D]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-[#6B6F76]">
+                <p className="text-body mt-2 text-[#6B6F76]">
                   {item.description}
                 </p>
               </Link>

@@ -31,7 +31,8 @@ const geistMono = Geist_Mono({
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  // Regular, semibold and bold are the only weights the type scale uses.
+  weight: ["400", "600", "700"],
   style: ["normal"],
   variable: "--font-poppins",
 });

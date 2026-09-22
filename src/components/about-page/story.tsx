@@ -60,7 +60,7 @@ export default function Story() {
                       type="button"
                       onClick={() => setActive(t.key)}
                       aria-pressed={isActive}
-                      className={`relative isolate rounded-full px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 ${
+                      className={`relative isolate rounded-full px-5 py-2 text-label uppercase transition-colors duration-300 ${
                         isActive ? "text-white" : "text-[#3A3D45]"
                       }`}
                     >
@@ -89,10 +89,10 @@ export default function Story() {
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.35, ease: EASE }}
                 >
-                  <h3 className="mt-8 text-[22px] font-semibold leading-snug text-[#14141D] tablet:text-[26px]">
+                  <h3 className="text-subheading mt-8 text-[#14141D]">
                     {tab.data.subtitle}
                   </h3>
-                  <p className="mt-4 text-[16px] leading-relaxed text-[#6B6F76] tablet:text-[17px]">
+                  <p className="text-body mt-4 text-[#6B6F76]">
                     {tab.data.description}
                   </p>
 
@@ -100,7 +100,7 @@ export default function Story() {
                     {tab.data.features.map((feature) => (
                       <li
                         key={feature}
-                        className="flex items-start gap-3 text-[15px] font-medium text-[#3A3D45]"
+                        className="text-body flex items-start gap-3 text-[#3A3D45]"
                       >
                         <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FFF3EA] text-primary">
                           <Check className="h-3 w-3" strokeWidth={3} />
@@ -115,7 +115,7 @@ export default function Story() {
               <button
                 type="button"
                 onClick={() => setShowForm(true)}
-                className="group mt-10 inline-flex items-center gap-3 rounded-full bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
+                className="group mt-10 inline-flex items-center gap-3 rounded-full bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-8 py-4 text-label uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
               >
                 Book a call
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

@@ -173,7 +173,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                 : "bg-secondary"
             }`}
           >
-            <h3 className="font-medium text-xl sm:text-2xl mb-4">
+            <h3 className="text-subheading mb-4">
               Company&apos;s <span className="text-primary">stats</span>
             </h3>
 
@@ -189,18 +189,14 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                       className={`text-primary w-[50px] md:w-[60px] ${dark ? "invert" : ""}`}
                     />
                   </div>
-                  <h4 className="text-xl sm:text-2xl font-bold">
-                    {stat.value}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600">
-                    {stat.label}
-                  </p>
+                  <h4 className="text-subheading">{stat.value}</h4>
+                  <p className="text-label text-gray-600">{stat.label}</p>
                 </div>
               ))}
             </div>
 
             <div className="border-t border-gray-200 pt-4 sm:pt-6 mb-4">
-              <h3 className="text-primary font-medium text-center mb-4">
+              <h3 className="text-subheading text-primary text-center mb-4">
                 AWARDS
               </h3>
               <div className="flex justify-center space-x-3 sm:space-x-4 mt-10">
@@ -241,7 +237,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <h3 className="text-xl font-medium mb-2">Thank You!</h3>
+                  <h3 className="text-subheading mb-2">Thank You!</h3>
                   <p className="mb-4">
                     Your submission has been received. We will get back to you
                     shortly.
@@ -250,11 +246,11 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
               </div>
             ) : (
               <>
-                <h2 className="text-xl sm:text-2xl font-medium mb-2 sm:mb-4">
+                <h2 className="text-heading mb-2 sm:mb-4">
                   Let&apos;s <span className="text-primary">Build</span> up your
                   Brand, <span className="text-primary">together</span>
                 </h2>
-                <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-6">
+                <p className="text-small text-gray-600 mb-4 sm:mb-6">
                   Partnering with Algotix AI gives you a choice of ways to work
                   together.
                 </p>
@@ -271,9 +267,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         onChange={handleRadioChange}
                         value={option.value}
                       />
-                      <span className="text-sm sm:text-base">
-                        {option.label}
-                      </span>
+                      <span className="text-small">{option.label}</span>
                     </label>
                   ))}
                 </div>
@@ -291,7 +285,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
                       />
                       {errors.firstName && (
-                        <p className="text-red-500 text-xs mt-1">
+                        <p className="text-label text-red-500 mt-1">
                           {errors.firstName}
                         </p>
                       )}
@@ -306,7 +300,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         onChange={handleInputChange}
                       />
                       {errors.lastName && (
-                        <p className="text-red-500 text-xs mt-1">
+                        <p className="text-label text-red-500 mt-1">
                           {errors.lastName}
                         </p>
                       )}
@@ -321,7 +315,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         onChange={handleInputChange}
                       />
                       {errors.phone && (
-                        <p className="text-red-500 text-xs mt-1">
+                        <p className="text-label text-red-500 mt-1">
                           {errors.phone}
                         </p>
                       )}
@@ -336,7 +330,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-xs mt-1">
+                        <p className="text-label text-red-500 mt-1">
                           {errors.email}
                         </p>
                       )}
@@ -364,7 +358,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                       className={`w-full p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
                     ></textarea>
                     {errors.message && (
-                      <p className="text-red-500 text-xs mt-1">
+                      <p className="text-label text-red-500 mt-1">
                         {errors.message}
                       </p>
                     )}
@@ -378,19 +372,19 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         theme={dark ? "dark" : "light"}
                       />
                       {errors.captcha && (
-                        <p className="text-red-500 text-sm mt-2">
+                        <p className="text-small text-red-500 mt-2">
                           {errors.captcha}
                         </p>
                       )}
                       {errors.agreeToTerms && (
-                        <p className="text-red-500 text-sm mt-2">
+                        <p className="text-small text-red-500 mt-2">
                           {errors.agreeToTerms}
                         </p>
                       )}
                     </div>
 
                     <div className="space-y-2">
-                      <label className={`flex items-center text-sm`}>
+                      <label className={`text-small flex items-center`}>
                         <input
                           type="checkbox"
                           name="agreeToTerms"
@@ -401,7 +395,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         I agree with T&Cs
                       </label>
 
-                      <label className="flex items-center text-sm text-gray-600">
+                      <label className="text-small flex items-center text-gray-600">
                         <input
                           type="checkbox"
                           name="newsletter"
@@ -415,13 +409,15 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                   </div>
 
                   {errors.form && (
-                    <p className="text-red-500 text-sm mb-4">{errors.form}</p>
+                    <p className="text-small text-red-500 mb-4">
+                      {errors.form}
+                    </p>
                   )}
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-36 py-2 sm:py-3 bg-primary text-white font-medium rounded-md hover:bg-orange-600 transition-colors disabled:bg-gray-400"
+                    className="w-36 py-2 sm:py-3 bg-primary text-white font-semibold rounded-md hover:bg-orange-600 transition-colors disabled:bg-gray-400"
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </Button>
