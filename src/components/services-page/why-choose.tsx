@@ -20,15 +20,15 @@ export default function WhyChoose() {
       </Reveal>
 
       <RevealGroup
-        className="mt-14 grid overflow-hidden rounded-2xl border border-white/10 tablet:grid-cols-2 laptop:grid-cols-3"
+        className="mt-14 grid gap-6 tablet:grid-cols-2 laptop:grid-cols-3"
         stagger={0.08}
         amount={0.08}
       >
         {differentiators.map((item) => {
           const Icon = item.icon;
           return (
-            <RevealItem key={item.title} distance={22}>
-              <div className="glow-card sheen relative isolate overflow-hidden group h-full border-b border-white/10 p-8 tablet:border-r [&:nth-child(2n)]:tablet:border-r-0 laptop:[&:nth-child(2n)]:border-r laptop:[&:nth-child(3n)]:border-r-0">
+            <RevealItem key={item.title} className="h-full" distance={22}>
+              <div className="glow-card sheen group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.04)] p-8 transition-all duration-400 hover:-translate-y-1.5 hover:border-primary/60 hover:bg-[rgba(255,255,255,0.07)]">
                 <span
                   className="flex h-12 w-12 items-center justify-center rounded-lg text-white"
                   style={{ backgroundColor: item.accent }}
