@@ -51,7 +51,7 @@ export default function Testimonials({
           <RevealItem key={item.id} className="h-full" distance={24}>
             <GlowCard
               as="figure"
-              className={`group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-500 ease-out hover:-translate-y-1.5 ${card}`}
+              className={`sheen group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-500 ease-out hover:-translate-y-1.5 ${card}`}
             >
               <span
                 className={`flex h-12 w-12 items-center justify-center rounded-lg border text-primary transition-all duration-500 ease-out group-hover:-translate-y-0.5 group-hover:-rotate-6 group-hover:shadow-[0_10px_24px_-8px_rgba(254,89,1,0.5)] ${quoteTile}`}
@@ -98,7 +98,7 @@ export default function Testimonials({
               a top highlight, and an arrow pill that nudges on hover. */}
           <Link
             href="/contact"
-            className="group relative isolate flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-[linear-gradient(145deg,#FF7A2E_0%,#FE5A01_45%,#E84E00_100%)] p-8 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(0,0,0,0.12),0_28px_56px_-26px_rgba(254,89,1,0.85)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.12),0_36px_70px_-26px_rgba(254,89,1,1)]"
+            className="sheen sheen-strong group relative isolate flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-[linear-gradient(145deg,#FF7A2E_0%,#FE5A01_45%,#E84E00_100%)] p-8 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(0,0,0,0.12),0_28px_56px_-26px_rgba(254,89,1,0.85)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.12),0_36px_70px_-26px_rgba(254,89,1,1)]"
           >
             <span
               aria-hidden
