@@ -329,36 +329,6 @@ h3 {
   filter: brightness(0.8) saturate(100%) invert(40%) sepia(80%) saturate(2000%) hue-rotate(5deg); 
 } */
 /* ==========================================================================
-   Intro loader
-   ========================================================================== */
-
-/* Set before first paint by the inline script in the root layout, so returning
-   visitors never see the splash flash. */
-html[data-intro-seen] .intro-loader {
-  display: none !important;
-}
-
-/* Scroll is locked only while the splash is actually on screen. */
-html[data-intro-lock],
-html[data-intro-lock] body {
-  overflow: hidden !important;
-}
-
-/* Failsafe. The splash covers the whole viewport, so if JavaScript never runs
-   it must still get out of the way on its own. */
-.intro-loader {
-  animation: intro-failsafe 0.01s linear 6s forwards;
-}
-
-@keyframes intro-failsafe {
-  to {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-}
-
-/* ==========================================================================
    Route transition
    ========================================================================== */
 
@@ -430,15 +400,6 @@ html[data-intro-lock] body {
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .intro-loader {
-    display: none !important;
-  }
-
-  html[data-intro-lock],
-  html[data-intro-lock] body {
-    overflow: visible !important;
-  }
-
   .page-transition {
     animation: none !important;
   }

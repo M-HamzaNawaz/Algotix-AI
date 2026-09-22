@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 
 import MeetingEmailForm from "@/src/components/meetingEmailForm";
-import { useIntroReady } from "@/src/components/motion/use-intro-ready";
+import { useMounted } from "@/src/components/motion/use-mounted";
 import { expertiseLinks, heroSlides } from "./data";
 
 const SLIDE_MS = 7000;
@@ -18,7 +18,7 @@ export default function LandingHero() {
   const [paused, setPaused] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [showForm, setShowForm] = useState(false);
-  const ready = useIntroReady();
+  const ready = useMounted();
 
   // Do not burn slides while the tab is in the background.
   useEffect(() => {
@@ -35,8 +35,7 @@ export default function LandingHero() {
     [],
   );
 
-  // Hold the first slide until the intro splash has cleared, so the rotation
-  // does not burn a slide behind the overlay.
+  // The rotation starts once the page has hydrated.
   // The hero fills the first screen, so a pointer resting anywhere on it must
   // not stop the rotation. Only reaching for the arrows, opening the form, or
   // hiding the tab holds it.

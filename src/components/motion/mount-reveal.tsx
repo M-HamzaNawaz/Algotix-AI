@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { buildVariants, type RevealDirection } from "./reveal";
-import { useIntroReady } from "./use-intro-ready";
+import { useMounted } from "./use-mounted";
 
 interface CommonProps {
   children: React.ReactNode;
@@ -23,7 +23,7 @@ interface MountRevealProps extends CommonProps {
 
 /**
  * Like <Reveal />, but for content that is already on screen at load: it plays
- * as soon as the intro splash clears instead of waiting for a scroll.
+ * right after hydration instead of waiting for a scroll.
  */
 export function MountReveal({
   children,
@@ -36,7 +36,7 @@ export function MountReveal({
   duration = 0.8,
   scale = 1,
 }: MountRevealProps) {
-  const ready = useIntroReady();
+  const ready = useMounted();
 
   return (
     <motion.div
@@ -58,7 +58,7 @@ interface MountRevealGroupProps extends CommonProps {
 }
 
 /**
- * Cascades its <RevealItem /> descendants once the intro splash clears.
+ * Cascades its <RevealItem /> descendants right after hydration.
  * Framer passes variants down through plain elements, so the items do not have
  * to be direct children.
  */
@@ -70,7 +70,7 @@ export function MountRevealGroup({
   stagger = 0.12,
   delay = 0,
 }: MountRevealGroupProps) {
-  const ready = useIntroReady();
+  const ready = useMounted();
 
   return (
     <motion.div
@@ -81,7 +81,9 @@ export function MountRevealGroup({
       animate={ready ? "show" : "hidden"}
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: stagger, delayChildren: delay } },
+        show: {
+          transition: { staggerChildren: stagger, delayChildren: delay },
+        },
       }}
     >
       {children}

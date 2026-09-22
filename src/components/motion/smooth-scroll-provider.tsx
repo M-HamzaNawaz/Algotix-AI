@@ -42,8 +42,7 @@ export default function SmoothScrollProvider() {
     const syncScrollLock = () => {
       const locked =
         document.body.style.overflow === "hidden" ||
-        document.body.classList.contains("modal-open") ||
-        document.documentElement.hasAttribute("data-intro-lock");
+        document.body.classList.contains("modal-open");
 
       if (locked) lenis.stop();
       else lenis.start();
@@ -53,10 +52,6 @@ export default function SmoothScrollProvider() {
     observer.observe(document.body, {
       attributes: true,
       attributeFilter: ["style", "class"],
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-intro-lock"],
     });
     syncScrollLock();
 

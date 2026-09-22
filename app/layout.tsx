@@ -16,7 +16,6 @@ import MotionProvider from "@/src/components/motion/motion-provider";
 import SmoothScrollProvider from "@/src/components/motion/smooth-scroll-provider";
 import PageTransition from "@/src/components/motion/page-transition";
 import ScrollProgress from "@/src/components/motion/scroll-progress";
-import IntroLoader from "@/src/components/intro-loader";
 import PointerGlow from "@/src/components/motion/pointer-glow";
 
 const poppins = Poppins({
@@ -32,16 +31,6 @@ const DOMAIN =
   (env.RAILWAY_PUBLIC_DOMAIN
     ? `https://${env.RAILWAY_PUBLIC_DOMAIN}`
     : undefined);
-
-/**
- * Shows the intro splash once per browser session. Appending `?intro=1` to any
- * URL forces it to play again, which is handy for demos.
- */
-const INTRO_SESSION_SCRIPT = `(function(){try{
-  if (location.search.indexOf('intro=1') > -1) { sessionStorage.setItem('algotix-intro','1'); return; }
-  if (sessionStorage.getItem('algotix-intro') === '1') { document.documentElement.setAttribute('data-intro-seen',''); }
-  else { sessionStorage.setItem('algotix-intro','1'); }
-}catch(e){}})();`;
 
 export const metadata: Metadata = {
   metadataBase: DOMAIN ? new URL(DOMAIN) : undefined,
@@ -99,18 +88,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    /* The inline script below marks repeat visits on <html> before React
-       hydrates, so React has to be told not to flag that attribute. This
-       covers only <html> itself, not anything nested inside it. */
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        {/* Runs before first paint: marks repeat visits so the intro splash is
-            hidden by CSS instead of flashing and then being torn down. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: INTRO_SESSION_SCRIPT,
-          }}
-        />
         <Script
           src="/js/requestAnimationFramePolyfill.js"
           strategy="beforeInteractive"
@@ -118,7 +97,6 @@ export default function RootLayout({
         <MotionProvider>
           <SelectionStyle />
           <SmoothScrollProvider />
-          <IntroLoader />
           <PointerGlow />
           <ScrollProgress />
           <GlobalDrawer />
