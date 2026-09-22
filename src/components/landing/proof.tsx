@@ -22,7 +22,7 @@ export default function Proof() {
           <Reveal amount={0.2}>
             <p className="text-label uppercase text-primary">Global Reach</p>
             <h2 className="text-heading mt-5 text-[#14141D]">
-              Rooted in Bahawalpur.
+              Rooted in Pakistan.
               <span className="block text-primary">Delivering worldwide.</span>
             </h2>
             <p className="text-lead mt-7 max-w-xl text-[#6B6F76]">
