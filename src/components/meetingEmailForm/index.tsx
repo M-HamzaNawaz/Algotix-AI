@@ -169,7 +169,7 @@ const MeetingEmailForm: React.FC<MeetingEmailFormProps> = ({
                 setEmailError("");
               }}
               placeholder="Enter your email"
-              className="w-full px-4 py-2 sm:px-6 sm:py-3 bg-white/80 backdrop-blur-sm border border-orange-200/40 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400/60 transition-all duration-400 text-sm sm:text-base"
+              className="w-full px-4 py-2 sm:px-6 sm:py-3 bg-white/80 backdrop-blur-sm border border-orange-200/40 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary transition-all duration-400 text-sm sm:text-base"
             />
             {emailError && (
               <p className="mt-2 text-xs sm:text-sm text-red-600/70 flex items-center">
