@@ -163,8 +163,6 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
 
   return (
     <div className="p-4 sm:p-6 mt-2 relative">
-      {/* Close Button */}
-
       <h2 className="text-xl sm:text-2xl font-medium mb-2 sm:mb-4 break-words max-w-[220px] xs:max-w-[240px] sm:max-w-full">
         Let&apos;s <span className="text-primary">Build</span> up your Brand,{" "}
         <span className="text-primary">together</span>
@@ -317,16 +315,6 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
           className="w-full py-2 sm:py-3 bg-primary text-white font-medium rounded-md hover:bg-orange-600 transition-colors disabled:bg-gray-400"
         >
           {isSubmitting ? "Submitting..." : "Submit"}
-        </Button>
-        {/* Close Button */}
-        <Button
-          type="button"
-          variant="tertiary"
-          disabled={isSubmitting}
-          className="w-full mt-4 py-2 sm:py-3 border-none bg-black text-white font-medium rounded-md transition-colors disabled:bg-gray-400"
-          onClick={onClose}
-        >
-          {"Close"}
         </Button>
       </form>
     </div>
