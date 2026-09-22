@@ -231,17 +231,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu — dark to match the bar it drops out of. */}
+      {/* Mobile Dropdown Menu, a solid surface matching the bar it drops out
+          of. It cannot be glass: an element inside a backdrop-filtered parent
+          only sees that parent's own paint, so a blur here would show nothing. */}
       <div
         ref={menuRef}
         className={`lg:hidden absolute w-full top-14 shadow-lg shadow-black/30 transition-all duration-300 overflow-hidden ${
           isOpen ? "max-h-[500px] py-4" : "max-h-0"
         }`}
-        style={{
-          backgroundColor: scrolled ? "rgba(255, 255, 255, 0.92)" : "#0B0B12",
-          backdropFilter: scrolled ? GLASS_BLUR : "none",
-          WebkitBackdropFilter: scrolled ? GLASS_BLUR : "none",
-        }}
+        style={{ backgroundColor: scrolled ? "#FFFFFF" : "#0B0B12" }}
       >
         <div className="mx-auto flex w-full max-w-[1600px] flex-col space-y-4 px-6 pb-6 sm:px-10 xl:px-[60px]">
           {navItems.map((item) => (
