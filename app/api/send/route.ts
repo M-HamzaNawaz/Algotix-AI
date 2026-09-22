@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     const { data, error } = await resend.emails.send({
       from: "FormBot <formbot@resend.dev>",
       to: TO_EMAIL,
-      subject: "Hello world",
+      subject: `New contact form message from ${[body.firstName, body.lastName].filter(Boolean).join(" ") || body.email || "the website"}`,
       react: await EmailTemplate(body),
     });
 

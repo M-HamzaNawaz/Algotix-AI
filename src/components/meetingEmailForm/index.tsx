@@ -63,7 +63,6 @@ const MeetingEmailForm: React.FC<MeetingEmailFormProps> = ({
     }
 
     sessionStorage.setItem("userEmail", userEmail);
-    console.log("Email submitted, redirecting to /meeting-request");
     router.push("/meeting-request");
   };
 
