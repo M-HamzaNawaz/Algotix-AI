@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/src/components/common/layout/Navbar";
 import { Poppins } from "next/font/google";
@@ -18,16 +17,6 @@ import SmoothScrollProvider from "@/src/components/motion/smooth-scroll-provider
 import PageTransition from "@/src/components/motion/page-transition";
 import ScrollProgress from "@/src/components/motion/scroll-progress";
 import IntroLoader from "@/src/components/intro-loader";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -113,9 +102,7 @@ export default function RootLayout({
        hydrates, so React has to be told not to flag that attribute. This
        covers only <html> itself, not anything nested inside it. */
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} antialiased`}>
         {/* Runs before first paint: marks repeat visits so the intro splash is
             hidden by CSS instead of flashing and then being torn down. */}
         <script

@@ -167,9 +167,7 @@ const Navbar = () => {
               key={item.name}
               href={item.path}
               onClick={() => rememberHash(item.path)}
-              className={`text-body font-['Poppins'] ${getLinkClass(
-                item.path,
-              )}`}
+              className={`text-body ${getLinkClass(item.path)}`}
             >
               {item.name}
             </Link>
@@ -180,7 +178,7 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center">
           <button
             onClick={handleConsultationClick}
-            className="text-label group inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-2.5 uppercase text-white font-['Poppins'] shadow-[0_10px_24px_-12px_rgba(254,89,1,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A]"
+            className="text-label group inline-flex items-center gap-2.5 rounded-full bg-primary px-6 py-2.5 uppercase text-white shadow-[0_10px_24px_-12px_rgba(254,89,1,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A]"
           >
             Contact
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
