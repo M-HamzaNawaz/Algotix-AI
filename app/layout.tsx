@@ -47,7 +47,7 @@ const DOMAIN =
  * URL forces it to play again, which is handy for demos.
  */
 const INTRO_SESSION_SCRIPT = `(function(){try{
-  if (location.search.indexOf('intro=1') > -1) { sessionStorage.removeItem('algotix-intro'); return; }
+  if (location.search.indexOf('intro=1') > -1) { sessionStorage.setItem('algotix-intro','1'); return; }
   if (sessionStorage.getItem('algotix-intro') === '1') { document.documentElement.setAttribute('data-intro-seen',''); }
   else { sessionStorage.setItem('algotix-intro','1'); }
 }catch(e){}})();`;
