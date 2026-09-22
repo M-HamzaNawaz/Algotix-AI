@@ -27,7 +27,12 @@ export default function ValueBand() {
         <Reveal amount={0.2}>
           <div className="flex rounded-[28px] border border-white/15 bg-white/[0.06] p-10 backdrop-blur-xl tablet:p-14 laptop:min-h-[380px] laptop:p-16">
             <div className="flex w-full flex-col gap-10 laptop:flex-row laptop:items-center laptop:justify-between laptop:gap-16">
-              <div className="max-w-3xl">
+              <Reveal
+                direction="right"
+                distance={32}
+                amount={0.2}
+                className="max-w-3xl"
+              >
                 <p className="text-label uppercase text-primary">
                   Get In Touch
                 </p>
@@ -36,9 +41,15 @@ export default function ValueBand() {
                   Tell us what you are trying to build. We will come back with a
                   clear view of scope, approach, and what it takes to ship it.
                 </p>
-              </div>
+              </Reveal>
 
-              <div className="flex shrink-0 flex-col gap-4 sm:flex-row laptop:flex-col">
+              <Reveal
+                direction="left"
+                distance={32}
+                delay={0.12}
+                amount={0.2}
+                className="flex shrink-0 flex-col gap-4 sm:flex-row laptop:flex-col"
+              >
                 <Link
                   href="/contact"
                   className="text-label group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-primary px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A] laptop:px-10"
@@ -53,7 +64,7 @@ export default function ValueBand() {
                   Book a meeting
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
-              </div>
+              </Reveal>
             </div>
           </div>
         </Reveal>

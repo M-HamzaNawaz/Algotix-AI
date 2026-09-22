@@ -44,7 +44,11 @@ import {
 } from "react-icons/si";
 import { VscAzure } from "react-icons/vsc";
 
-import { Reveal } from "@/src/components/motion/reveal";
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@/src/components/motion/reveal";
 import { techLogosRowA, techLogosRowB, type TechLogo } from "./data";
 
 /**
@@ -142,10 +146,18 @@ export default function TechStack() {
       </div>
 
       {/* Two plain rows of wordmarks drifting in opposite directions. */}
-      <div className="relative z-10 mt-24 w-full overflow-hidden tablet:mt-32">
-        <LogoRow items={techLogosRowA} tone="dark" reverse />
-        <LogoRow items={techLogosRowB} tone="dark" className="mt-10" />
-      </div>
+      <RevealGroup
+        className="relative z-10 mt-24 w-full overflow-hidden tablet:mt-32"
+        amount={0.3}
+        stagger={0.15}
+      >
+        <RevealItem direction="right" distance={48}>
+          <LogoRow items={techLogosRowA} tone="dark" reverse />
+        </RevealItem>
+        <RevealItem direction="left" distance={48} className="mt-10">
+          <LogoRow items={techLogosRowB} tone="dark" />
+        </RevealItem>
+      </RevealGroup>
     </section>
   );
 }

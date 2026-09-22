@@ -11,7 +11,11 @@ import {
 } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-import { Reveal } from "@/src/components/motion/reveal";
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@/src/components/motion/reveal";
 import { Projects } from "@/src/components/recent-projects/data";
 
 /** Matches the reference, which moves to the next project every 3 seconds. */
@@ -51,7 +55,7 @@ export default function CaseStudies() {
           </p>
         </Reveal>
 
-        <Reveal className="mt-14" amount={0.1}>
+        <div className="mt-14">
           {/* Hovering or focusing anywhere in the block holds the rotation. */}
           <div
             ref={stageRef}
@@ -61,13 +65,21 @@ export default function CaseStudies() {
             onBlur={() => setPaused(false)}
             className="grid grid-cols-[minmax(0,1fr)] gap-10 laptop:grid-cols-2 laptop:items-stretch laptop:gap-12"
           >
-            {/* Project list */}
-            <ul className="flex min-w-0 flex-col border-t border-[#E4E4E8]">
+            {/* Project list: rows step in from the left one after another. */}
+            <RevealGroup
+              as="ul"
+              className="flex min-w-0 flex-col border-t border-[#E4E4E8]"
+              amount={0.15}
+              stagger={0.08}
+            >
               {Projects.map((item, i) => {
                 const isActive = i === active;
                 return (
-                  <li
+                  <RevealItem
+                    as="li"
                     key={item.title}
+                    direction="right"
+                    distance={28}
                     className="flex flex-1 border-b border-[#E4E4E8]"
                   >
                     <button
@@ -113,14 +125,20 @@ export default function CaseStudies() {
                         ))}
                       </span>
                     </button>
-                  </li>
+                  </RevealItem>
                 );
               })}
-            </ul>
+            </RevealGroup>
 
             {/* The product shot fills its column: a browser-style frame with the
-                selected screenshot, no panel around it. */}
-            <div className="relative min-w-0 overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_40px_80px_-30px_rgba(11,11,18,0.35)]">
+                selected screenshot, no panel around it. It slides in from the
+                right to meet the list. */}
+            <Reveal
+              direction="left"
+              distance={40}
+              amount={0.2}
+              className="relative min-w-0 overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_40px_80px_-30px_rgba(11,11,18,0.35)]"
+            >
               <div className="flex h-8 items-center gap-1.5 border-b border-black/10 bg-[#ECECF0] px-3">
                 <span className="h-2 w-2 rounded-full bg-black/15" />
                 <span className="h-2 w-2 rounded-full bg-black/15" />
@@ -146,9 +164,9 @@ export default function CaseStudies() {
                   </motion.div>
                 </AnimatePresence>
               </div>
-            </div>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
 
         <Reveal className="mt-14 text-center" amount={0.3}>
           <Link

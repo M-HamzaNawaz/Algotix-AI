@@ -36,42 +36,47 @@ export default async function BlogDetail({ params }: PageProps) {
       />
 
       <PageSection>
-        <Reveal amount={0.05}>
-          <article className="mx-auto max-w-3xl">
-            {(blog.author || date) && (
-              <div className="mb-10 flex items-center gap-4 border-b border-[#E4E4E8] pb-8">
-                {blog.authorImage && (
-                  <span className="relative h-12 w-12 overflow-hidden rounded-full bg-[#F2F2F4]">
-                    <Image
-                      src={blog.authorImage}
-                      alt=""
-                      fill
-                      sizes="48px"
-                      className="object-cover"
-                    />
-                  </span>
+        <article className="mx-auto max-w-3xl">
+          {(blog.author || date) && (
+            <Reveal
+              direction="right"
+              distance={28}
+              amount={0.3}
+              className="mb-10 flex items-center gap-4 border-b border-[#E4E4E8] pb-8"
+            >
+              {blog.authorImage && (
+                <span className="relative h-12 w-12 overflow-hidden rounded-full bg-[#F2F2F4]">
+                  <Image
+                    src={blog.authorImage}
+                    alt=""
+                    fill
+                    sizes="48px"
+                    className="object-cover"
+                  />
+                </span>
+              )}
+              <div>
+                {blog.author && (
+                  <p className="text-body font-semibold text-[#14141D]">
+                    {blog.author}
+                  </p>
                 )}
-                <div>
-                  {blog.author && (
-                    <p className="text-body font-semibold text-[#14141D]">
-                      {blog.author}
-                    </p>
-                  )}
-                  {date && (
-                    <p className="text-small uppercase tracking-[0.14em] text-[#A0A4AB]">
-                      {date}
-                    </p>
-                  )}
-                </div>
+                {date && (
+                  <p className="text-small uppercase tracking-[0.14em] text-[#A0A4AB]">
+                    {date}
+                  </p>
+                )}
               </div>
-            )}
+            </Reveal>
+          )}
+          <Reveal amount={0.05} distance={32} delay={0.1}>
             {blog.content ? (
               <MarkdownBody content={blog.content} />
             ) : (
               <ArticleBody blog={blog} />
             )}
-          </article>
-        </Reveal>
+          </Reveal>
+        </article>
       </PageSection>
 
       <SubscribeBand />

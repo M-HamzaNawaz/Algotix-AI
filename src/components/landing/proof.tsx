@@ -19,7 +19,7 @@ export default function Proof() {
     <section className="relative overflow-hidden border-t border-[#E4E4E8] bg-white py-20 tablet:py-28">
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 sm:px-10 xl:px-[60px]">
         <div className="grid gap-14 laptop:grid-cols-2 laptop:items-center laptop:gap-20">
-          <Reveal amount={0.2}>
+          <Reveal direction="right" amount={0.2}>
             <p className="text-label uppercase text-primary">Global Reach</p>
             <h2 className="text-heading mt-5 text-[#14141D]">
               Rooted in Pakistan.
@@ -41,6 +41,7 @@ export default function Proof() {
             {stats.map((stat, i) => (
               <RevealItem
                 key={stat.label}
+                direction="left"
                 distance={26}
                 className={STAIR_STEPS[i] ?? ""}
               >

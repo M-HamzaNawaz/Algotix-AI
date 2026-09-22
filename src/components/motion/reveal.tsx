@@ -43,7 +43,14 @@ export function buildVariants(
       x: 0,
       y: 0,
       ...(scale === 1 ? {} : { scale: 1 }),
-      transition: { duration, delay, ease: EASE_OUT_EXPO },
+      // A delay is only written when asked for: framer merges the variant's
+      // transition over the stagger delay a <RevealGroup /> hands each child,
+      // so an explicit `delay: 0` here would cancel every cascade.
+      transition: {
+        duration,
+        ease: EASE_OUT_EXPO,
+        ...(delay > 0 ? { delay } : {}),
+      },
     },
   };
 }
@@ -108,11 +115,21 @@ function useRevealed(
   return shown;
 }
 
+/** The elements a reveal can render as, so lists keep their semantics. */
+type RevealTag = "div" | "section" | "article" | "ul" | "ol" | "li";
+
 interface CommonProps {
   children: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   id?: string;
+  /** Element to render; defaults to a div. */
+  as?: RevealTag;
+}
+
+/** framer's per-tag components share the same props for our purposes. */
+function motionTag(tag: RevealTag) {
+  return motion[tag] as typeof motion.div;
 }
 
 interface RevealProps extends CommonProps {
@@ -143,12 +160,14 @@ export function Reveal({
   scale = 1,
   once = false,
   amount = 0.15,
+  as = "div",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const revealed = useRevealed(ref, amount, once);
+  const Tag = motionTag(as);
 
   return (
-    <motion.div
+    <Tag
       ref={ref}
       id={id}
       className={className}
@@ -158,7 +177,7 @@ export function Reveal({
       animate={revealed ? "show" : "hidden"}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }
 
@@ -182,12 +201,14 @@ export function RevealGroup({
   delay = 0,
   once = false,
   amount = 0.15,
+  as = "div",
 }: RevealGroupProps) {
   const ref = useRef<HTMLDivElement>(null);
   const revealed = useRevealed(ref, amount, once);
+  const Tag = motionTag(as);
 
   return (
-    <motion.div
+    <Tag
       ref={ref}
       id={id}
       className={className}
@@ -202,7 +223,7 @@ export function RevealGroup({
       }}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }
 
@@ -223,16 +244,19 @@ export function RevealItem({
   distance = 36,
   duration = 0.65,
   scale = 1,
+  as = "div",
 }: RevealItemProps) {
+  const Tag = motionTag(as);
+
   return (
-    <motion.div
+    <Tag
       id={id}
       className={className}
       style={style}
       variants={buildVariants(direction, distance, duration, 0, scale)}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }
 

@@ -1,7 +1,11 @@
 import PageSection from "@/src/components/landing/page-section";
 import SectionHeading from "@/src/components/landing/section-heading";
 import { LogoRow } from "@/src/components/landing/tech-stack";
-import { Reveal } from "@/src/components/motion/reveal";
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@/src/components/motion/reveal";
 import { techCategories } from "./data";
 
 /* The same two drifting rows as the home page, carrying the full services
@@ -24,10 +28,18 @@ export default function TechColumns() {
       </div>
 
       {/* Same gap above the rows as the "Our Stack" section on the home page. */}
-      <div className="mt-24 w-full overflow-hidden tablet:mt-32">
-        <LogoRow items={rowA} reverse />
-        <LogoRow items={rowB} className="mt-10" />
-      </div>
+      <RevealGroup
+        className="mt-24 w-full overflow-hidden tablet:mt-32"
+        amount={0.3}
+        stagger={0.15}
+      >
+        <RevealItem direction="right" distance={48}>
+          <LogoRow items={rowA} reverse />
+        </RevealItem>
+        <RevealItem direction="left" distance={48} className="mt-10">
+          <LogoRow items={rowB} />
+        </RevealItem>
+      </RevealGroup>
     </PageSection>
   );
 }

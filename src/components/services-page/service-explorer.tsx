@@ -8,7 +8,11 @@ import { ArrowRight } from "lucide-react";
 
 import PageSection from "@/src/components/landing/page-section";
 import SectionHeading from "@/src/components/landing/section-heading";
-import { Reveal } from "@/src/components/motion/reveal";
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@/src/components/motion/reveal";
 import { ourServiceData } from "@/src/containers/services/data";
 import { primaryServiceSlugs, serviceIcons, serviceImages } from "./data";
 
@@ -38,15 +42,24 @@ export default function ServiceExplorer() {
         />
       </Reveal>
 
-      <Reveal className="mt-14" amount={0.08}>
+      <div className="mt-14">
         <div className="grid overflow-hidden rounded-2xl border border-[#E4E4E8] bg-white laptop:grid-cols-[340px_minmax(0,1fr)]">
-          <ul className="flex flex-col border-b border-[#E4E4E8] laptop:border-b-0 laptop:border-r">
+          {/* Service rows step in from the left one after another. */}
+          <RevealGroup
+            as="ul"
+            className="flex flex-col border-b border-[#E4E4E8] laptop:border-b-0 laptop:border-r"
+            amount={0.15}
+            stagger={0.07}
+          >
             {services.map((item, i) => {
               const Icon = serviceIcons[item.slug];
               const isActive = i === active;
               return (
-                <li
+                <RevealItem
+                  as="li"
                   key={item.slug}
+                  direction="right"
+                  distance={24}
                   className="flex flex-1 border-b border-[#E4E4E8] last:border-b-0"
                 >
                   <button
@@ -97,12 +110,18 @@ export default function ServiceExplorer() {
                       {item.title}
                     </span>
                   </button>
-                </li>
+                </RevealItem>
               );
             })}
-          </ul>
+          </RevealGroup>
 
-          <div className="min-w-0">
+          {/* The detail panel slides in from the right to meet the list. */}
+          <Reveal
+            direction="left"
+            distance={36}
+            amount={0.15}
+            className="min-w-0"
+          >
             {/* The field's photo runs edge to edge across the top of the panel,
                 the same size for every service. */}
             <div className="relative h-[220px] overflow-hidden bg-[#F6F6F7] tablet:h-[320px]">
@@ -190,9 +209,9 @@ export default function ServiceExplorer() {
                 );
               })}
             </div>
-          </div>
+          </Reveal>
         </div>
-      </Reveal>
+      </div>
     </PageSection>
   );
 }
