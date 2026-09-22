@@ -626,3 +626,25 @@ section[id],
 div[id] {
   scroll-margin-top: 96px;
 }
+
+/* Cards whose brand glow follows the pointer (see GlowCard). The card sets
+   --mx/--my from the mouse position; the glow paints above the card's own
+   background and below its content. */
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    460px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(254, 89, 1, 0.13),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.glow-card:hover::before {
+  opacity: 1;
+}
