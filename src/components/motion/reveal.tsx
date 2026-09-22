@@ -33,6 +33,10 @@ export function buildVariants(
       x: axis.x * distance,
       y: axis.y * distance,
       ...(scale === 1 ? {} : { scale }),
+      // Only ever reached once the element is fully off screen, so the reset
+      // is invisible; it just needs to be quick so a fast scroll back does
+      // not catch it mid-fade.
+      transition: { duration: 0.25, ease: "easeOut" },
     },
     show: {
       opacity: 1,
@@ -45,25 +49,33 @@ export function buildVariants(
 }
 
 /**
- * Whether an element has come into view, driven by state rather than Framer's
- * fire-once `whileInView` prop.
+ * Whether an element should be shown.
  *
- * The IntersectionObserver is the primary signal. The geometry check underneath
- * it is a safety net: content that starts at opacity 0 must never stay hidden
- * while it is sitting on screen, whatever the observer did or did not report.
- * It honours the same visible fraction so reveals do not fire early.
+ * It turns on once `amount` of the element is on screen and, unless `once` is
+ * set, turns off again only when the element has left the screen completely.
+ * That asymmetry is what lets a section replay its entrance every time it
+ * scrolls back in, from either direction, without ever fading out in front
+ * of the visitor.
+ *
+ * The IntersectionObserver is the primary signal. The geometry check under it
+ * is a safety net so content never stays hidden while it is sitting on screen,
+ * whatever the observer did or did not report.
  */
 function useRevealed(
   ref: React.RefObject<HTMLDivElement | null>,
   amount: number,
   once: boolean,
 ): boolean {
-  const inView = useInView(ref, { once, amount });
-  const [forced, setForced] = useState(false);
+  const enough = useInView(ref, { amount });
+  const any = useInView(ref, { amount: "some" });
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    if (inView || forced) return;
+    if (enough) setShown(true);
+    else if (!any && !once) setShown(false);
+  }, [enough, any, once]);
 
+  useEffect(() => {
     const check = () => {
       const el = ref.current;
       if (!el) return;
@@ -71,7 +83,8 @@ function useRevealed(
       if (r.width === 0 || r.height === 0) return;
       const visible =
         Math.min(r.bottom, window.innerHeight) - Math.max(r.top, 0);
-      if (visible / r.height >= amount) setForced(true);
+      if (visible / r.height >= amount) setShown(true);
+      else if (visible <= 0 && !once) setShown(false);
     };
 
     let frame = 0;
@@ -90,9 +103,9 @@ function useRevealed(
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
     };
-  }, [inView, forced, ref, amount]);
+  }, [ref, amount, once]);
 
-  return inView || forced;
+  return shown;
 }
 
 interface CommonProps {
@@ -108,6 +121,7 @@ interface RevealProps extends CommonProps {
   delay?: number;
   duration?: number;
   scale?: number;
+  /** Play the entrance only the first time instead of on every return. */
   once?: boolean;
   /**
    * Fraction of the element that must be on screen before it animates. Keep
@@ -116,7 +130,7 @@ interface RevealProps extends CommonProps {
   amount?: number;
 }
 
-/** Fades and slides a block into view the first time it is scrolled to. */
+/** Fades and slides a block into view each time it is scrolled to. */
 export function Reveal({
   children,
   className,
@@ -127,7 +141,7 @@ export function Reveal({
   delay = 0,
   duration = 0.75,
   scale = 1,
-  once = true,
+  once = false,
   amount = 0.15,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -166,7 +180,7 @@ export function RevealGroup({
   id,
   stagger = 0.12,
   delay = 0,
-  once = true,
+  once = false,
   amount = 0.15,
 }: RevealGroupProps) {
   const ref = useRef<HTMLDivElement>(null);

@@ -42,7 +42,7 @@ const Contact = () => {
             description="375 Park Ave, New York, NY 10152, United States. Hold Ctrl or Alt to zoom the map with the scroll wheel."
           />
         </Reveal>
-        <Reveal direction="none" amount={0.1} className="mt-14">
+        <Reveal direction="none" amount={0.1} className="mt-14" once>
           <MapLocation />
         </Reveal>
       </PageSection>

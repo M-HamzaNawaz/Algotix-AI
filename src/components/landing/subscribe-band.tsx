@@ -48,7 +48,8 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
 
   return (
     <PageSection dark id={id}>
-      <Reveal amount={0.2}>
+      {/* Once: a form must never fade out while someone is using it. */}
+      <Reveal amount={0.2} once>
         <div className="mx-auto max-w-4xl rounded-[28px] border border-white/15 bg-white/[0.06] p-10 text-center backdrop-blur-xl tablet:p-14">
           <p className="text-label uppercase text-primary">Newsletter</p>
           <h2 className="text-heading mt-4 text-white">

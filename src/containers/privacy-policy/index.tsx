@@ -1,6 +1,7 @@
 import PrivacyPolicy from "@/src/components/PrivacyPolicy";
 import PageHero from "@/src/components/landing/page-hero";
 import PageSection from "@/src/components/landing/page-section";
+import { Reveal } from "@/src/components/motion/reveal";
 
 /** Privacy policy in the landing recipe: photo hero, then the policy text. */
 const PrivacyPolicyPage = () => {
@@ -18,7 +19,9 @@ const PrivacyPolicyPage = () => {
         secondary={{ label: "Contact us", href: "/contact" }}
       />
       <PageSection id="policy">
-        <PrivacyPolicy />
+        <Reveal amount={0.05}>
+          <PrivacyPolicy />
+        </Reveal>
       </PageSection>
     </>
   );
