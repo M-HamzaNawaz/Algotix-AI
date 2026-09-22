@@ -190,7 +190,7 @@ function LogoMark({ tech, dark }: { tech: TechLogo; dark: boolean }) {
       alt={`${tech.name} logo`}
       width={40}
       height={40}
-      className={`h-8 w-auto object-contain tablet:h-9 ${
+      className={`h-9 w-auto object-contain tablet:h-10 ${
         dark ? "brightness-0 invert" : ""
       }`}
     />
@@ -227,7 +227,7 @@ export function LogoRow({
                 className={`group flex shrink-0 items-center pr-16 transition duration-300 tablet:pr-28 ${
                   dark
                     ? "gap-3.5"
-                    : "gap-3 opacity-60 grayscale hover:opacity-100 hover:grayscale-0"
+                    : "gap-3.5 opacity-60 grayscale hover:opacity-100 hover:grayscale-0"
                 }`}
               >
                 <LogoMark tech={tech} dark={dark} />
@@ -235,7 +235,7 @@ export function LogoRow({
                   className={`whitespace-nowrap font-semibold ${
                     dark
                       ? "text-[17px] text-white/65 transition-colors duration-300 group-hover:text-white tablet:text-[20px]"
-                      : "text-[16px] text-[#6B6F76] tablet:text-[18px]"
+                      : "text-[17px] text-[#6B6F76] tablet:text-[20px]"
                   }`}
                 >
                   {tech.name}

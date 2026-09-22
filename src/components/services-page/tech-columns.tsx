@@ -23,7 +23,8 @@ export default function TechColumns() {
         </Reveal>
       </div>
 
-      <div className="mt-14 w-full overflow-hidden">
+      {/* Same gap above the rows as the "Our Stack" section on the home page. */}
+      <div className="mt-24 w-full overflow-hidden tablet:mt-32">
         <LogoRow items={rowA} reverse />
         <LogoRow items={rowB} className="mt-10" />
       </div>
