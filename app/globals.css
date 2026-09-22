@@ -13,6 +13,10 @@
   --primary: #fe5901;
   --primary-light: #ff7a29;
   --primary-dark: #d44e00;
+  /* The same colours as RGB channels, for Tailwind's opacity modifiers. */
+  --primary-rgb: 254 89 1;
+  --primary-light-rgb: 255 122 41;
+  --primary-dark-rgb: 212 78 0;
   --secondary: #f6f6f6;
   --text-dark: #2d2d2d;
   --shadow-primary: rgba(249, 115, 22, 0.2);
@@ -23,6 +27,9 @@
     --primary: #fe5901;
     --primary-light: #ff7a29;
     --primary-dark: #d44e00;
+    --primary-rgb: 254 89 1;
+    --primary-light-rgb: 255 122 41;
+    --primary-dark-rgb: 212 78 0;
     --secondary: #f6f6f6;
     --text-dark: #2d2d2d;
     --shadow-primary: rgba(249, 115, 22, 0.2);
@@ -242,9 +249,6 @@ h3 {
   animation: ring-spin 2s linear infinite;
 }
 
-
-
-
 @keyframes slide-logos-horizontal {
   0% {
     transform: translateX(0);
@@ -253,8 +257,6 @@ h3 {
     transform: translateX(-70%);
   }
 }
-
-
 
 @keyframes slide-logos-opposite {
   0% {
@@ -322,7 +324,6 @@ h3 {
 .animate-pulse-slow {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-
 
 /* .dark-orange-icon {
   filter: brightness(0.8) saturate(100%) invert(40%) sepia(80%) saturate(2000%) hue-rotate(5deg); 
@@ -503,10 +504,21 @@ html[data-intro-lock] body {
 .band-dark,
 .band-gradient {
   background-color: #0b0b12;
-  background-image:
-    radial-gradient(900px 420px at 15% 20%, rgba(254, 89, 1, 0.38) 0%, rgba(254, 89, 1, 0) 60%),
-    radial-gradient(760px 420px at 85% 80%, rgba(127, 0, 255, 0.3) 0%, rgba(127, 0, 255, 0) 62%),
-    radial-gradient(600px 300px at 60% 10%, rgba(255, 138, 61, 0.2) 0%, rgba(255, 138, 61, 0) 65%),
+  background-image: radial-gradient(
+      900px 420px at 15% 20%,
+      rgba(254, 89, 1, 0.38) 0%,
+      rgba(254, 89, 1, 0) 60%
+    ),
+    radial-gradient(
+      760px 420px at 85% 80%,
+      rgba(127, 0, 255, 0.3) 0%,
+      rgba(127, 0, 255, 0) 62%
+    ),
+    radial-gradient(
+      600px 300px at 60% 10%,
+      rgba(255, 138, 61, 0.2) 0%,
+      rgba(255, 138, 61, 0) 65%
+    ),
     linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size:
@@ -520,8 +532,23 @@ html[data-intro-lock] body {
 
 /* A wrapped section's own light background (its root, possibly under a
    reveal wrapper) would hide the band, so it goes transparent. */
-.band-dark > div > :where([class*="bg-white"], [class*="bg-[#F6F6F6]"], [class*="bg-[#FFFFFF]"], [class*="bg-gray-50"]),
-.band-dark > div > * > :where([class*="bg-white"], [class*="bg-[#F6F6F6]"], [class*="bg-[#FFFFFF]"], [class*="bg-gray-50"]) {
+.band-dark
+  > div
+  > :where(
+    [class*="bg-white"],
+    [class*="bg-[#F6F6F6]"],
+    [class*="bg-[#FFFFFF]"],
+    [class*="bg-gray-50"]
+  ),
+.band-dark
+  > div
+  > *
+  > :where(
+    [class*="bg-white"],
+    [class*="bg-[#F6F6F6]"],
+    [class*="bg-[#FFFFFF]"],
+    [class*="bg-gray-50"]
+  ) {
   background-color: transparent;
 }
 
@@ -532,22 +559,64 @@ html[data-intro-lock] body {
 
 /* A genuinely light card (not one of the transparent roots above) gets a dark
    base colour, so text inside it that never set a colour inherits dark. */
-.band-dark :where([class*="bg-white"], [class*="bg-[#F"], [class*="bg-gray-"], [class*="bg-[#e"]):not(:where(.band-dark > div > *, .band-dark > div > * > *)) {
+.band-dark
+  :where(
+    [class*="bg-white"],
+    [class*="bg-[#F"],
+    [class*="bg-gray-"],
+    [class*="bg-[#e"]
+  ):not(:where(.band-dark > div > *, .band-dark > div > * > *)) {
   color: #14141d;
 }
 
 /* Recolour headings and copy on the band itself. Descendants of light cards
    are skipped; :where() keeps the exclusions at zero specificity. */
-.band-dark :where(h1, h2, h3, h4, h5, h6):not([class*="text-primary"]):not(:where(:where([class*="bg-white"], [class*="bg-[#F"], [class*="bg-gray-"], [class*="bg-[#e"], [class*="bg-primary"]):not(:where(.band-dark > div > *, .band-dark > div > * > *)) *)) {
+.band-dark
+  :where(h1, h2, h3, h4, h5, h6):not([class*="text-primary"]):not(
+    :where(
+      :where(
+          [class*="bg-white"],
+          [class*="bg-[#F"],
+          [class*="bg-gray-"],
+          [class*="bg-[#e"],
+          [class*="bg-primary"]
+        ):not(:where(.band-dark > div > *, .band-dark > div > * > *))
+        *
+    )
+  ) {
   color: #fff;
 }
 
-.band-dark :where(p, li, dd, dt, label, td, th, figcaption, blockquote, span, small):not([class*="text-primary"]):not([class*="text-white"]):not([class*="bg-"]):not(:where(:where([class*="bg-white"], [class*="bg-[#F"], [class*="bg-gray-"], [class*="bg-[#e"], [class*="bg-primary"]):not(:where(.band-dark > div > *, .band-dark > div > * > *)) *)) {
+.band-dark
+  :where(p, li, dd, dt, label, td, th, figcaption, blockquote, span, small):not(
+    [class*="text-primary"]
+  ):not([class*="text-white"]):not([class*="bg-"]):not(
+    :where(
+      :where(
+          [class*="bg-white"],
+          [class*="bg-[#F"],
+          [class*="bg-gray-"],
+          [class*="bg-[#e"],
+          [class*="bg-primary"]
+        ):not(:where(.band-dark > div > *, .band-dark > div > * > *))
+        *
+    )
+  ) {
   color: rgba(255, 255, 255, 0.72);
 }
 
 /* Hairline dividers read better than solid greys on the band. */
-.band-dark :where(hr, [class*="border-t"], [class*="border-b"]):not([class*="border-primary"]):not([class*="border-orange"]):not(:where(:where([class*="bg-white"], [class*="bg-[#F"], [class*="bg-gray-"]):not(:where(.band-dark > div > *, .band-dark > div > * > *)) *)) {
+.band-dark
+  :where(hr, [class*="border-t"], [class*="border-b"]):not(
+    [class*="border-primary"]
+  ):not([class*="border-orange"]):not(
+    :where(
+      :where([class*="bg-white"], [class*="bg-[#F"], [class*="bg-gray-"]):not(
+          :where(.band-dark > div > *, .band-dark > div > * > *)
+        )
+        *
+    )
+  ) {
   border-color: rgba(255, 255, 255, 0.1);
 }
 

@@ -106,9 +106,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "var(--primary)",
-        primaryLight: "var(--primary-light)",
-        primaryDark: "var(--primary-dark)",
+        /* The channel form lets opacity modifiers work (bg-primary/10,
+           hover:border-primary/40, focus:ring-primary/60). A plain
+           var(--primary) cannot take an alpha, so Tailwind silently dropped
+           every such class. */
+        primary: "rgb(var(--primary-rgb) / <alpha-value>)",
+        primaryLight: "rgb(var(--primary-light-rgb) / <alpha-value>)",
+        primaryDark: "rgb(var(--primary-dark-rgb) / <alpha-value>)",
         secondary: "var(--secondary)",
         textDark: "var(--text-dark)",
         shadowPrimary: "var(--shadow-primary)",
