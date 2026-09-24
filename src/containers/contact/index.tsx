@@ -40,6 +40,15 @@ const Contact = () => {
         title="From first message to a plan"
         description="No forms that vanish into a queue. Here is what happens once you get in touch."
         steps={nextSteps}
+        image={{
+          src: "/images/editorial/contact-planning.jpg",
+          alt: "A planning session seen from above, laptops and notebooks on a table",
+        }}
+        aside={{
+          value: "30+",
+          label: "companies partnered with",
+          text: "From the first message to a product in production.",
+        }}
       />
 
       {/* Fade only — Leaflet measures its container, so it must not be moved

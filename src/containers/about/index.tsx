@@ -2,7 +2,7 @@ import AboutHero from "@/src/components/about-page/about-hero";
 import Benefits from "@/src/components/about-page/benefits";
 import MissionVision from "@/src/components/about-page/mission-vision";
 import Story from "@/src/components/about-page/story";
-import Values from "@/src/components/careers-page/values";
+import ValuesEditorial from "@/src/components/about-page/values-editorial";
 import { stats } from "@/src/components/landing/data";
 import MetricsStrip from "@/src/components/landing/metrics-strip";
 import ServicesGrid from "@/src/components/landing/services-grid";
@@ -26,7 +26,12 @@ const AboutUs = () => {
         description="The services behind the numbers above, each with its own page."
         link={{ label: "See all services", href: "/services" }}
       />
-      <Values />
+      <ValuesEditorial
+        image={{
+          src: "/images/editorial/values-glow.jpg",
+          alt: "A laptop glowing in a dark room",
+        }}
+      />
       <Testimonials tone="dark" />
       <EngagementModels />
       <ValueBand />
