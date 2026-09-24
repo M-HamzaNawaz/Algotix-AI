@@ -8,6 +8,12 @@ export default {
   ],
   theme: {
     extend: {
+      borderRadius: {
+        // Buttons, eyebrow pills, tabs, chips and inputs: a rounded rectangle
+        // rather than a full pill. Circles (dots, avatars, icon buttons) keep
+        // rounded-full.
+        control: "0.75rem",
+      },
       /* The site's type scale: eight sizes, used everywhere instead of ad-hoc
          pixel values. The display and heading steps scale with the viewport
          (32→56px and 28→40px between phone and desktop), the rest are fixed.

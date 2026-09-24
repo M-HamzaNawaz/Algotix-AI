@@ -82,14 +82,14 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
                 }}
                 placeholder="Your email"
                 aria-invalid={Boolean(error)}
-                className={`h-14 flex-1 rounded-full border bg-white/[0.08] px-6 text-body !text-white placeholder:!text-white/40 focus:outline-none focus:ring-1 focus:ring-primary ${
+                className={`h-14 flex-1 rounded-control border bg-white/[0.08] px-6 text-body !text-white placeholder:!text-white/40 focus:outline-none focus:ring-1 focus:ring-primary ${
                   error ? "border-primary" : "border-white/15"
                 }`}
               />
               <button
                 type="submit"
                 disabled={sending}
-                className="text-label group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-8 uppercase text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
+                className="text-label group inline-flex h-14 items-center justify-center gap-3 rounded-control bg-white px-8 uppercase text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
               >
                 {sending ? "Subscribing…" : "Subscribe"}
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

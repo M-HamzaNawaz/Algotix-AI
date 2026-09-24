@@ -52,14 +52,14 @@ export default function ValueBand() {
               >
                 <Link
                   href="/contact"
-                  className="text-label group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full bg-primary px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A] laptop:px-10"
+                  className="text-label group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-control bg-primary px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A] laptop:px-10"
                 >
                   Contact us
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
                 <Link
                   href="/meeting-request"
-                  className="text-label group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-full border border-white/30 px-8 py-4 uppercase text-white laptop:px-10 transition-colors duration-300 hover:border-primary hover:bg-primary"
+                  className="text-label group inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-control border border-white/30 px-8 py-4 uppercase text-white laptop:px-10 transition-colors duration-300 hover:border-primary hover:bg-primary"
                 >
                   Book a meeting
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

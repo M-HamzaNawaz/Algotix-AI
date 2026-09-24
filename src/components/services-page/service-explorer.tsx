@@ -189,7 +189,7 @@ export default function ServiceExplorer() {
                         {item.tags.map((tag) => (
                           <span
                             key={tag.name}
-                            className="text-label rounded-full border border-[#E4E4E8] bg-[#F6F6F7] px-3.5 py-1.5 text-[#3A3D45]"
+                            className="text-label rounded-control border border-[#E4E4E8] bg-[#F6F6F7] px-3.5 py-1.5 text-[#3A3D45]"
                           >
                             {tag.name}
                           </span>
@@ -200,7 +200,7 @@ export default function ServiceExplorer() {
                     <Link
                       href={`/services/${item.slug}`}
                       tabIndex={isActive ? 0 : -1}
-                      className="text-label group mt-9 inline-flex items-center gap-3 rounded-full bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-7 py-3.5 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
+                      className="text-label group mt-9 inline-flex items-center gap-3 rounded-control bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-7 py-3.5 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
                     >
                       Explore {item.title}
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

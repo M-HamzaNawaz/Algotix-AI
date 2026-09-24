@@ -30,7 +30,7 @@ const NotFound = () => {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/"
-              className="text-label group inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 uppercase text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5"
+              className="text-label group inline-flex items-center gap-3 rounded-control bg-white px-8 py-4 uppercase text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5"
             >
               Back to home
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

@@ -12,7 +12,7 @@ const Button: React.FC<ButtonProps> = ({
   fontWeight = "font-normal",
   opacity = 1,
   padding = "px-5 py-3",
-  radius = "rounded-full",
+  radius = "rounded-control",
   children,
   onClick,
   disabled = false,
@@ -26,8 +26,8 @@ const Button: React.FC<ButtonProps> = ({
   const variantStyles = {
     primary: `${baseStyles} ${bgColor}  shadow-md text-white bg-[linear-gradient(315deg,_#FF5A01_0%,_#FD5901_100%)] hover:bg-primary-dark`,
     secondary: `${baseStyles} bg-white text-primary shadow-md hover:bg-primary-light`,
-    tertiary: `${baseStyles} border-2 ${borderColor} ${shadow} hover:${shadowColor} hover:shadow-md text-primary hover:bg-primary-light border-opacity-50 rounded-full`,
-    custom: `${className} ${shadow} hover:${shadowColor} rounded-full`,
+    tertiary: `${baseStyles} border-2 ${borderColor} ${shadow} hover:${shadowColor} hover:shadow-md text-primary hover:bg-primary-light border-opacity-50 rounded-control`,
+    custom: `${className} ${shadow} hover:${shadowColor} rounded-control`,
   };
 
   return (

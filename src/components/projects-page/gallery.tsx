@@ -42,7 +42,7 @@ export default function Gallery() {
         <div
           role="tablist"
           aria-label="Filter projects by category"
-          className="mx-auto flex w-max max-w-full flex-wrap justify-center gap-1 rounded-full border border-[#E4E4E8] bg-[#F6F6F7] p-1"
+          className="mx-auto flex w-max max-w-full flex-wrap justify-center gap-1 rounded-control border border-[#E4E4E8] bg-[#F6F6F7] p-1"
         >
           {filters.map((item) => {
             const isActive = item === filter;
@@ -56,14 +56,14 @@ export default function Gallery() {
                   setFilter(item);
                   setShowAll(false);
                 }}
-                className={`relative isolate rounded-full px-5 py-2 text-label uppercase transition-colors duration-300 ${
+                className={`relative isolate rounded-lg px-5 py-2 text-label uppercase transition-colors duration-300 ${
                   isActive ? "text-white" : "text-[#3A3D45] hover:text-primary"
                 }`}
               >
                 {isActive && (
                   <motion.span
                     layoutId="project-filter-pill"
-                    className="absolute inset-0 -z-10 rounded-full bg-primary"
+                    className="absolute inset-0 -z-10 rounded-lg bg-primary"
                     transition={{ type: "spring", stiffness: 420, damping: 38 }}
                   />
                 )}
@@ -132,7 +132,7 @@ export default function Gallery() {
           <button
             type="button"
             onClick={() => setShowAll(true)}
-            className="group inline-flex items-center gap-3 rounded-full border border-[#14141D]/25 px-8 py-4 text-label uppercase text-[#14141D] transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
+            className="group inline-flex items-center gap-3 rounded-control border border-[#14141D]/25 px-8 py-4 text-label uppercase text-[#14141D] transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white"
           >
             Show all projects
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

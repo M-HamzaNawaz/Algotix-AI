@@ -101,7 +101,7 @@ export default function LandingHero() {
                   exit={{ opacity: 0, y: -18 }}
                   transition={{ duration: 0.6, ease: EASE }}
                 >
-                  <span className="text-label inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 uppercase text-white/80 backdrop-blur-sm">
+                  <span className="text-label inline-flex items-center gap-2 rounded-control border border-white/20 bg-white/5 px-4 py-2 uppercase text-white/80 backdrop-blur-sm">
                     <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                     {slide.eyebrow}
                   </span>
@@ -123,7 +123,7 @@ export default function LandingHero() {
                 <button
                   type="button"
                   onClick={() => setShowForm(true)}
-                  className="group inline-flex items-center gap-3 rounded-full border border-white/35 px-7 py-3.5 text-label uppercase text-white transition-all duration-300 hover:border-primary hover:bg-primary"
+                  className="group inline-flex items-center gap-3 rounded-control border border-white/35 px-7 py-3.5 text-label uppercase text-white transition-all duration-300 hover:border-primary hover:bg-primary"
                 >
                   Request a Consultation
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

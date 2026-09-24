@@ -67,7 +67,7 @@ export default function PageHero({
   const railColumns = rail ? RAIL_COLUMNS[Math.min(rail.items.length, 6)] : "";
 
   const actionClass =
-    "group inline-flex items-center gap-3 rounded-full border border-white/35 px-7 py-3.5 text-label uppercase text-white transition-all duration-300 hover:border-primary hover:bg-primary";
+    "group inline-flex items-center gap-3 rounded-control border border-white/35 px-7 py-3.5 text-label uppercase text-white transition-all duration-300 hover:border-primary hover:bg-primary";
 
   return (
     <>
@@ -103,7 +103,7 @@ export default function PageHero({
           >
             <div className="w-full max-w-3xl">
               <RevealItem>
-                <span className="text-label inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 uppercase text-white/80 backdrop-blur-sm">
+                <span className="text-label inline-flex items-center gap-2 rounded-control border border-white/20 bg-white/5 px-4 py-2 uppercase text-white/80 backdrop-blur-sm">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   {eyebrow}
                 </span>

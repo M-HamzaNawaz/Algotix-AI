@@ -118,7 +118,7 @@ export default function CaseStudies() {
                         {item.technologies.map((tech) => (
                           <span
                             key={tech.name}
-                            className="text-label inline-flex h-[26px] items-center rounded-full border border-[#E4E4E8] bg-[#F6F6F7] px-3 text-[#6B6F76]"
+                            className="text-label inline-flex h-[26px] items-center rounded-control border border-[#E4E4E8] bg-[#F6F6F7] px-3 text-[#6B6F76]"
                           >
                             {tech.name}
                           </span>
@@ -171,7 +171,7 @@ export default function CaseStudies() {
         <Reveal className="mt-14 text-center" amount={0.3}>
           <Link
             href="/projects"
-            className="text-label group inline-flex items-center gap-3 rounded-full bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
+            className="text-label group inline-flex items-center gap-3 rounded-control bg-[linear-gradient(315deg,#FF5A01_0%,#FD5901_100%)] px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-transform duration-300 hover:-translate-y-0.5"
           >
             All case studies
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
