@@ -8,6 +8,7 @@ import PageSection from "@/src/components/landing/page-section";
 import { Reveal } from "@/src/components/motion/reveal";
 import ProjectDetailSection from "@/src/components/project-detail/projectDetailSection";
 import type { ProjectData } from "@/src/containers/project-detail/data";
+import { projects as gallery } from "@/src/containers/projects/data";
 
 /** Product screenshot, the write-up, and a sidebar of facts and contacts. */
 export default function Overview({ project }: { project: ProjectData }) {
@@ -21,9 +22,10 @@ export default function Overview({ project }: { project: ProjectData }) {
     { icon: MapPin, title: "Head office", value: project.contactInfo.address },
   ];
 
+  const listing = gallery.find((p) => p.slug === project.slug);
   const facts = [
-    { label: "Client", value: project.client },
-    { label: "Industry", value: project.category },
+    { label: "Product", value: project.companyName },
+    { label: "Industry", value: listing?.category ?? project.category },
     { label: "Timeline", value: `${project.startDate} to ${project.endDate}` },
     { label: "Engagement", value: project.tag },
   ];
