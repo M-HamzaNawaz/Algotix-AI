@@ -196,6 +196,10 @@ export interface EngagementModel {
   icon: LucideIcon;
   title: string;
   description: string;
+  /** Who the model suits. */
+  bestFor: string;
+  /** What comes with it. */
+  includes: string[];
 }
 
 /* The three ways of working offered on the contact form. */
@@ -205,18 +209,36 @@ export const engagementModels: EngagementModel[] = [
     title: "Staff Augmentation",
     description:
       "Specialised engineers integrated directly into your team, adding capacity without the hiring overhead.",
+    bestFor: "Teams that need senior capacity quickly",
+    includes: [
+      "Engineers embedded in your team",
+      "Your tools, your process, your rituals",
+      "Scale up or down as the roadmap moves",
+    ],
   },
   {
     icon: Users,
     title: "Dedicated Team",
     description:
       "A long-term, cross-functional team aligned to your product roadmap, working as an extension of your company.",
+    bestFor: "Products with a long roadmap",
+    includes: [
+      "Design, engineering and QA in one squad",
+      "A roadmap we own together",
+      "A stable team whose context compounds",
+    ],
   },
   {
     icon: Briefcase,
     title: "Fixed Gigs",
     description:
       "A clearly scoped project delivered end to end, from planning through deployment, on an agreed price and timeline.",
+    bestFor: "Clearly scoped deliverables",
+    includes: [
+      "Fixed scope, price and timeline",
+      "Discovery through deployment",
+      "Handover with documentation",
+    ],
   },
 ];
 

@@ -240,12 +240,15 @@ const Navbar = () => {
         style={{ backgroundColor: scrolled ? "#FFFFFF" : "#0B0B12" }}
       >
         <div className="mx-auto flex w-full max-w-[1600px] flex-col space-y-4 px-6 pb-6 sm:px-10 xl:px-[60px]">
-          {navItems.map((item) => (
+          {navItems.map((item, i) => (
             <Link
               key={item.name}
               href={item.path}
               onClick={() => rememberHash(item.path)}
-              className={`block text-small py-2 px-4 rounded-md transition-colors duration-200 ${
+              style={{ transitionDelay: isOpen ? `${80 + i * 45}ms` : "0ms" }}
+              className={`block text-small py-2 px-4 rounded-md transition-[opacity,transform,background-color] duration-300 ${
+                isOpen ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+              } ${
                 isActive(item.path)
                   ? `font-semibold text-[#ff5a01] ${scrolled ? "bg-primary/10" : "bg-white/10"}`
                   : scrolled

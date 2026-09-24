@@ -31,10 +31,19 @@ type FormData = z.infer<typeof formSchema>;
 interface GetInTouchFormProps {
   /** `dark` renders the glass card used on the gradient bands. */
   tone?: "light" | "dark";
+  /**
+   * `form` renders only the fields, for a page that supplies its own panel,
+   * headline and supporting column around them.
+   */
+  variant?: "full" | "form";
 }
 
-const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
+const GetInTouchForm: React.FC<GetInTouchFormProps> = ({
+  tone = "light",
+  variant = "full",
+}) => {
   const dark = tone === "dark";
+  const embedded = variant === "form";
   const field = dark
     ? "bg-[rgba(255,255,255,0.08)] text-white placeholder:text-white/40"
     : "bg-secondary";
@@ -153,73 +162,77 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
     <div className="relative mx-auto w-full overflow-hidden">
       <div
         className={`max-w-5xl mx-auto z-10 relative overflow-hidden ${
-          dark
-            ? "rounded-3xl border border-white/15 bg-[rgba(255,255,255,0.06)] backdrop-blur-xl"
-            : "bg-gray-50 rounded-lg border border-orange-100 shadow-md"
+          embedded
+            ? ""
+            : dark
+              ? "rounded-3xl border border-white/15 bg-[rgba(255,255,255,0.06)] backdrop-blur-xl"
+              : "bg-gray-50 rounded-lg border border-orange-100 shadow-md"
         }`}
       >
-        {!dark && (
+        {!dark && !embedded && (
           <div className="absolute -inset-10 z-[-100] animate-spin-border py-8 bg-gradient-to-r from-transparent via-primary to-transparent ease-in-out blur-[5px]"></div>
         )}
 
         <div
-          className={`flex flex-col lg:flex-row m-[2px] ${dark ? "" : "bg-gray-50"}`}
+          className={`flex flex-col lg:flex-row ${embedded ? "" : "m-[2px]"} ${dark ? "" : "bg-gray-50"}`}
         >
           {/* Left side (stats) */}
-          <div
-            className={`p-4 sm:p-6 lg:w-1/3 ${
-              dark
-                ? "bg-[rgba(255,255,255,0.04)] lg:border-r lg:border-white/10"
-                : "bg-secondary"
-            }`}
-          >
-            <h3 className="text-subheading mb-4">
-              Company&apos;s <span className="text-primary">stats</span>
-            </h3>
-
-            <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-8">
-              {STATS_DATA.map((stat) => (
-                <div key={stat.id} className="flex flex-col items-start">
-                  <div className="sm:py-3 inline-block rounded-md mb-2">
-                    <Image
-                      src={stat.icon}
-                      alt="Security icon"
-                      width={50}
-                      height={50}
-                      className={`text-primary w-[50px] md:w-[60px] ${dark ? "invert" : ""}`}
-                    />
-                  </div>
-                  <h4 className="text-subheading">{stat.value}</h4>
-                  <p className="text-label text-gray-600">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="border-t border-gray-200 pt-4 sm:pt-6 mb-4">
-              <h3 className="text-subheading text-primary text-center mb-4">
-                AWARDS
+          {!embedded && (
+            <div
+              className={`p-4 sm:p-6 lg:w-1/3 ${
+                dark
+                  ? "bg-[rgba(255,255,255,0.04)] lg:border-r lg:border-white/10"
+                  : "bg-secondary"
+              }`}
+            >
+              <h3 className="text-subheading mb-4">
+                Company&apos;s <span className="text-primary">stats</span>
               </h3>
-              <div className="flex justify-center space-x-3 sm:space-x-4 mt-10">
-                {AWARD_CIRCLES.map((circle) => (
-                  <div
-                    key={circle.id}
-                    className={`w-16 h-16 flex justify-center items-center overflow-hidden sm:w-20 sm:h-20 rounded-full ${dark ? "bg-[rgba(255,255,255,0.1)]" : "bg-gray-300"}`}
-                  >
-                    <Image
-                      src={circle.img}
-                      alt={circle.alt}
-                      width={80}
-                      height={80}
-                      className="text-primary w-full h-full"
-                    />
+
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-8">
+                {STATS_DATA.map((stat) => (
+                  <div key={stat.id} className="flex flex-col items-start">
+                    <div className="sm:py-3 inline-block rounded-md mb-2">
+                      <Image
+                        src={stat.icon}
+                        alt="Security icon"
+                        width={50}
+                        height={50}
+                        className={`text-primary w-[50px] md:w-[60px] ${dark ? "invert" : ""}`}
+                      />
+                    </div>
+                    <h4 className="text-subheading">{stat.value}</h4>
+                    <p className="text-label text-gray-600">{stat.label}</p>
                   </div>
                 ))}
               </div>
+
+              <div className="border-t border-gray-200 pt-4 sm:pt-6 mb-4">
+                <h3 className="text-subheading text-primary text-center mb-4">
+                  AWARDS
+                </h3>
+                <div className="flex justify-center space-x-3 sm:space-x-4 mt-10">
+                  {AWARD_CIRCLES.map((circle) => (
+                    <div
+                      key={circle.id}
+                      className={`w-16 h-16 flex justify-center items-center overflow-hidden sm:w-20 sm:h-20 rounded-full ${dark ? "bg-[rgba(255,255,255,0.1)]" : "bg-gray-300"}`}
+                    >
+                      <Image
+                        src={circle.img}
+                        alt={circle.alt}
+                        width={80}
+                        height={80}
+                        className="text-primary w-full h-full"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Right side (form or success message) */}
-          <div className="p-4 sm:p-6 lg:w-2/3">
+          <div className={embedded ? "w-full" : "p-4 sm:p-6 lg:w-2/3"}>
             {isSubmitted ? (
               <div className="flex flex-col items-center justify-center h-full">
                 <div className="bg-green-50 border border-green-200 text-green-800 rounded-md p-6 text-center max-w-md">
@@ -246,14 +259,22 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
               </div>
             ) : (
               <>
-                <h2 className="text-heading mb-2 sm:mb-4">
-                  Let&apos;s <span className="text-primary">Build</span> up your
-                  Brand, <span className="text-primary">together</span>
-                </h2>
-                <p className="text-small text-gray-600 mb-4 sm:mb-6">
-                  Partnering with Algotix AI gives you a choice of ways to work
-                  together.
-                </p>
+                {embedded ? (
+                  <p className="text-label mb-5 uppercase text-primary">
+                    How would you like to work together?
+                  </p>
+                ) : (
+                  <>
+                    <h2 className="text-heading mb-2 sm:mb-4">
+                      Let&apos;s <span className="text-primary">Build</span> up
+                      your Brand, <span className="text-primary">together</span>
+                    </h2>
+                    <p className="text-small text-gray-600 mb-4 sm:mb-6">
+                      Partnering with Algotix AI gives you a choice of ways to
+                      work together.
+                    </p>
+                  </>
+                )}
 
                 <div className="flex flex-wrap mb-4 sm:mb-6 gap-4 sm:gap-6">
                   {SERVICE_OPTIONS.map((option) => (
@@ -282,7 +303,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         placeholder="First name"
                         value={formData.firstName}
                         onChange={handleInputChange}
-                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-control focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.firstName ? "border border-red-500" : ""}`}
                       />
                       {errors.firstName && (
                         <p className="text-label text-red-500 mt-1">
@@ -296,7 +317,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         value={formData.lastName}
                         name="lastName"
                         placeholder="Last name"
-                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.lastName ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-control focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.lastName ? "border border-red-500" : ""}`}
                         onChange={handleInputChange}
                       />
                       {errors.lastName && (
@@ -311,7 +332,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         name="phone"
                         placeholder="Phone"
                         value={formData.phone}
-                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.phone ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-control focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.phone ? "border border-red-500" : ""}`}
                         onChange={handleInputChange}
                       />
                       {errors.phone && (
@@ -327,7 +348,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         value={formData.email}
                         placeholder="Email"
                         onChange={handleInputChange}
-                        className={`p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
+                        className={`p-2 sm:p-3 ${field} rounded-control focus:outline-none focus:ring-1 focus:ring-primary w-full ${errors.email ? "border border-red-500" : ""}`}
                       />
                       {errors.email && (
                         <p className="text-label text-red-500 mt-1">
@@ -343,7 +364,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                       name="techStack"
                       value={formData.techStack}
                       placeholder="Enter you preferred tech stack..."
-                      className={`w-full p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary`}
+                      className={`w-full p-2 sm:p-3 ${field} rounded-control focus:outline-none focus:ring-1 focus:ring-primary`}
                       onChange={handleInputChange}
                     />
                   </div>
@@ -355,7 +376,7 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                       onChange={handleInputChange}
                       placeholder="Write message here.."
                       rows={4}
-                      className={`w-full p-2 sm:p-3 ${field} rounded-md focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
+                      className={`w-full p-2 sm:p-3 ${field} rounded-control focus:outline-none focus:ring-1 focus:ring-primary ${errors.message ? "border border-red-500" : ""}`}
                     ></textarea>
                     {errors.message && (
                       <p className="text-label text-red-500 mt-1">
@@ -395,7 +416,9 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                         I agree with T&Cs
                       </label>
 
-                      <label className="text-small flex items-center text-gray-600">
+                      <label
+                        className={`text-small flex items-center ${dark ? "text-white/70" : "text-gray-600"}`}
+                      >
                         <input
                           type="checkbox"
                           name="newsletter"
@@ -417,9 +440,17 @@ const GetInTouchForm: React.FC<GetInTouchFormProps> = ({ tone = "light" }) => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-36 py-2 sm:py-3 bg-primary text-white font-semibold rounded-md hover:bg-orange-600 transition-colors disabled:bg-gray-400"
+                    className={
+                      embedded
+                        ? "text-label w-full rounded-control bg-primary px-8 py-4 uppercase text-white shadow-[0_16px_38px_-14px_rgba(254,89,1,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#FF6A1A] disabled:bg-gray-400 disabled:shadow-none sm:w-auto"
+                        : "w-36 py-2 sm:py-3 bg-primary text-white font-semibold rounded-md hover:bg-orange-600 transition-colors disabled:bg-gray-400"
+                    }
                   >
-                    {isSubmitting ? "Submitting..." : "Submit"}
+                    {isSubmitting
+                      ? "Sending..."
+                      : embedded
+                        ? "Send message"
+                        : "Submit"}
                   </Button>
                 </form>
               </>
