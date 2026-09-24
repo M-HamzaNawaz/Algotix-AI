@@ -6,13 +6,34 @@ import MarkdownBody from "@/src/components/blog-detail-page/markdown-body";
 import { formatDate } from "@/src/components/landing/blog-card";
 import PageHero from "@/src/components/landing/page-hero";
 import PageSection from "@/src/components/landing/page-section";
+import RelatedPosts from "@/src/components/landing/related-posts";
 import SubscribeBand from "@/src/components/landing/subscribe-band";
 import { Reveal } from "@/src/components/motion/reveal";
-import { fetchBlogPost } from "@/src/utils/contentful-clients";
-import { getLocalBlogPost } from "@/src/utils/local-blogs";
+import type { DetailBlogPost } from "@/src/containers/blogs/types";
+import { fetchBlogPost, getAllBlogPosts } from "@/src/utils/contentful-clients";
+import { formatBlogPosts } from "@/src/utils/helpers";
+import {
+  getLocalBlogPost,
+  getLocalBlogPosts,
+  mergeBlogPosts,
+} from "@/src/utils/local-blogs";
 
 interface PageProps {
   params: { slug: string };
+}
+
+/** Three other articles, newest first; a Contentful outage just leaves fewer. */
+async function loadRelated(slug: string): Promise<DetailBlogPost[]> {
+  let remote: DetailBlogPost[] = [];
+  try {
+    remote = formatBlogPosts(await getAllBlogPosts());
+  } catch {
+    // Fall back to the articles kept in the repo.
+  }
+  return mergeBlogPosts(remote, await getLocalBlogPosts())
+    .filter((post) => post.slug !== slug)
+    .sort((a, b) => (Date.parse(b.date) || 0) - (Date.parse(a.date) || 0))
+    .slice(0, 3);
 }
 
 /** One article: its banner as the hero, the body, then the subscribe band. */
@@ -21,6 +42,7 @@ export default async function BlogDetail({ params }: PageProps) {
     (await fetchBlogPost(params.slug)) ?? (await getLocalBlogPost(params.slug));
   if (!blog) return notFound();
 
+  const related = await loadRelated(params.slug);
   const date = formatDate(blog.date);
   const byline = [blog.author, date].filter(Boolean).join(" · ");
 
@@ -79,6 +101,7 @@ export default async function BlogDetail({ params }: PageProps) {
         </article>
       </PageSection>
 
+      <RelatedPosts posts={related} />
       <SubscribeBand />
     </>
   );

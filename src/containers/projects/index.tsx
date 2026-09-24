@@ -5,6 +5,7 @@ import Testimonials from "@/src/components/landing/testimonials";
 import ValueBand from "@/src/components/landing/value-band";
 import Gallery from "@/src/components/projects-page/gallery";
 import ProjectsHero from "@/src/components/projects-page/projects-hero";
+import Industries from "@/src/components/services-page/industries";
 import { faqData } from "./data";
 
 /** Projects page in the landing recipe: dark hero, then alternating bands. */
@@ -13,6 +14,8 @@ const Projects = () => {
     <>
       <ProjectsHero />
       <MetricsStrip items={stats} />
+      {/* Sectors first, each linking into the gallery's case studies. */}
+      <Industries />
       <Gallery />
       <Testimonials tone="dark" />
       {/* Questions sit last, right above the call to action that answers them. */}

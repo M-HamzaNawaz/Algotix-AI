@@ -25,3 +25,28 @@ export const contactData: ContactData[] = [
     link: "tel:+15309928933",
   },
 ];
+
+import { FileText, MessageSquare, PhoneCall } from "lucide-react";
+import type { StripStep } from "@/src/components/landing/steps-strip";
+
+/** What happens after someone gets in touch. */
+export const nextSteps: StripStep[] = [
+  {
+    title: "Tell us about it",
+    description:
+      "Use the form, email or phone. A few lines about what you are building and where you are today is enough to start.",
+    icon: MessageSquare,
+  },
+  {
+    title: "We talk it through",
+    description:
+      "A short call to understand your goals, constraints and timeline, and to answer your questions about how we work.",
+    icon: PhoneCall,
+  },
+  {
+    title: "You get a clear proposal",
+    description:
+      "Scope, team, approach and an estimate, written so you can compare options and decide with confidence.",
+    icon: FileText,
+  },
+];

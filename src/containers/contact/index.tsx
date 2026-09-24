@@ -7,7 +7,9 @@ import ContactChannels from "@/src/components/contact-page/contact-channels";
 import ContactHero from "@/src/components/contact-page/contact-hero";
 import PageSection from "@/src/components/landing/page-section";
 import SectionHeading from "@/src/components/landing/section-heading";
+import StepsStrip from "@/src/components/landing/steps-strip";
 import { Reveal } from "@/src/components/motion/reveal";
+import { nextSteps } from "./data";
 
 const MapLocation = dynamic(
   () => import("@/src/components/contact/MapLocation"),
@@ -32,11 +34,20 @@ const Contact = () => {
         <GetInTouchForm tone="dark" />
       </PageSection>
 
+      <StepsStrip
+        id="next-steps"
+        eyebrow="What happens next"
+        title="From first message to a plan"
+        description="No forms that vanish into a queue. Here is what happens once you get in touch."
+        steps={nextSteps}
+      />
+
       {/* Fade only — Leaflet measures its container, so it must not be moved
           or scaled while it initialises. */}
-      <PageSection>
+      <PageSection dark>
         <Reveal amount={0.25}>
           <SectionHeading
+            tone="dark"
             eyebrow="Find us"
             title="Our office in New York"
             description="375 Park Ave, New York, NY 10152, United States. Hold Ctrl or Alt to zoom the map with the scroll wheel."
