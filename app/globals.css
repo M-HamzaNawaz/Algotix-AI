@@ -401,10 +401,37 @@ h3 {
 }
 
 /* ==========================================================================
+   World map pulses (Global reach)
+   ========================================================================== */
+
+.map-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-pulse 2.8s ease-out infinite;
+}
+
+@keyframes map-pulse {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
    Reduced motion
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+  .map-pulse {
+    animation: none !important;
+    opacity: 0.35;
+  }
+
   .page-transition {
     animation: none !important;
   }
