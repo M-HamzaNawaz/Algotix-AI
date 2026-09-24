@@ -46,9 +46,14 @@ export default function Testimonials({
         />
       </Reveal>
 
-      <div className="mt-14 grid gap-10 laptop:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] laptop:gap-20">
+      <div className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-10 laptop:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] laptop:gap-20">
         {/* The stage. */}
-        <Reveal direction="right" distance={36} amount={0.2}>
+        <Reveal
+          direction="right"
+          distance={36}
+          amount={0.2}
+          className="min-w-0"
+        >
           <div className={`relative border-t pt-8 ${rule}`}>
             <span
               aria-hidden
@@ -97,7 +102,7 @@ export default function Testimonials({
         </Reveal>
 
         {/* The people. */}
-        <div>
+        <div className="min-w-0">
           <RevealGroup
             as="ul"
             className={`relative -mx-6 flex snap-x gap-3 overflow-x-auto px-6 pb-2 [scrollbar-width:none] laptop:mx-0 laptop:block laptop:border-t laptop:px-0 laptop:pb-0 ${rule}`}
