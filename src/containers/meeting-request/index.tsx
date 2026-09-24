@@ -7,7 +7,12 @@ import { CalendarCheck, MessagesSquare, Route } from "lucide-react";
 import PageHero from "@/src/components/landing/page-hero";
 import PageSection from "@/src/components/landing/page-section";
 import SectionHeading from "@/src/components/landing/section-heading";
-import { Reveal } from "@/src/components/motion/reveal";
+import DrawLine from "@/src/components/motion/draw-line";
+import {
+  Reveal,
+  RevealGroup,
+  RevealItem,
+} from "@/src/components/motion/reveal";
 
 const CALENDLY_URL =
   "https://calendly.com/talkwithusman/algotix-ai-free-consultation/";
@@ -117,31 +122,46 @@ const MeetingRequestPage: React.FC = () => {
               />
             </Reveal>
 
-            <ol className="mt-10 space-y-4">
+            <RevealGroup
+              as="ol"
+              className="relative mt-12"
+              stagger={0.18}
+              amount={0.15}
+            >
+              <span
+                aria-hidden
+                className="absolute bottom-10 left-6 top-6 w-px bg-[#E4E4E8]"
+              />
+              <DrawLine className="absolute bottom-10 left-6 top-6 w-px bg-primary" />
               {steps.map((step, i) => {
                 const Icon = step.icon;
                 return (
-                  <Reveal key={step.title} amount={0.2} delay={i * 0.12}>
-                    <li className="glow-card glow-light sheen sheen-light relative isolate overflow-hidden flex gap-5 rounded-2xl border border-[#E4E4E8] bg-[#F6F6F7] p-6 transition-all duration-400 hover:-translate-y-1 hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]">
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm">
-                        <Icon className="h-6 w-6" strokeWidth={1.6} />
+                  <RevealItem
+                    as="li"
+                    key={step.title}
+                    direction="right"
+                    distance={26}
+                    className="group relative flex gap-6 pb-10 last:pb-0"
+                  >
+                    <span className="text-body relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/50 bg-white font-semibold text-primary transition-colors duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-white">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="pt-2.5">
+                      <span className="text-subheading flex items-center gap-2.5 text-[#14141D]">
+                        <Icon
+                          className="h-5 w-5 text-primary"
+                          strokeWidth={1.8}
+                        />
+                        {step.title}
                       </span>
-                      <div>
-                        <p className="text-label uppercase text-primary">
-                          Step {String(i + 1).padStart(2, "0")}
-                        </p>
-                        <h3 className="text-subheading mt-1.5 text-[#14141D]">
-                          {step.title}
-                        </h3>
-                        <p className="text-body mt-2 text-[#6B6F76]">
-                          {step.description}
-                        </p>
-                      </div>
-                    </li>
-                  </Reveal>
+                      <span className="text-body mt-2 block max-w-lg text-[#6B6F76]">
+                        {step.description}
+                      </span>
+                    </span>
+                  </RevealItem>
                 );
               })}
-            </ol>
+            </RevealGroup>
           </div>
 
           {/* Not revealed on purpose: the widget is an iframe that measures

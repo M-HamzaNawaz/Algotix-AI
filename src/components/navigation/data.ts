@@ -16,6 +16,8 @@ type FooterDataType = {
   };
   links: {
     navigation: NavLinksType[];
+    services: NavLinksType[];
+    company: NavLinksType[];
     misc: NavLinksType[];
     contact: NavLinksType[];
   };
@@ -56,6 +58,23 @@ const footerNavLinks: NavLinksType[] = [
     title: "FAQ",
     path: "/faq",
   },
+];
+
+/* The six services the footer lists; the full catalogue lives on /services. */
+const footerServiceLinks: NavLinksType[] = [
+  { title: "Web Development", path: "/services/web-development" },
+  { title: "Mobile App Development", path: "/services/mobile-app-development" },
+  { title: "Generative AI", path: "/services/generative-ai" },
+  { title: "DevOps", path: "/services/DevOps" },
+  { title: "Data Science", path: "/services/data-science" },
+  { title: "Cloud & Automation", path: "/services/cloud-automation" },
+];
+
+const footerCompanyLinks: NavLinksType[] = [
+  { ...routes.ABOUT_PAGE },
+  { ...routes.CAREERS },
+  { title: "FAQ", path: "/faq" },
+  { ...routes.PRIVACY_POLICY },
 ];
 
 const footerMiscLinks: NavLinksType[] = [
@@ -114,6 +133,8 @@ export const footerData: FooterDataType = {
   copyright: `© ${new Date().getFullYear()}, Algotix AI. All Rights Reserved.`,
   links: {
     navigation: footerNavLinks,
+    services: footerServiceLinks,
+    company: footerCompanyLinks,
     misc: footerMiscLinks,
     contact: footerContactLinks,
   },

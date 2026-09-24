@@ -50,57 +50,68 @@ export default function SubscribeBand({ id = "subscribe" }: { id?: string }) {
     <PageSection dark id={id}>
       {/* Once: a form must never fade out while someone is using it. */}
       <Reveal amount={0.2} once>
-        <div className="mx-auto max-w-4xl rounded-[28px] border border-white/15 bg-white/[0.06] p-10 text-center backdrop-blur-xl tablet:p-14">
-          <p className="text-label uppercase text-primary">Newsletter</p>
-          <h2 className="text-heading mt-4 text-white">
-            Subscribe to get the latest news about us.
-          </h2>
-          <p className="text-body mx-auto mt-4 max-w-xl text-white/65">
-            New articles and company updates, straight to your inbox. No spam.
-          </p>
+        <div className="relative grid gap-10 border-t border-white/12 pt-10 laptop:grid-cols-2 laptop:gap-20 laptop:pt-12">
+          <span
+            aria-hidden
+            className="absolute -top-px left-0 h-px w-24 bg-primary"
+          />
+          <div>
+            <p className="text-label uppercase text-primary">Newsletter</p>
+            <h2 className="text-heading mt-4 max-w-lg text-white">
+              Subscribe to get the latest news about us.
+            </h2>
+            <p className="text-body mt-4 max-w-md text-white/65">
+              New articles and company updates, straight to your inbox. No spam.
+            </p>
+          </div>
 
-          {done ? (
-            <p className="text-small mt-8 text-white">
-              Thanks, you are on the list.
-            </p>
-          ) : (
-            <form
-              onSubmit={submit}
-              noValidate
-              className="mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row"
-            >
-              <label htmlFor={`${id}-email`} className="sr-only">
-                Email address
-              </label>
-              <input
-                id={`${id}-email`}
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (error) setError("");
-                }}
-                placeholder="Your email"
-                aria-invalid={Boolean(error)}
-                className={`h-14 flex-1 rounded-control border bg-white/[0.08] px-6 text-body !text-white placeholder:!text-white/40 focus:outline-none focus:ring-1 focus:ring-primary ${
-                  error ? "border-primary" : "border-white/15"
-                }`}
-              />
-              <button
-                type="submit"
-                disabled={sending}
-                className="text-label group inline-flex h-14 items-center justify-center gap-3 rounded-control bg-white px-8 uppercase text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5 disabled:cursor-wait disabled:opacity-70"
+          <div className="laptop:pt-2">
+            {done ? (
+              <p className="text-body text-white">
+                Thanks, you are on the list.
+              </p>
+            ) : (
+              <form
+                onSubmit={submit}
+                noValidate
+                className="flex flex-col gap-3 sm:flex-row"
               >
-                {sending ? "Subscribing…" : "Subscribe"}
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
-            </form>
-          )}
-          {error && (
-            <p role="alert" className="text-small mt-3 text-primary">
-              {error}
+                <label htmlFor={`${id}-email`} className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id={`${id}-email`}
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (error) setError("");
+                  }}
+                  placeholder="Your email"
+                  aria-invalid={Boolean(error)}
+                  className={`h-14 flex-1 rounded-control border bg-white/[0.08] px-6 text-body !text-white placeholder:!text-white/40 focus:outline-none focus:ring-1 focus:ring-primary ${
+                    error ? "border-primary" : "border-white/15"
+                  }`}
+                />
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="text-label group inline-flex h-14 items-center justify-center gap-3 rounded-control bg-white px-8 uppercase text-[#14141D] transition-transform duration-300 hover:-translate-y-0.5 disabled:opacity-60"
+                >
+                  {sending ? "Subscribing…" : "Subscribe"}
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+              </form>
+            )}
+            {error && (
+              <p role="alert" className="text-small mt-3 text-primary">
+                {error}
+              </p>
+            )}
+            <p className="text-small mt-4 text-white/40">
+              One email when something new is published. Unsubscribe any time.
             </p>
-          )}
+          </div>
         </div>
       </Reveal>
     </PageSection>

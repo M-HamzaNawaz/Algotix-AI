@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Quote } from "lucide-react";
 
 import PageSection from "@/src/components/landing/page-section";
 import SectionHeading from "@/src/components/landing/section-heading";
+import DrawLine from "@/src/components/motion/draw-line";
 import {
   Reveal,
   RevealGroup,
@@ -11,27 +16,27 @@ import {
 } from "@/src/components/motion/reveal";
 import { testimonialsData } from "@/src/containers/about/data";
 
-/** Client quotes as a card grid, with a closing invitation card. */
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+/**
+ * One quote at a time, set large, with the people behind the others listed
+ * beside it. Resting on a name brings that quote forward. Phones get the
+ * stage and a swipeable row of names.
+ */
 export default function Testimonials({
   tone = "dark",
 }: {
   tone?: "light" | "dark";
 }) {
   const dark = tone === "dark";
-
-  /* Dark: glass with an inset highlight; light: the site's grey card. Both
-     lift on hover, take an orange border and an orange-tinted shadow. */
-  const card = dark
-    ? "border-white/[0.08] bg-[linear-gradient(180deg,rgba(255,255,255,0.065),rgba(255,255,255,0.02))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_24px_48px_-28px_rgba(0,0,0,0.7)] hover:border-primary/30 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_32px_64px_-32px_rgba(254,89,1,0.35),0_24px_48px_-28px_rgba(0,0,0,0.8)]"
-    : "border-[#E4E4E8] bg-[#F6F6F7] hover:border-primary/40 hover:bg-white hover:shadow-[0_22px_50px_-24px_rgba(11,11,18,0.35)]";
-  const quoteTile = dark
-    ? "border-primary/20 bg-[linear-gradient(180deg,rgba(254,89,1,0.16),rgba(254,89,1,0.06))] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-    : "border-primary/20 bg-[#FFF3EA]";
-  const divider = dark ? "border-white/[0.07]" : "border-[#E4E4E8]";
-  const ring = dark ? "ring-white/10" : "ring-black/5";
+  const [active, setActive] = useState(0);
+  const current = testimonialsData[active];
+  const ink = dark ? "text-white" : "text-[#14141D]";
+  const muted = dark ? "text-white/60" : "text-[#6B6F76]";
+  const rule = dark ? "border-white/12" : "border-[#E4E4E8]";
 
   return (
-    <PageSection dark={dark}>
+    <PageSection dark={dark} id="testimonials">
       <Reveal amount={0.25}>
         <SectionHeading
           tone={dark ? "dark" : "light"}
@@ -41,82 +46,143 @@ export default function Testimonials({
         />
       </Reveal>
 
-      <RevealGroup
-        className="mt-14 grid gap-6 tablet:grid-cols-2 laptop:grid-cols-3"
-        stagger={0.12}
-        amount={0.1}
-      >
-        {testimonialsData.map((item) => (
-          <RevealItem key={item.id} className="h-full" distance={24}>
-            <figure
-              className={`glow-card sheen group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border p-8 transition-all duration-500 ease-out hover:-translate-y-1.5 ${card}`}
-            >
-              <span
-                className={`flex h-12 w-12 items-center justify-center rounded-lg border text-primary transition-all duration-500 ease-out group-hover:-translate-y-0.5 group-hover:-rotate-6 group-hover:shadow-[0_10px_24px_-8px_rgba(254,89,1,0.5)] ${quoteTile}`}
-              >
-                <Quote className="h-5 w-5" strokeWidth={1.6} />
-              </span>
-
-              <blockquote
-                className={`text-body mt-6 flex-1 transition-colors duration-500 ${
-                  dark
-                    ? "text-white/70 group-hover:text-white/90"
-                    : "text-[#3A3D45]"
-                }`}
-              >
-                {item.text.trim()}
-              </blockquote>
-
-              <figcaption
-                className={`mt-7 flex items-center gap-3 border-t pt-5 ${divider}`}
-              >
-                <span
-                  className={`relative h-11 w-11 overflow-hidden rounded-full bg-white/10 ring-2 transition-shadow duration-500 group-hover:ring-primary/60 ${ring}`}
-                >
-                  <Image
-                    src={item.image}
-                    alt=""
-                    fill
-                    sizes="44px"
-                    className="object-cover"
-                  />
-                </span>
-                <span
-                  className={`text-body font-semibold ${dark ? "text-white" : "text-[#14141D]"}`}
-                >
-                  {item.name.trim()}
-                </span>
-              </figcaption>
-            </figure>
-          </RevealItem>
-        ))}
-
-        <RevealItem className="h-full" distance={24}>
-          {/* Glossy orange invitation: a richer gradient than the buttons,
-              a top highlight, and an arrow pill that nudges on hover. */}
-          <Link
-            href="/contact"
-            className="sheen sheen-strong group relative isolate flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-[linear-gradient(145deg,#FF7A2E_0%,#FE5A01_45%,#E84E00_100%)] p-8 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(0,0,0,0.12),0_28px_56px_-26px_rgba(254,89,1,0.85)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.12),0_36px_70px_-26px_rgba(254,89,1,1)]"
-          >
+      <div className="mt-14 grid gap-10 laptop:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] laptop:gap-20">
+        {/* The stage. */}
+        <Reveal direction="right" distance={36} amount={0.2}>
+          <div className={`relative border-t pt-8 ${rule}`}>
             <span
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[45%] bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0))]"
+              className="absolute -top-px left-0 h-px w-24 bg-primary"
             />
-            <p className="text-label uppercase text-white/80">
-              Your project next
-            </p>
-            <div>
-              <h3 className="text-subheading">Want to be one of them?</h3>
-              <span className="text-label mt-5 inline-flex items-center gap-3 uppercase">
-                Talk to us
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.18] shadow-[inset_0_1px_0_rgba(255,255,255,0.3)] transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:bg-white/30">
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </span>
+            <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#FFF3EA] text-primary">
+              <Quote className="h-5 w-5" strokeWidth={1.6} />
+            </span>
+            <div className="relative mt-8 min-h-[220px]">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.figure
+                  key={current.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10, transition: { duration: 0.25 } }}
+                  transition={{ duration: 0.6, ease: EASE }}
+                >
+                  <blockquote className={`text-heading ${ink}`}>
+                    “{current.text.trim()}”
+                  </blockquote>
+                  <figcaption className="mt-8 flex items-center gap-4">
+                    <span
+                      className={`relative h-12 w-12 overflow-hidden rounded-full ring-2 ${dark ? "bg-white/10 ring-white/10" : "bg-[#F2F2F4] ring-black/5"}`}
+                    >
+                      <Image
+                        src={current.image}
+                        alt=""
+                        fill
+                        sizes="48px"
+                        className="object-cover"
+                      />
+                    </span>
+                    <span>
+                      <span className={`text-body block font-semibold ${ink}`}>
+                        {current.name.trim()}
+                      </span>
+                      <span className={`text-small block ${muted}`}>
+                        Client
+                      </span>
+                    </span>
+                  </figcaption>
+                </motion.figure>
+              </AnimatePresence>
             </div>
-          </Link>
-        </RevealItem>
-      </RevealGroup>
+          </div>
+        </Reveal>
+
+        {/* The people. */}
+        <div>
+          <RevealGroup
+            as="ul"
+            className={`relative -mx-6 flex snap-x gap-3 overflow-x-auto px-6 pb-2 [scrollbar-width:none] laptop:mx-0 laptop:block laptop:border-t laptop:px-0 laptop:pb-0 ${rule}`}
+            stagger={0.08}
+            amount={0.1}
+          >
+            <DrawLine
+              axis="x"
+              delay={0.1}
+              className="absolute -top-px left-0 hidden h-px w-full bg-primary laptop:block"
+            />
+            {testimonialsData.map((item, i) => {
+              const isActive = i === active;
+              return (
+                <RevealItem
+                  as="li"
+                  key={item.id}
+                  direction="left"
+                  distance={22}
+                  className={`shrink-0 snap-start laptop:border-b ${rule}`}
+                >
+                  <button
+                    type="button"
+                    onMouseEnter={() => setActive(i)}
+                    onFocus={() => setActive(i)}
+                    onClick={() => setActive(i)}
+                    aria-pressed={isActive}
+                    className={`group flex items-center gap-4 rounded-control border px-4 py-3 text-left transition-colors duration-300 laptop:w-full laptop:rounded-none laptop:border-0 laptop:px-0 laptop:py-4 ${
+                      isActive
+                        ? dark
+                          ? "border-primary/60 bg-white/[0.06]"
+                          : "border-primary/40 bg-[#FFF3EA]"
+                        : dark
+                          ? "border-white/12"
+                          : "border-[#E4E4E8]"
+                    }`}
+                  >
+                    <span
+                      className={`relative h-10 w-10 shrink-0 overflow-hidden rounded-full ring-2 transition-shadow duration-300 ${
+                        isActive
+                          ? "ring-primary/60"
+                          : dark
+                            ? "ring-white/10"
+                            : "ring-black/5"
+                      }`}
+                    >
+                      <Image
+                        src={item.image}
+                        alt=""
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                      />
+                    </span>
+                    <span className="min-w-0">
+                      <span
+                        className={`text-body block whitespace-nowrap font-semibold transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] laptop:whitespace-normal ${
+                          isActive ? "translate-x-0.5 text-primary" : ink
+                        }`}
+                      >
+                        {item.name.trim()}
+                      </span>
+                      <span
+                        className={`text-small hidden truncate laptop:block ${muted}`}
+                      >
+                        {item.text.trim().slice(0, 64)}…
+                      </span>
+                    </span>
+                  </button>
+                </RevealItem>
+              );
+            })}
+          </RevealGroup>
+
+          <Reveal amount={0.3} className="mt-8">
+            <Link
+              href="/contact"
+              className={`text-small group inline-flex items-center gap-2 font-semibold transition-colors duration-300 hover:text-primary ${ink}`}
+            >
+              Want to be one of them? Talk to us
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
+        </div>
+      </div>
     </PageSection>
   );
 }
